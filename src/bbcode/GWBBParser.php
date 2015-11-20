@@ -42,6 +42,8 @@ class GWBBParser extends Parser{
 			$bbcode = $this->_base_module->sanitize($bbcode);
 		}
 
+		$this->bbcode_pre = $bbcode;
+
 		$bbcode = preg_replace('#\[('.$this->options->singletags.')((?:\s|=)[^]]*)?]#is', '[$1$2][/$1]', $bbcode);
 		$bbcode = str_replace(["\r", "\n"], ['', $this->options->eol_placeholder], $bbcode);
 		$bbcode = $this->_parse($bbcode);
