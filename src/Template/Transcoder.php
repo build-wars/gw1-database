@@ -1,8 +1,8 @@
 <?php
 /**
- * Class TemplateBase
+ * Class Transcoder
  *
- * @filesource   TemplateBase.php
+ * @filesource   Transcoder.php
  * @created      05.11.2015
  * @package      chillerlan\GW1Database\Template
  * @author       Smiley <smiley@chillerlan.net>
@@ -13,14 +13,14 @@
 namespace chillerlan\GW1Database\Template;
 
 use chillerlan\GW1Database\GW1DatabaseException;
-use chillerlan\GW1Database\Template\EquipmentSet;
+use chillerlan\GW1Database\Equipment\Set;
 use chillerlan\GW1Database\Template\SetBase;
-use chillerlan\GW1Database\Template\SkillSet;
+use chillerlan\GW1Database\Skills\Build;
 
 /**
  *
  */
-class TemplateBase{
+class Transcoder{
 
 	/**
 	 * @var \chillerlan\GW1Database\Template\SetBase
@@ -84,14 +84,14 @@ class TemplateBase{
 	}
 
 	/**
+	 * @param $code
+	 *
 	 * @return $this
-	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
-	public function template_decode(){
-		$code = $this->template->code;
+	public function template_decode($code){
 
 		if(empty($code)){
-			throw new GW1DatabaseException('Invalid template!');
+			return false;
 		}
 
 		// nasty fix for + signs which represent spaces in URLs
@@ -103,14 +103,12 @@ class TemplateBase{
 
 			//invalid character
 			if($char_id === false){
-				return $this;
+				return false;
 			}
 
 			$bin_chunk = $this->decbin_flip($char_id);
 			$bin .= str_pad($bin_chunk, 6, '0');
 		}
-
-		$this->template->bin_decoded_debug = $bin;
 
 		// get the first 4 bits and decide what to do
 		$type = $this->bindec_flip(substr($bin, 0, 4));
@@ -120,27 +118,28 @@ class TemplateBase{
 			// old format prior to April 5, 2007
 			case 0:
 			case 1:
-				$this->template->bin_decoded = substr($bin, 4);
+				return substr($bin, 4);
 				break;
 			// new format
 			case 14:
 			case 15:
-				$this->template->bin_decoded = substr($bin, 8);
+				return substr($bin, 8);
 				break;
 		}
 
-		return $this;
+		return false;
 	}
 
 	/**
+	 * @param $bin
+	 *
 	 * @return $this
 	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
-	protected function template_encode(){
-		$bin = $this->template->bin_encoded;
+	protected function template_encode($bin){
 
 		if(empty($bin)){
-			throw new GW1DatabaseException('Invalid template!');
+			return false;
 		}
 
 		$template_code = '';
@@ -149,9 +148,7 @@ class TemplateBase{
 			$bin = substr($bin, 6);
 		}
 
-		$this->template->code_out = $template_code;
-
-		return $this;
+		return $template_code;
 	}
 
 }

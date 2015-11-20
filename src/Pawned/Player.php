@@ -1,20 +1,20 @@
 <?php
 /**
  *
- * @filesource   PawnedPlayer.php
+ * @filesource   Player.php
  * @created      06.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Pawned
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Pawned;
 
 /**
- * Class PawnedPlayer
+ * Class Player
  */
-class PawnedPlayer{
+class Player{
 
 	/**
 	 * @var string

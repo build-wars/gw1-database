@@ -1,23 +1,23 @@
 <?php
 /**
- * Class SkillSet
+ * Class Build
  *
- * @filesource   SkillSet.php
+ * @filesource   Build.php
  * @created      05.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Skills
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Skills;
 
 use chillerlan\GW1Database\Template\SetBase;
 
 /**
- * Skill template
+ * Build template
  */
-class SkillSet extends SetBase{
+class Build extends SetBase{
 
 	/**
 	 * @var int

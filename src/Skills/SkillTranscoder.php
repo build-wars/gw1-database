@@ -1,48 +1,48 @@
 <?php
 /**
- * Class SkillTemplate
+ * Class SkillTranscoder
  *
- * @filesource   SkillTemplate.php
+ * @filesource   SkillTranscoder.php
  * @created      05.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Skills
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Skills;
 
 use chillerlan\GW1Database\GW1DatabaseException;
-use chillerlan\GW1Database\Template\TemplateBase;
-use chillerlan\GW1Database\Template\SkillSet;
+use chillerlan\GW1Database\Template\Transcoder;
+use chillerlan\GW1Database\Skills\Build;
 
 /**
  *
  */
-class SkillTemplate extends TemplateBase{
+class SkillTranscoder extends Transcoder{
 
 	/**
-	 * @var \chillerlan\GW1Database\Template\SkillSet
+	 * @var \chillerlan\GW1Database\Skills\Build
 	 */
 	protected $template;
 
 	/**
-	 * SkillTemplate constructor.
+	 * SkillTranscoder constructor.
 	 *
-	 * @param \chillerlan\GW1Database\Template\SkillSet $template [optional]
+	 * @param \chillerlan\GW1Database\Skills\Build $template [optional]
 	 */
-	public function __construct(SkillSet $template = null){
-		if($template instanceof SkillSet){
+	public function __construct(Build $template = null){
+		if($template instanceof Build){
 			$this->template = $template;
 		}
 	}
 
 	/**
-	 * @return \chillerlan\GW1Database\Template\SkillSet
+	 * @return \chillerlan\GW1Database\Skills\Build
 	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
 	public function get_template(){
-		if(!$this->template instanceof SkillSet){
+		if(!$this->template instanceof Build){
 			throw new GW1DatabaseException('Invalid skill template!');
 		}
 
@@ -50,11 +50,11 @@ class SkillTemplate extends TemplateBase{
 	}
 
 	/**
-	 * @param \chillerlan\GW1Database\Template\SkillSet $template
+	 * @param \chillerlan\GW1Database\Skills\Build $template
 	 *
 	 * @return $this
 	 */
-	public function set_template(SkillSet $template){
+	public function set_template(Build $template){
 		$this->template = $template;
 
 		return $this;
@@ -64,11 +64,9 @@ class SkillTemplate extends TemplateBase{
 	 * @return $this
 	 */
 	public function decode(){
-		$this->template_decode();
+		$bin = $this->template_decode($this->template->code);
 
-		$bin = $this->template->bin_decoded;
-
-		if(empty($bin)){
+		if(!$bin){
 			return $this;
 		}
 
@@ -119,7 +117,9 @@ class SkillTemplate extends TemplateBase{
 			// cut current skill's bits
 			$bin = substr($bin, $skill_length);
 
-			$this->template->skills[$i] = $this->bindec_flip($skill['id']);
+			$_skill = new Skill;
+			$_skill->id = $this->bindec_flip($skill['id']);
+			$this->template->skills[$i] = $_skill;
 		}
 
 		$this->template->decode_valid = true;
@@ -133,7 +133,7 @@ class SkillTemplate extends TemplateBase{
 	 * @todo sort attributes primary asc -> secondary asc
 	 */
 	public function encode(){
-		if(!$this->template instanceof SkillSet){
+		if(!$this->template instanceof Build){
 			throw new GW1DatabaseException('Invalid skill template!');
 		}
 
@@ -169,9 +169,9 @@ class SkillTemplate extends TemplateBase{
 		// determine skill pad size
 		$skill_pad = 9;
 		$skill_id_max = 512;
-		foreach($this->template->skills as $id){
-			if($id >= $skill_id_max){
-				$skill_pad = 1 + floor(log($id, 2));
+		foreach($this->template->skills as $_skill){
+			if($_skill->id >= $skill_id_max){
+				$skill_pad = 1 + floor(log($_skill->id, 2));
 				$skill_id_max = pow(2, $skill_pad);
 			}
 		}
@@ -180,16 +180,15 @@ class SkillTemplate extends TemplateBase{
 		$bin .= $this->decbin_pad($skill_pad - 8, 4);
 
 		// add skill ids
-		foreach($this->template->skills as $id){
-			$bin .= $this->decbin_pad($id, $skill_pad);
+		foreach($this->template->skills as $_skill){
+			$bin .= $this->decbin_pad($_skill->id, $skill_pad);
 		}
 
 		// add one zero value to the binary string
 		$bin .= $this->decbin_pad(0, 6);
 
-		$this->template->bin_encoded = $bin;
-		$this->template->encode_valid = true;
-		$this->template_encode();
+		$this->template->code_out = $this->template_encode($bin);
+		$this->template->encode_valid = (bool)$this->template->code_out;
 
 		return $this;
 	}

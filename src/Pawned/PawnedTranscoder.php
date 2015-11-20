@@ -1,29 +1,31 @@
 <?php
 /**
- * Class PawnedTemplate
+ * Class PawnedTranscoder
  *
- * @filesource   PawnedTemplate.php
+ * @filesource   PawnedTranscoder.php
  * @created      06.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Pawned
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Pawned;
 
+use chillerlan\GW1Database\Equipment\Set;
 use chillerlan\GW1Database\GW1DatabaseException;
-use chillerlan\GW1Database\Template\TemplateBase;
-use chillerlan\GW1Database\Template\PawnedPlayer;
-use chillerlan\GW1Database\Template\PawnedSet;
+use chillerlan\GW1Database\Skills\Build;
+use chillerlan\GW1Database\Template\Transcoder;
+use chillerlan\GW1Database\Pawned\Player;
+use chillerlan\GW1Database\Pawned\Team;
 
 /**
  *
  */
-class PawnedTemplate extends TemplateBase{
+class PawnedTranscoder extends Transcoder{
 
 	/**
-	 * @var \chillerlan\GW1Database\Template\PawnedSet
+	 * @var \chillerlan\GW1Database\Pawned\Team
 	 */
 	protected $template;
 
@@ -32,22 +34,22 @@ class PawnedTemplate extends TemplateBase{
 	private $length;
 
 	/**
-	 * PawnedTemplate constructor.
+	 * PawnedTranscoder constructor.
 	 *
-	 * @param \chillerlan\GW1Database\Template\PawnedSet $template [optional]
+	 * @param \chillerlan\GW1Database\Pawned\Team $template [optional]
 	 */
-	public function __construct(PawnedSet $template = null){
-		if($template instanceof PawnedSet){
+	public function __construct(Team $template = null){
+		if($template instanceof Team){
 			$this->template = $template;
 		}
 	}
 
 	/**
-	 * @return \chillerlan\GW1Database\Template\PawnedSet
+	 * @return \chillerlan\GW1Database\Pawned\Team
 	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
 	public function get_template(){
-		if(!$this->template instanceof PawnedSet){
+		if(!$this->template instanceof Team){
 			throw new GW1DatabaseException('Invalid paw·ned² template!');
 		}
 
@@ -55,11 +57,11 @@ class PawnedTemplate extends TemplateBase{
 	}
 
 	/**
-	 * @param \chillerlan\GW1Database\Template\PawnedSet $template
+	 * @param \chillerlan\GW1Database\Pawned\Team $template
 	 *
 	 * @return $this
 	 */
-	public function set_template(PawnedSet $template){
+	public function set_template(Team $template){
 		$this->template = $template;
 
 		return $this;
@@ -100,12 +102,12 @@ class PawnedTemplate extends TemplateBase{
 
 				$this->offset = 0;
 				while($this->offset < strlen($this->content)){
-					$player = new PawnedPlayer;
-					$player->skills = $this->_get_value();
-					$player->equipment = $this->_get_value();
+					$player = new Player;
+					$player->skills = new Build($this->_get_value());
+					$player->equipment = new Set($this->_get_value());
 
 					foreach(range(2, 4) as $i){ // weaponsets 1-based, first set is in equipment
-						$player->weaponsets[$i] = $this->_get_value();
+						$player->weaponsets[$i] = new Set($this->_get_value());
 					}
 
 					$player->flags = $this->_get_value();
@@ -139,7 +141,7 @@ class PawnedTemplate extends TemplateBase{
 	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
 	public function encode(){
-		if(!$this->template instanceof PawnedSet){
+		if(!$this->template instanceof Team){
 			throw new GW1DatabaseException('Invalid paw·ned² template!');
 		}
 
@@ -148,8 +150,8 @@ class PawnedTemplate extends TemplateBase{
 		foreach($this->template->players as $player){
 			$name = str_replace('=', '', base64_encode($player->name));
 			$description = str_replace('=', '', base64_encode($player->description));
-			$equipment = str_replace('=', '', $player->equipment);
-			$skills = str_replace('=', '', $player->skills);
+			$equipment = str_replace('=', '', $player->equipment->code);
+			$skills = str_replace('=', '', $player->skills->code);
 
 			$pwnd .= $this->base64_chr(strlen($skills));
 			$pwnd .= $skills;
@@ -158,7 +160,7 @@ class PawnedTemplate extends TemplateBase{
 			$pwnd .= $equipment;
 
 			foreach($player->weaponsets as $weaponset){
-				$weaponset = str_replace('=', '', $weaponset);
+				$weaponset = str_replace('=', '', $weaponset->code);
 				$pwnd .= $this->base64_chr(strlen($weaponset));
 				$pwnd .= $weaponset;
 			}

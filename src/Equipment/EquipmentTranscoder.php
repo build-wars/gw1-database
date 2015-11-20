@@ -1,49 +1,49 @@
 <?php
 /**
- * Class EquipmentTemplate
+ * Class EquipmentTranscoder
  *
- * @filesource   EquipmentTemplate.php
+ * @filesource   EquipmentTranscoder.php
  * @created      05.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Equipment
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Equipment;
 
 use chillerlan\GW1Database\GW1DatabaseException;
-use chillerlan\GW1Database\Template\TemplateBase;
-use chillerlan\GW1Database\Template\EquipmentItem;
-use chillerlan\GW1Database\Template\EquipmentSet;
+use chillerlan\GW1Database\Template\Transcoder;
+use chillerlan\GW1Database\Equipment\Item;
+use chillerlan\GW1Database\Equipment\Set;
 
 /**
  *
  */
-class EquipmentTemplate extends TemplateBase{
+class EquipmentTranscoder extends Transcoder{
 
 	/**
-	 * @var \chillerlan\GW1Database\Template\EquipmentSet
+	 * @var \chillerlan\GW1Database\Equipment\Set
 	 */
 	protected $template;
 
 	/**
-	 * EquipmentTemplate constructor.
+	 * EquipmentTranscoder constructor.
 	 *
-	 * @param \chillerlan\GW1Database\Template\EquipmentSet $template [optional]
+	 * @param \chillerlan\GW1Database\Equipment\Set $template [optional]
 	 */
-	public function __construct(EquipmentSet $template = null){
-		if($template instanceof EquipmentSet){
+	public function __construct(Set $template = null){
+		if($template instanceof Set){
 			$this->template = $template;
 		}
 	}
 
 	/**
-	 * @return \chillerlan\GW1Database\Template\EquipmentSet
+	 * @return \chillerlan\GW1Database\Equipment\Set
 	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
 	public function get_template(){
-		if(!$this->template instanceof EquipmentSet){
+		if(!$this->template instanceof Set){
 			throw new GW1DatabaseException('Invalid equipment template!');
 		}
 
@@ -51,11 +51,11 @@ class EquipmentTemplate extends TemplateBase{
 	}
 
 	/**
-	 * @param \chillerlan\GW1Database\Template\EquipmentSet $template
+	 * @param \chillerlan\GW1Database\Equipment\Set $template
 	 *
 	 * @return $this
 	 */
-	public function set_template(EquipmentSet $template){
+	public function set_template(Set $template){
 		$this->template = $template;
 
 		return $this;
@@ -65,11 +65,9 @@ class EquipmentTemplate extends TemplateBase{
 	 * @return $this
 	 */
 	public function decode(){
-		$this->template_decode();
+		$bin = $this->template_decode($this->template->code);
 
-		$bin = $this->template->bin_decoded;
-
-		if(empty($bin)){
+		if(!$bin){
 			return $this;
 		}
 
@@ -95,7 +93,7 @@ class EquipmentTemplate extends TemplateBase{
 
 			$id = $this->bindec_flip($item['id']);
 
-			$eq_item = new EquipmentItem;
+			$eq_item = new Item;
 			$eq_item->color = $this->bindec_flip($item['color']);
 			$eq_item->id = $id;
 			$eq_item->type = $this->bindec_flip($item['type']);
@@ -121,7 +119,7 @@ class EquipmentTemplate extends TemplateBase{
 	 * @throws \chillerlan\GW1Database\GW1DatabaseException
 	 */
 	public function encode(){
-		if(!$this->template instanceof EquipmentSet){
+		if(!$this->template instanceof Set){
 			throw new GW1DatabaseException('Invalid equipment template!');
 		}
 
@@ -163,9 +161,8 @@ class EquipmentTemplate extends TemplateBase{
 			}
 		}
 
-		$this->template->bin_encoded = $bin;
-		$this->template->encode_valid = true;
-		$this->template_encode();
+		$this->template->code_out = $this->template_encode($bin);
+		$this->template->encode_valid = (bool)$this->template->code_out;
 
 		return $this;
 	}

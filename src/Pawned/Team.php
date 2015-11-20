@@ -1,22 +1,22 @@
 <?php
 /**
  *
- * @filesource   PawnedSet.php
+ * @filesource   Team.php
  * @created      06.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Pawned
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Pawned;
 
 use chillerlan\GW1Database\Template\SetBase;
 
 /**
- * Class PawnedSet
+ * Class Team
  */
-class PawnedSet extends SetBase{
+class Team extends SetBase{
 
 	/**
 	 * @var string

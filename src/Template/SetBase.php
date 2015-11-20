@@ -18,21 +18,6 @@ namespace chillerlan\GW1Database\Template;
 class SetBase{
 
 	/**
-	 * The decoded template code binary string (from input), type and version number cut off
-	 *
-	 * @var string
-	 */
-	public $bin_decoded;
-	public $bin_decoded_debug;
-
-	/**
-	 * The encoded template code binary string
-	 *
-	 * @var string
-	 */
-	public $bin_encoded;
-
-	/**
 	 * The template code as base64
 	 *
 	 * @var string

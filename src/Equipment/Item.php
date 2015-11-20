@@ -1,19 +1,19 @@
 <?php
 /**
- * @filesource   EquipmentItem.php
+ * @filesource   Item.php
  * @created      06.11.2015
- * @package      chillerlan\GW1Database\Template
+ * @package      chillerlan\GW1Database\Equipment
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2015 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\GW1Database\Template;
+namespace chillerlan\GW1Database\Equipment;
 
 /**
- * Class EquipmentItem
+ * Class Item
  */
-class EquipmentItem{
+class Item{
 
 	/**
 	 * @var int

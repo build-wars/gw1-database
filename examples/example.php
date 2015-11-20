@@ -9,16 +9,16 @@
 
 require_once '../vendor/autoload.php';
 
-use chillerlan\GW1Database\Template\EquipmentSet;
-use chillerlan\GW1Database\Template\EquipmentTemplate;
-use chillerlan\GW1Database\Template\PawnedSet;
-use chillerlan\GW1Database\Template\PawnedTemplate;
-use chillerlan\GW1Database\Template\SkillSet;
-use chillerlan\GW1Database\Template\SkillTemplate;
+use chillerlan\GW1Database\Equipment\Set;
+use chillerlan\GW1Database\Equipment\EquipmentTranscoder;
+use chillerlan\GW1Database\Pawned\Team;
+use chillerlan\GW1Database\Pawned\PawnedTranscoder;
+use chillerlan\GW1Database\Skills\Build;
+use chillerlan\GW1Database\Skills\SkillTranscoder;
 
 // skill template
-$st = new SkillTemplate;
-$skills = new SkillSet('OQdCA8wkpTeGbji4b2PwDAPF');
+$st = new SkillTranscoder;
+$skills = new Build('OQdCA8wkpTeGbji4b2PwDAPF');
 
 $skills = $st->set_template($skills)->decode()->get_template();
 var_dump($skills);
@@ -29,8 +29,8 @@ var_dump($skills);
 
 
 // equipment template
-$et = new EquipmentTemplate;
-$equipment = new EquipmentSet('Pg5hhmZ9phOzriUhhpI904yUkhl/YKyl0BMFZYNLmi0C');
+$et = new EquipmentTranscoder;
+$equipment = new Set('Pg5hhmZ9phOzriUhhpI904yUkhl/YKyl0BMFZYNLmi0C');
 
 $equipment = $et->set_template($equipment)->decode()->get_template();
 var_dump($equipment);
@@ -41,8 +41,8 @@ var_dump($equipment);
 
 
 // paw·ned² template
-$pt = new PawnedTemplate;
-$pwnd = new PawnedSet('pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+$pt = new PawnedTranscoder;
+$pwnd = new Team('pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
 >YOwVS85BTRA6M4OIQ0kHQxldOsPk5JWEMZYE8EMJYd8EMJYn8EMJY77EMJYRRFSaCjkC0KJPcZQcTKl
 UAACAgAA2VGFuawpkb3dubG9hZGVkIGZyb20gaHR0cDovL3d3dy5nd2NvbS5kZQZOQZDAswzQqDuNmOT
 P2kBBiOwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjkM3
