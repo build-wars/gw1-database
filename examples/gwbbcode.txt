@@ -1,0 +1,213 @@
+[size=15][b]1 – A/Me Tank[/b][/size]
+[b][i]Tank
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OwVS85BTRA6M4OIQ0kHQxldO
+[b]Ausrüstung:[/b] Pk5RRNTYSjkK1qAA5AAJBAZBApBAJ
+[b]Waffenset 2:[/b] PcZQcTKlU
+[b]Waffenset 3:[/b]
+[b]Waffenset 4:[/b]
+[build prof=Assassin/Mesmer ShadowArts=12 InspirationMagic=12][Mantra des Abschlusses][Schattenform][Angriff des Todes][Herz der Schatten]["Ich bin unaufhaltbar!"][Schleier des Kummers][Geistige Sperre][Rückruf][/build]
+
+[size=15][b]2 – Me/E Caller[/b][/size]
+[b][i]Caller
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OQZDAswzQqDuNmOTP2kBBiOwl
+[b]Ausrüstung:[/b] Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+[b]Waffenset 2:[/b] PgpghmZ9phOzriU
+[b]Waffenset 3:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 4:[/b]
+[build prof=Mesmer/Elementalist FastCasting=12 DominationMagic=12 InspirationMagic=3][Tiefgefrieren][Visionen des Bedauerns][Unnatürliches Siegel][Argwohn]["Ihr bewegt Euch wie ein Zwerg!"][Arkane Mimikry][Günstige Beschwörung][Hochnäsigkeit][/build]
+
+[size=15][b]3 – Me/A Recall[/b][/size]
+[b][i]Recall
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OQdCAsw0SwJgpz0TMpcZnDcJ
+[b]Ausrüstung:[/b] Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+[b]Waffenset 2:[/b] PgpghmZ9phOzriU
+[b]Waffenset 3:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 4:[/b] PcZQcTKlU
+[build prof=Mesmer/Assassin FastCasting=12 DominationMagic=12][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Erledigt ihn!"][Schmerztauscher][Rückruf][Hochnäsigkeit][/build]
+
+[size=15][b]4 – Me/W EoE/BF[/b][/size]
+[b][i]EoE/BF
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OQJTAQBbVaJ4Ew0Z6RGA6gDAuE
+[b]Ausrüstung:[/b] Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMyMgJHsIb+K
+[b]Waffenset 2:[/b] PgpghmZ9phOzriU
+[b]Waffenset 3:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 4:[/b]
+[build prof=Mesmer/Ranger FastCasting=8 DominationMagic=12 BeastMastery=10][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn][Verschwendung][Rand der Auslöschung][Rückschlag][Hochnäsigkeit][/build]
+
+[size=15][b]5 – Me/N Split[/b][/size]
+[b][i]Split
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OQRDAsw3QLBnAmOTP0k3gaAwl
+[b]Ausrüstung:[/b] Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+[b]Waffenset 2:[/b] PgpghmZ9phOzriU
+[b]Waffenset 3:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 4:[/b]
+[build prof=Mesmer/Necromancer FastCasting=12 DominationMagic=12 Curses=3][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Ich bin unaufhaltbar!"][Nekrose][Empathie][Hochnäsigkeit][/build]
+
+[size=15][b]6 – Me/Mö UA[/b][/size]
+[b][i]UA
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OQNDAsw/QLBnAmOTPxkCObAwl
+[b]Ausrüstung:[/b] Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+[b]Waffenset 2:[/b] PgpghmZ9phOzriU
+[b]Waffenset 3:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 4:[/b]
+[build prof=Mesmer/Monk FastCasting=12 DominationMagic=12 ProtectionPrayers=3][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Erledigt ihn!"][Überlastung][Täuschungen brechen][Hochnäsigkeit][/build]
+
+[size=15][b]7 – Mö/W Seeder[/b][/size]
+[b][i]Seeder
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OwIT8QIjVC5IHMlghgukeIeAgA
+[b]Ausrüstung:[/b] PgpJTCiULCbBR6JntgID70WQkhtXLIywCOHsIbsE
+[b]Waffenset 2:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 3:[/b]
+[b]Waffenset 4:[/b]
+[build prof=Monk/Ranger ProtectionPrayers=8 DivineFavor=12 WildernessSurvival=10][Schlangen-Schnelligkeit][Lebenssaat][Gesegnetes Siegel][Unnachgiebige Aura][Ebon-Flucht][Lebenseinstimmung][Lebensbindung][Gesegnete Aura][/build]
+
+[size=15][b]8 – E/Mö Emo[/b][/size]
+[b][i]Emo
+downloaded from http://www.gwcom.de[/i][/b]
+[b]Vorlagencode:[/b] OgNDwcPPPaRSyNrWQLkHxjDC
+[b]Ausrüstung:[/b] PkpZSEEpUE1EEpnc1EEZYn1EEZY70EEZYxTHsIbsE
+[b]Waffenset 2:[/b] PkpQRNNYSjkM36SB
+[b]Waffenset 3:[/b]
+[b]Waffenset 4:[/b]
+[build prof=Elementalist/Monk EnergyStorage=12 HealingPrayers=3 ProtectionPrayers=12][Geisterbindung][Leben einflößen][Brennende Eile][Äthererneuerung][Wiederherstellungs-Aura][Balthasars Geist][Lebensbindung][Band des Schutzes][/build]
+
+
+Since it's a skill, [[shock@10]] goes through [[Spell Breaker].
+[b][pre]Since it's a skill, [[shock] goes through [[Spell Breaker].[/pre][/b]
+
+But [[] prevents [[esurge], [[eburn@10+1+3] and [[edrain].
+[b][pre]But [[SB] prevents [[esurge], [[eburn] and [[edrain].[/pre][/b]
+
+[[charge]
+[b][pre][[charge][/pre][/b]
+
+[[charge@10+1+3]
+[b][pre][[charge@10+1+3][/pre][/b]
+
+[pre][[Word of Healing]][/pre]
+[[Word of Healing]]
+
+[pre][["You're All Alone!"][/pre]
+[["You're All Alone!"]
+
+[pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>YOwVS85BTRA6M4OIQ0kHQxldOsPk5JWEMZYE8EMJYd8EMJYn8EMJY77EMJYRRFSaCjkC0KJPcZQcTKl
+UAACAgAA2VGFuawpkb3dubG9hZGVkIGZyb20gaHR0cDovL3d3dy5nd2NvbS5kZQZOQZDAswzQqDuNmOT
+P2kBBiOwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjkM3
+6SBACIhAA4Q2FsbGVyCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRlYOQdCAsw0SwJgp
+z0TMpcZnDcJoPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjk
+M36SBJPcZQcTKlUCIgAA4UmVjYWxsCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRlaOQ
+JTAQBbVaJ4Ew0Z6RGA6gDAuEoPgp5PCjcJCXhRCWnrwItw0VYkgt3KMyMgJHsIb+KPPgpghmZ9phOzri
+UQPkpQRNNYSjkM36SBACIgAA4RW9FL0JGCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmR
+lZOQRDAsw3QLBnAmOTP0k3gaAwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phO
+zriUQPkpQRNNYSjkM36SBACIgAA3U3BsaXQKZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d3cuZ3djb20u
+ZGUZOQNDAsw/QLBnAmOTPxkCObAwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9p
+hOzriUQPkpQRNNYSjkM36SBACIgAAzVUEKZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d3cuZ3djb20uZG
+UaOwIT8QIjVC5IHMlghgukeIeAgAoPgpJTCiULCbBR6JntgID70WQkhtXLIywCOHsIbsEQPkpQRNNYSj
+kM36SBAACAkAA4U2VlZGVyCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRlYOgNDwcPPP
+aRSyNrWQLkHxjDCpPkpZSEEpUE1EEpnc1EEZYn1EEZY70EEZYxTHsIbsEQPkpQRNNYSjkM36SBAADAAg
+AA0RW1vCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRl<[/pwnd]
+
+[DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl]
+[Mighty something;OQYQEnTqAAAAAAAAAA]
+[;OQYQEnTqAAAAAAAAAA]
+[;]
+
+To specify an attribute level, you have to write enough of the attribute name for gwBBCode to understand which one it is. Case doesn't matter but don't use spaces. Actually, first three letters are often enough, but there are 3 exceptions: dea is Death Magic and dead is Deadly Arts; com is Communing and comma is Command; ear is Earth Magic and earthp is Earth Prayers.
+[build aIrmaGic=6 dea=0 dead=12][shock][Dark Aura][Impale][/build]
+[b][pre][build aIrmaGic=6 dea=0 dead=12][shock][Dark Aura][Impale][/build][/pre][/b]
+
+[build prof=W/E][shock][Eviscerate][/build]
+[b][pre][build prof=W/E][shock][Eviscerate][/build][/pre][/b]
+
+[build prof=W/E swo=12 air=8][Shock][Eviscerate][/build]
+[b][pre][build prof=W/E swo=12 air=8][Shock][Eviscerate][/build][/pre][/b]
+
+[build prof=W/E swo=12+1+3 air=8][Shock][Eviscerate][/build]
+[b][pre][build prof=W/E swo=12+1+3 air=8][Shock][Eviscerate][/build][/pre][/b]
+
+[build prof=W/E desc='Weapon set #1: 2x20% recharge{br}Weapon set #2: maximum energy'][Shock][Eviscerate][/build]
+[b][pre][build prof=W/E desc='Weapon set #1: 2x20% recharge{br}Weapon set #2: maximum energy'][Shock][Eviscerate][/build][/pre][/b]
+
+[build prof=W/E name="Mighty something"][Shock][Eviscerate][/build]
+[b][pre][build prof=W/E name="Mighty something"][Shock][Eviscerate][/build][/pre][/b]
+
+[build prof=W/E pve]["Watch Yourself!"][/build]
+[b][pre][build prof=W/E pve]["Watch Yourself!"][/build][/pre][/b]
+Here 'pvp' can be used instead of 'pve', or you can specify whether the skill is PvP or PvE in its name: [b][pre]["Watch Yourself!" (PvP)][/pre][/b]
+
+To display a skill you need to encase its name in double square brackets "[b][[[/b]" and "[b]]][/b]".
+For example the skill Shock would be represented by
+[pre][b][[Shock]][/b][/pre] => [[Shock]]
+If you want to show the skill name instead of its icon, put a second "[b][[/b]" before the name
+[pre][b][[Shock][/b][/pre] => [[Shock]
+If you want to show a skill effect adjusted to an attribute value, include "@" after skill name and then a number
+[b][pre][[Shock@8][/pre][/b] => [[Shock@8] here we have the skill with 8 in Air Magic
+[i]Tip[/i]: case and punctuation don't matter in skill names, and you can use some abbreviations
+
+
+[size=14][b][u]How to write a build[/u][/b][/size]
+
+The simpler way is to get its template code from the game, then use it in one of these ways:
+[pre][Shock Warr;OQYTgw4K5QrSFqM9cOtrCA]
+[build=Shock Warr;OQYTgw4K5QrSFqM9cOtrCA][/pre]
+[Shock Warr;OQYTgw4K5QrSFqM9cOtrCA]
+
+But if you want to write a build from scratch, here is how! A build consists of an opening tag [pre][build][/pre] in which you can specify details (see below),
+then a list of skills encased in brackets, and an ending tag [pre][/build][/pre]. In this example we specified a name and attribute level. Don't panic it will be explained in details below :)
+[pre][build prof=W/E air=8][Shock][Frenzy][Eviscerate][/build][/pre]
+[build prof=W/E air=8][Shock][Frenzy][Eviscerate][/build]
+
+Now let's have a closer look.. at what you can specify in the [pre][build][/pre] tag..
+[list]
+[*][u]Professions:[/u] To specify the build is for a Warrior/Elementalist, just add [b]prof=W/E[/b].
+You can use any profession abbreviation: W, Mo, E, R, N, Me, Rt, A, D, P. As well as full profession names, e.g prof=Warrior/Elementalist. You don't have to specify a secondary profession.
+[b][pre][build prof=W/E][/build][/pre][/b] = [b][pre][build prof=Warrior/Elementalist][/build][/pre][/b] =>
+[build prof=W/E][/build]
+
+[*][u]Build's name:[/u] To specify a name, try this: [b]name="Shock war"[/b] (note: the name must be encased in double brackets [b]""[/b])
+[b][pre][build prof=W/E name="Shock war"][/build][/pre][/b] =>
+[build prof=W/E name="Shock war"][/build]
+
+[*][u]Attributes:[/u] Just write the attribute name [i][u]without spaces[/u][/i], followed by "[b]=[/b]", and the attribute level. Like this: [b]expertise=9[/b]. You can use plus signs to specify additional levels due to a rune or helmet: [b]axemastery=12+1+3[/b].
+[i]Tip[/i]: Case doesn't matter here and all but 3 attribute names can be reduced to their first three letters, e.g [b]axe=12[/b] and [b]pro=4[/b]. Specifying a few more letters doesn't hurt though: [b]prot=9[/b] and [b]blood=8[/b]. The three exceptions to this rule are: [b]dead[/b] for Deadly Arts since [b]dea[/b] is for Death Magic; [b]comma[/b] for Command since [b]com[/b] is for Communing; [b]earthp[/b] for Earth Prayers since [b]ear[/b] is for Earth Magic.
+[b][pre][build prof=W/E AxeMastery=12+1+3][/build][/pre][/b] = [b][pre][build prof=W/E axe=12+1+3][/build][/pre][/b] =>
+[build prof=W/E axe=12+1+3][/build]
+
+[*][u]Description:[/u] Adding information on a build (weapons, armor, how to play it) can be done like this: [b]desc="Vamp axe."[/b] (note: the description must be encased in double brackets [b]""[/b])
+[b][pre][build prof=W/E desc="Vamp axe."][/build][/pre][/b] =>
+[build prof=W/E desc="Vamp axe. Spike with Shock."][/build]
+[i]Tip[/i]: you can write descriptions in multiple lines using [b]{br}[/b] to separate lines. This tip works on build names as well.
+
+[*][u]PvE/PvP:[/u] You can specify whether a build is PvE or PvP by adding either "pve" or "pvp" to the code:
+[b][pre][build prof=W/E pve]["Watch Yourself!"][Blinding Surge][/build][/pre][/b] =>
+[build prof=W/E pve]["Watch Yourself!"][Blinding Surge][/build]
+[b][pre][build prof=W/E pvp]["Watch Yourself!"][Blinding Surge][/build][/pre][/b] =>
+[build prof=W/E pvp]["Watch Yourself!"][Blinding Surge][/build]
+[/list]
+
+[build name="Spell Slasher" prof=Me/W dom=12 swo=10 ins=7 fas=4][Resurrection Signet][final thrust][shatter enchantment][ether feast][skull crack][chaos storm][backfire][power drain][/build]
+[build name="Warrior's Bane" prof=N/Me ill=12 cur=9 ins=8 sou=5][Resurrection Signet][faintheartedness][soothing images][ineptitude][conjure phantasm][ethereal burden][energy tap][ether feast][/build]
+[build name="Minion Master" prof=N/Me dea=12 ins=10 sou=8][deathly swarm][energy drain][Resurrection Signet][death nova][verata's sacrifice][taste of death][animate bone fiend][animate bone horror][/build]
+[build name="Pyromancer" prof=E/R fir=12 ene=10 bea=8][fireball][energizing wind][searing heat][fire storm][rodgort's invocation][fire attunement][Resurrection Signet][mind burn][/build]
+[build name="Ice Blighter" prof=E/N wat=12 ene=10 cur=8][ice spikes][deep freeze][glyph of lesser energy][maelstrom][water trident][water attunement][rend enchantments][Resurrection Signet][/build]
+[build name="Protection Healer" prof=Mo/W pro=12 div=11 tac=6][reversal of fortune][guardian][shielding hands][convert hexes][bonetti's defense][mend ailment][shield of regeneration][Protective Spirit][/build]
+[build name="DW Healer" prof=Mo/E div=12 hea=12 pro=3][orison of healing][word of healing][healing touch][healing seed][mend ailment][smite hex][vengeance][restore life][/build]
+[build name="Abominable Snowman" prof=W/E ham=11 wat=10 str=8 tac=6][devastating hammer][mighty blow][heavy blow][Resurrection Signet][healing signet][armor of mist][frozen burst][sprint][/build]
+[build name="Paladin" prof=W/Mo swo=12 str=10 hea=8][sever artery][gash][galrath slash][final thrust][sprint][healing hands][mending][restore life][/build]
+[build name="IVEX Trapper" prof=R/Me wil=11 mar=10 exp=10][distracting shot][poison arrow][pin down][throw dirt][flame trap][barbed trap][storm chaser][troll unguent][/build]
+[build name="Fi Boon Healer" prof=Mo/N div=12 hea=10 blo=8][divine boon][remove hex][infuse health][orison of healing][healing touch][dwayna's kiss][heal other][offering of blood][/build]
+[build name="Shadow Blade" prof=A/W dagger=12 crit=10 shadow=8][Black Mantis Thrust][Jungle Strike][Twisting Fangs][Moebius Strike][Shadow Refuge][Shadow of Haste][Mirrored Stance][Resurrection Signet][/build]
+[build name="Fang of Melandru" prof=R/A dagger=12 exp=11 wild=6][Jagged Strike][Fox Fangs][Horns of the Ox][Falling Spider][Twisting Fangs][Escape][Troll Unguent][Resurrection Signet][/build]
+[build name="Dark Flame" prof=E/A fire=12 energy=10 shadow=8][Inferno][Lava Font][Flame Burst][Phoenix][Death's Charge][Aura of Displacement][Fire Attunement][Resurrection Signet][/build]
+[build name="Earthbinder" prof=Rt/Me comm=12 spawn=11 insp=6][Wanderlust][Earthbind][Pain][Bloodsong][Mantra of Resolve][Rupture Soul][Boon of Creation][Flesh of my Flesh][/build]
+[build name="Soul Spinner" prof=Rt/Mo resto=12 spawn=12][Spirit Light][Mend Body and Soul][Wielder's Boon][Weapon of Warding][Preservation][Recuperation][Remove Hex][Flesh of my Flesh][/build]
+[build name="Brutal Bombardier" prof=R/Rt mark=12 commu=8 exper=10 rest=2][Barrage][Lightning Reflexes][Throw Dirt][Dodge][Brutal Weapon][Pain][Favorable Winds][Flesh of my Flesh][/build]
+
