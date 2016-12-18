@@ -15,8 +15,7 @@
 	],
 	"require": {
 		"php": ">=5.6.0",
-		"chillerlan/bbcode": "dev-master",
-		"chillerlan/framework": "dev-master"
+		"chillerlan/database": "dev-master"
 	},
 	"require-dev": {
 	},
