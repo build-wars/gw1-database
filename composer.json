@@ -1,11 +1,11 @@
 {
 	"name": "chillerlan/gw1-database",
-	"description": "A Guild Wars (not 2!) database including everything to parse GWBBcode, calculate skills, import/export templates, create maps etc.. PHP 5.6+, PHP 7",
+	"description": "A Guild Wars (not 2!) database including everything to parse GWBBcode, calculate skills, import/export templates, create maps etc.. PHP PHP 7+",
 	"homepage": "https://github.com/chillerlan/gw1-database",
 	"license": "MIT",
+	"minimum-stability": "dev",
 	"keywords": [
-		"guild wars",
-		"database"
+		"guild wars", "database"
 	],
 	"authors": [
 		{
@@ -14,14 +14,25 @@
 		}
 	],
 	"require": {
-		"php": ">=5.6.0",
-		"chillerlan/database": "dev-master"
+		"php": "^7.2",
+		"chillerlan/php-traits": "^1.1"
 	},
 	"require-dev": {
+		"chillerlan/php-log": "^1.0",
+		"chillerlan/php-cache": "^1.0",
+		"chillerlan/php-database": "^2.0",
+		"phpunit/phpunit": "^7.1"
 	},
 	"autoload": {
 		"psr-4": {
-			"chillerlan\\GW1Database\\": "src/"
+			"chillerlan\\GW1DB\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"chillerlan\\GW1DBwww\\": "public/",
+			"chillerlan\\GW1DBTest\\": "tests/",
+			"chillerlan\\GW1DBExamples\\": "examples/"
 		}
 	}
 }
