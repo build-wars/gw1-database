@@ -3,7 +3,6 @@
  * @link http://web.archive.org/web/20140831204448/http://www.guildwarsguru.com/forum/king-size-skill-icons-t10295191.html
  *
  * download the hi-res skill images from:
- *
  * @link http://sites.google.com/site/hatvandp/sbs/gw_icons_ame.zip (assassin - mesmer)
  * @link http://sites.google.com/site/hatvandp/sbs/gw_icons_mop.zip (monk - paragon)
  * @link http://sites.google.com/site/hatvandp/sbs/gw_icons_rw.zip (ranger - warrior)
@@ -11,7 +10,14 @@
  * note: the name of the image for Empathic Removal contains a typo and
  *       it will trigger a warning if you don't fix it before processing
  *
+ * or download the fixed imageset from
+ * @link https://chillerlan.de/downloads/gw-skill-images-original.zip
+ *
  * note: these imagesets don't contain the pve skill images! (1234 of 1320 images)
+ *
+ * see also sealed play cards:
+ * @link http://web.archive.org/web/20110726192747/http://guildwars.com/competitive/sealedplay/
+ * @link http://web.archive.org/web/20111225175519/http://guildwars.com/competitive/sealedplay/cardsdownload.php
  *
  * @filesource   build-skill-images.php
  * @created      14.04.2018
@@ -58,13 +64,13 @@ $db->select
 
 		// strip any unwanted/illegal characters and replace spaces with underscores
 		$skillname = str_replace(['!', '\'', '"', ',', '.', ' '], ['', '', '', '', '', '_'], $skill->name);
+		$icon      = imagecreatefromjpeg(PICS_ORIG.'/'.$skill->prof.'/'.$skillname.'.jpg');
 
-		$icon = imagecreatefromjpeg(PICS_ORIG.'/'.$skill->prof.'/'.$skillname.'.jpg');
 		// create a 14px wide border around the elite skills (#ffb500)
-		$size = (bool)$skill->elite ? 276 : 248;
+		// @todo: put border over the image w/o resize
+		$size    = (bool)$skill->elite ? 276 : 248;
 		$cropped = imagecreatetruecolor($size, $size);
 
-		// @todo: put border over the image w/o resize
 		if((bool)$skill->elite){
 			imagefilledrectangle($cropped, 0, 0, 276, 276, imagecolorallocate($cropped, 255, 181, 0));
 			imagecopy($cropped, $icon, 14, 14, 4, 3, 248, 248);
