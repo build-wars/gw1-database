@@ -17,12 +17,6 @@ $logger = null;
 
 require_once __DIR__.'/build-common.php';
 
-$skills = $db->select
-	->from([TABLE_SKILLDATA])
-	->orderBy(['id' => 'asc'])
-	->query('id')
-;
-
 $lang = [];
 
 foreach(['de', 'en'] as $lng){
@@ -32,41 +26,46 @@ foreach(['de', 'en'] as $lng){
 	;
 }
 
-$skills->__each(function($skill, $id) use ($logger, $lang){
-	/** @var \chillerlan\Database\ResultInterface $skill */
-	$skill = $skill->__toArray();
+$db->select
+	->from([TABLE_SKILLDATA])
+	->orderBy(['id' => 'asc'])
+	->query('id')
+	->__each(function($skill, $id) use ($logger, $lang){
+		/** @var \chillerlan\Database\ResultInterface $skill */
+		$skill = $skill->__toArray();
 
-	foreach(['id', 'campaign', 'profession', 'attribute', 'elite', 'pve_only', 'pvp_split'] as  $p){
-		/** @var array $skill */
-		$s[$p] = (int)array_shift($skill);
-	}
-
-	// @todo
-#	$s['image'] ='data:image/png;base64,'.base64_encode(file_get_contents(__DIR__.'/img/skills/64/'.$id.'.png'));
-
-	foreach($skill as $n => $k){
-		$n = explode('_', $n, 2);
-
-		if($n[1] === 'activation'){
-			$s[$n[0]][$n[1].'_str'] = $k;
-			$k                      = floatval($k);
+		foreach(['id', 'campaign', 'profession', 'attribute', 'elite', 'pve_only', 'pvp_split'] as  $p){
+			/** @var array $skill */
+			$s[$p] = (int)array_shift($skill);
 		}
 
-		$s[$n[0]][$n[1]]  = $k;
+		// @todo
+	#	$s['image'] ='data:image/png;base64,'.base64_encode(file_get_contents(__DIR__.'/img/skills/64/'.$id.'.png'));
 
-		foreach(['de', 'en'] as $l){
-			foreach(['name', 'desc', 'desc_short'] as $f){
-				$s[$n[0]][$f][$l] = $lang[$l][$id]->{$n[0].'_'.$f};
+		foreach($skill as $n => $k){
+			$n = explode('_', $n, 2);
+
+			if($n[1] === 'activation'){
+				$s[$n[0]][$n[1].'_str'] = $k;
+				$k                      = floatval($k);
+			}
+
+			$s[$n[0]][$n[1]]  = $k;
+
+			foreach(['de', 'en'] as $l){
+				foreach(['name', 'desc', 'desc_short'] as $f){
+					$s[$n[0]][$f][$l] = $lang[$l][$id]->{$n[0].'_'.$f};
+				}
 			}
 		}
-	}
 
-	if(!(bool)$s['pvp_split']){
-		unset($s['pvp']);
-	}
+		if(!(bool)$s['pvp_split']){
+			unset($s['pvp']);
+		}
 
-	$logger->info($s['pve']['name']['en']);
-	file_put_contents(DIR_JSON.'/skills/'.$id.'.json', str_replace('    ', "\t", json_encode($s, JSON_PRETTY_PRINT)));
-});
+		$logger->info($s['pve']['name']['en']);
+		file_put_contents(DIR_JSON.'/skills/'.$id.'.json', str_replace('    ', "\t", json_encode($s, JSON_PRETTY_PRINT)));
+	})
+;
 
 exit;
