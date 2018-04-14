@@ -9,8 +9,6 @@
 
 
 const TABLE_SKILLDATA  = 'gw1_skilldata';
-const FIELD_ID         = 'id';
-const FIELD_PROFESSION = 'profession';
-
-
-
+const TABLE_SKILLDESC_EN  = 'gw1_skilldesc_en';
+const TABLE_SKILLDESC_DE  = 'gw1_skilldesc_de';
+const TABLE_PROFESSIONS   = 'gw1_professions';

@@ -19,16 +19,16 @@ require_once __DIR__.'/build-common.php';
 
 $skills = $db->select
 	->from([TABLE_SKILLDATA])
-	->orderBy([FIELD_ID => 'asc'])
-	->query(FIELD_ID)
+	->orderBy(['id' => 'asc'])
+	->query('id')
 ;
 
 $lang = [];
 
 foreach(['de', 'en'] as $lng){
 	$lang[$lng] = $db->select
-		->from(['gw1_skilldesc_'.$lng])
-		->query(FIELD_ID)
+		->from([constant('TABLE_SKILLDESC_'.strtoupper($lng))])
+		->query('id')
 	;
 }
 
