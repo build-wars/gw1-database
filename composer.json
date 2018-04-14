@@ -1,7 +1,7 @@
 {
-	"name": "chillerlan/gw1-database",
+	"name": "codemasher/gw1-database",
 	"description": "A Guild Wars (not 2!) database including everything to parse GWBBcode, calculate skills, import/export templates, create maps etc.. PHP PHP 7+",
-	"homepage": "https://github.com/chillerlan/gw1-database",
+	"homepage": "https://github.com/codemasher/gw1-database",
 	"license": "MIT",
 	"minimum-stability": "dev",
 	"keywords": [
