@@ -26,11 +26,15 @@
 	"autoload": {
 		"psr-4": {
 			"chillerlan\\GW1DB\\": "src/"
-		}
+		},
+		"files": [
+			"config/dbtables.php"
+		]
 	},
 	"autoload-dev": {
 		"psr-4": {
 			"chillerlan\\GW1DBwww\\": "public/",
+			"chillerlan\\GW1DBBuild\\": "resources/",
 			"chillerlan\\GW1DBTest\\": "tests/",
 			"chillerlan\\GW1DBExamples\\": "examples/"
 		}
