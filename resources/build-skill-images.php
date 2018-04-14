@@ -41,8 +41,8 @@ require_once __DIR__.'/build-common.php';
 
 $db->select
 	->cols([
-		'id'    => 'skilldata.id',
-		'elite' => 'skilldata.elite',
+		'id'    => ['skilldata.id'],
+		'elite' => ['skilldata.elite'],
 		'name'  => ['skilldesc.pve_name', 'lower'],
 		'prof'  => ['professions.name_en', 'lower'],
 	])
@@ -80,7 +80,7 @@ $db->select
 		}
 
 		// uncomment if you want to save the cropped original size images
-#		imagepng($cropped, PICS_OUT.'/cropped/'.$id.'.png', 9);
+		imagepng($cropped, PICS_OUT.'/cropped/'.$id.'.png', 9);
 
 		foreach([32, 64, 128, 248] as $thumbsize){
 			$path = PICS_OUT.'/'.$thumbsize.'/'.$id;
