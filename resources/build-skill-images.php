@@ -77,7 +77,14 @@ $db->select
 #		imagepng($cropped, PICS_OUT.'/cropped/'.$id.'.png', 9);
 
 		foreach([32, 64, 128, 248] as $thumbsize){
-			resize($cropped, PICS_OUT.'/'.$thumbsize.'/'.$id, $size, $thumbsize);
+			$path = PICS_OUT.'/'.$thumbsize.'/'.$id;
+
+			$thumb = imagecreatetruecolor($thumbsize, $thumbsize);
+			imagecopyresampled($thumb, $cropped, 0, 0, 0, 0, $thumbsize, $thumbsize, $size, $size);
+			// you may want to run the processed png-images through something like png-gauntlet to optimize
+			imagepng($thumb, $path.'.png', 9);
+#			imagejpeg($thumb, $path.'.jpg', 85);
+			imagedestroy($thumb);
 		}
 
 		imagedestroy($cropped);
@@ -87,22 +94,3 @@ $db->select
 ;
 
 exit;
-
-/**
- * @param resource $img
- * @param string   $path
- * @param int      $oldsize
- * @param int      $newsize
- */
-function resize($img, $path, $oldsize, $newsize){
-	$thumb = imagecreatetruecolor($newsize, $newsize);
-	imagecopyresampled($thumb, $img, 0, 0, 0, 0, $newsize, $newsize, $oldsize, $oldsize);
-	// you may want to run the processed png-images through something like png-gauntlet to optimize
-	imagepng($thumb, $path.'.png', 9);
-#	imagejpeg($thumb, $path.'.jpg', 85);
-	imagedestroy($thumb);
-}
-
-
-
-
