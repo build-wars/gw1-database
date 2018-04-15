@@ -16,7 +16,7 @@ use chillerlan\GW1DB\Template\SkillTemplate;
 
 class SkillTemplateTest extends TemplateTestAbstract{
 
-	public function testStuff(){
+	public function testDecodeEncode(){
 		$templateInterface   = new SkillTemplate;
 		$tpl = 'OQdCA8wkpTeGbji4b2PwDAPF';
 

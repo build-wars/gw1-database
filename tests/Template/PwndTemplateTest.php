@@ -16,7 +16,7 @@ use chillerlan\GW1DB\Template\PwndTemplate;
 
 class PwndTemplateTest extends TemplateTestAbstract{
 
-	public function testStuff(){
+	public function testDecodeEncode(){
 		$templateInterface = new PwndTemplate;
 
 		$tpl = 'pwnd0000?PwndTemplate https://github.com/codemasher/gw1-database	
