@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `gw1_skilldata` (
   `profession`     TINYINT(2)             NOT NULL DEFAULT '0',
   `attribute`      TINYINT(2)             NOT NULL DEFAULT '0',
   `elite`          TINYINT(1) UNSIGNED    NOT NULL DEFAULT '0',
-  `pve`            TINYINT(1) UNSIGNED    NOT NULL DEFAULT '0',
+  `pve_only`       TINYINT(1) UNSIGNED    NOT NULL DEFAULT '0',
   `pvp_split`      TINYINT(1) UNSIGNED    NOT NULL DEFAULT '0',
   `pve_type`       TINYINT(2) UNSIGNED    NOT NULL DEFAULT '0',
   `pve_upkeep`     TINYINT(1)             NOT NULL DEFAULT '0',
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `gw1_skilldata` (
   COLLATE = utf8mb4_bin;
 
 
-INSERT INTO `gw1_skilldata` (`id`, `campaign`, `profession`, `attribute`, `elite`, `pve`, `pvp_split`, `pve_type`, `pve_upkeep`, `pve_energy`, `pve_activation`, `pve_recharge`, `pve_adrenaline`, `pve_sacrifice`, `pve_overcast`, `pvp_type`, `pvp_upkeep`, `pvp_energy`, `pvp_activation`, `pvp_recharge`, `pvp_adrenaline`, `pvp_sacrifice`, `pvp_overcast`)
+INSERT INTO `gw1_skilldata` (`id`, `campaign`, `profession`, `attribute`, `elite`, `pve_only`, `pvp_split`, `pve_type`, `pve_upkeep`, `pve_energy`, `pve_activation`, `pve_recharge`, `pve_adrenaline`, `pve_sacrifice`, `pve_overcast`, `pvp_type`, `pvp_upkeep`, `pvp_energy`, `pvp_activation`, `pvp_recharge`, `pvp_adrenaline`, `pvp_sacrifice`, `pvp_overcast`)
 VALUES
   (0, 0, 0, -1, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0, 0, 0, 0, '0.00', 0, 0, 0, 0),
   (1, 0, 1, 21, 0, 0, 0, 21, 0, 0, '2.00', 4, 0, 0, 0, 21, 0, 0, '2.00', 4, 0, 0, 0),
@@ -612,7 +612,7 @@ VALUES
   (904, 2, 1, 18, 0, 0, 0, 4, 0, 5, '0.00', 6, 0, 0, 0, 4, 0, 5, '0.00', 6, 0, 0, 0),
   (905, 2, 1, 19, 0, 0, 0, 8, 0, 0, '0.00', 0, 5, 0, 0, 8, 0, 0, '0.00', 0, 5, 0, 0),
   (906, 2, 1, -1, 0, 0, 0, 20, 0, 0, '0.00', 0, 6, 0, 0, 20, 0, 0, '0.00', 0, 6, 0, 0);
-INSERT INTO `gw1_skilldata` (`id`, `campaign`, `profession`, `attribute`, `elite`, `pve`, `pvp_split`, `pve_type`, `pve_upkeep`, `pve_energy`, `pve_activation`, `pve_recharge`, `pve_adrenaline`, `pve_sacrifice`, `pve_overcast`, `pvp_type`, `pvp_upkeep`, `pvp_energy`, `pvp_activation`, `pvp_recharge`, `pvp_adrenaline`, `pvp_sacrifice`, `pvp_overcast`)
+INSERT INTO `gw1_skilldata` (`id`, `campaign`, `profession`, `attribute`, `elite`, `pve_only`, `pvp_split`, `pve_type`, `pve_upkeep`, `pve_energy`, `pve_activation`, `pve_recharge`, `pve_adrenaline`, `pve_sacrifice`, `pve_overcast`, `pvp_type`, `pvp_upkeep`, `pvp_energy`, `pvp_activation`, `pvp_recharge`, `pvp_adrenaline`, `pvp_sacrifice`, `pvp_overcast`)
 VALUES
   (907, 2, 1, 20, 1, 0, 0, 10, 0, 0, '0.00', 0, 10, 0, 0, 10, 0, 0, '0.00', 0, 10, 0, 0),
   (908, 2, 2, 25, 0, 0, 0, 2, 0, 10, '0.00', 6, 0, 0, 0, 2, 0, 10, '0.00', 6, 0, 0, 0),
@@ -1187,7 +1187,7 @@ VALUES
   (1988, 4, 7, 29, 0, 0, 0, 6, 0, 5, '0.00', 4, 0, 0, 0, 6, 0, 5, '0.00', 4, 0, 0, 0),
   (1990, 4, 7, 29, 0, 0, 0, 6, 0, 5, '0.00', 12, 0, 0, 0, 6, 0, 5, '0.00', 12, 0, 0, 0),
   (1991, 4, 7, 30, 0, 0, 0, 21, 0, 0, '1.00', 8, 0, 0, 0, 21, 0, 0, '1.00', 8, 0, 0, 0);
-INSERT INTO `gw1_skilldata` (`id`, `campaign`, `profession`, `attribute`, `elite`, `pve`, `pvp_split`, `pve_type`, `pve_upkeep`, `pve_energy`, `pve_activation`, `pve_recharge`, `pve_adrenaline`, `pve_sacrifice`, `pve_overcast`, `pvp_type`, `pvp_upkeep`, `pvp_energy`, `pvp_activation`, `pvp_recharge`, `pvp_adrenaline`, `pvp_sacrifice`, `pvp_overcast`)
+INSERT INTO `gw1_skilldata` (`id`, `campaign`, `profession`, `attribute`, `elite`, `pve_only`, `pvp_split`, `pve_type`, `pve_upkeep`, `pve_energy`, `pve_activation`, `pve_recharge`, `pve_adrenaline`, `pve_sacrifice`, `pve_overcast`, `pvp_type`, `pvp_upkeep`, `pvp_energy`, `pvp_activation`, `pvp_recharge`, `pvp_adrenaline`, `pvp_sacrifice`, `pvp_overcast`)
 VALUES
   (1992, 4, 5, 2, 0, 0, 0, 21, 0, 0, '0.25', 15, 0, 0, 0, 21, 0, 0, '0.25', 15, 0, 0, 0),
   (1993, 4, 5, 3, 0, 0, 0, 21, 0, 0, '1.00', 20, 0, 0, 0, 21, 0, 0, '1.00', 20, 0, 0, 0),
