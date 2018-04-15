@@ -12,11 +12,15 @@ namespace chillerlan\GW1DBBuild;
 use chillerlan\Database\{
 	Database, DatabaseOptionsTrait, Drivers\MySQLiDrv
 };
+use chillerlan\HTTP\TinyCurlClient;
 use chillerlan\Logger\Log;
 use chillerlan\Logger\LogOptionsTrait;
 use chillerlan\Logger\Output\ConsoleLog;
 use chillerlan\SimpleCache\Cache;
 use chillerlan\SimpleCache\Drivers\MemoryCacheDriver;
+use chillerlan\TinyCurl\Request;
+use chillerlan\TinyCurl\RequestOptions;
+use chillerlan\TinyCurl\RequestOptionsTrait;
 use chillerlan\Traits\{
 	ContainerAbstract, DotEnv
 };
@@ -39,12 +43,15 @@ $o = [
 	'database'    => $env->DB_DATABASE,
 	'username'    => $env->DB_USERNAME,
 	'password'    => $env->DB_PASSWORD,
-	// log
+	// RequestOptions
+	'ca_info'     => DIR_CFG.'/cacert.pem',
+	'user_agent'  => 'GW1DB/1.0.0 +https://github.com/codemasher/gw1-database',
+	// LogOptions
 	'minLogLevel' => 'debug',
 ];
 
 $options = new class($o) extends ContainerAbstract{
-	use DatabaseOptionsTrait, LogOptionsTrait;
+	use DatabaseOptionsTrait, RequestOptionsTrait, LogOptionsTrait;
 
 	// ...
 };
@@ -52,7 +59,8 @@ $options = new class($o) extends ContainerAbstract{
 $logger = new Log;
 $logger->addInstance(new ConsoleLog($options), 'console');
 
+$http  = new TinyCurlClient($options, new Request($options));
 $cache = new Cache(new MemoryCacheDriver);
+$db    = new Database($options, $cache, $logger);
 
-$db = new Database($options, $cache, $logger);
 $db->connect();
