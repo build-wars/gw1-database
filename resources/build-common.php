@@ -13,21 +13,22 @@ use chillerlan\Database\{
 	Database, DatabaseOptionsTrait, Drivers\MySQLiDrv
 };
 use chillerlan\HTTP\TinyCurlClient;
-use chillerlan\Logger\Log;
-use chillerlan\Logger\LogOptionsTrait;
-use chillerlan\Logger\Output\ConsoleLog;
-use chillerlan\SimpleCache\Cache;
-use chillerlan\SimpleCache\Drivers\MemoryCacheDriver;
-use chillerlan\TinyCurl\Request;
-use chillerlan\TinyCurl\RequestOptions;
-use chillerlan\TinyCurl\RequestOptionsTrait;
+use chillerlan\Logger\{
+	Log, LogOptionsTrait, Output\ConsoleLog
+};
+use chillerlan\SimpleCache\{
+	Cache, Drivers\MemoryCacheDriver
+};
+use chillerlan\TinyCurl\{
+	Request, RequestOptionsTrait
+};
 use chillerlan\Traits\{
 	ContainerAbstract, DotEnv
 };
 
 mb_internal_encoding('UTF-8');
 
-const DIR_CFG = __DIR__.'/../config';
+const DIR_CFG  = __DIR__.'/../config';
 const DIR_JSON = __DIR__.'/json';
 
 require_once __DIR__.'/../vendor/autoload.php';
@@ -53,7 +54,6 @@ $o = [
 $options = new class($o) extends ContainerAbstract{
 	use DatabaseOptionsTrait, RequestOptionsTrait, LogOptionsTrait;
 
-	// ...
 };
 
 $logger = new Log;
