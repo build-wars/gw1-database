@@ -99,4 +99,4 @@ $db->select
 	})
 ;
 
-exit;
+### script end ###

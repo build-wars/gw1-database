@@ -34,13 +34,17 @@ $db->select
 		/** @var \chillerlan\Database\ResultInterface $skill */
 		$skill = $skill->__toArray();
 
-		foreach(['id', 'campaign', 'profession', 'attribute', 'elite', 'pve_only', 'pvp_split'] as  $p){
+		$s = [];
+
+		foreach(['id', 'campaign', 'profession', 'attribute', 'elite', 'pve_only', 'pvp_split'] as $prop){
 			/** @var array $skill */
-			$s[$p] = (int)array_shift($skill);
+			$s[$prop] = $skill->{$prop};
+
+			unset($skill->{$prop});
 		}
 
 		// @todo
-	#	$s['image'] ='data:image/png;base64,'.base64_encode(file_get_contents(__DIR__.'/img/skills/64/'.$id.'.png'));
+		$s['image'] ='data:image/png;base64,'.base64_encode(file_get_contents(__DIR__.'/img/skills/64/'.$id.'.png'));
 
 		foreach($skill as $n => $k){
 			$n = explode('_', $n, 2);
@@ -68,4 +72,6 @@ $db->select
 	})
 ;
 
-exit;
+unset($lang);
+
+### script end ###
