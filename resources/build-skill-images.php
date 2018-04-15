@@ -52,7 +52,7 @@ $db->select
 		'professions' => TABLE_PROFESSIONS,
 	])
 	->where('skilldata.profession', 0, '!=')
-	->where('skilldata.pve', 0)
+	->where('skilldata.pve_only', 0)
 	->where('skilldesc.id', 'skilldata.id', '=', false)
 	->where('professions.id', 'skilldata.profession', '=', false)
 	->orderBy([
