@@ -34,10 +34,9 @@ foreach(['en'] as $lang){ //'de',
 		$values = [
 			'pve_desc_short' => call_user_func(__NAMESPACE__.'\\get_short_desc_'.$lang, $skill['pve_name'], $skill['id']),
 			'pvp_desc_short' => !empty($skill['pvp_name']) ? call_user_func(__NAMESPACE__.'\\get_short_desc_'.$lang, $skill['pvp_name'], $skill['id']) : '',
-			'id'             => $skill['id']
 		];
 
-		$db->update->table($desc_table)->set($values)->query();
+		$db->update->table($desc_table)->set($values)->where('id', $skill['id'])->query();
 		$logger->info($values['pve_desc_short']);
 
 		if(!empty($values['pvp_desc_short'])){
@@ -112,7 +111,7 @@ function get_short_desc_de($skill, $id){
 	// fix for pve faction skills
 	$skill = $skill === 'Schattenzuflucht (Kurzick)' || $skill === 'Schattenzuflucht (Luxon)' ? 'Schattenzuflucht (Rollenspiel-Fertigkeit)' : $skill;
 	$skill = preg_replace('/(\s\((Kurzick|Luxon)\))/', '', $skill);
-#	$page = $skill === 'Spare in der Zeit ...' ? 'pageids=28801' : 'titles='.rawurlencode($skill);
+
 	// get the page content
 	$p = [
 		'format' => 'json',
