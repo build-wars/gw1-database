@@ -38,9 +38,9 @@ $db->select
 
 		foreach(['id', 'campaign', 'profession', 'attribute', 'elite', 'pve_only', 'pvp_split'] as $prop){
 			/** @var array $skill */
-			$s[$prop] = $skill->{$prop};
+			$s[$prop] = $skill[$prop];
 
-			unset($skill->{$prop});
+			unset($skill[$prop]);
 		}
 
 		// @todo

@@ -170,7 +170,7 @@ $db->truncate->table(TABLE_SKILLDATA)->query();
 $db->insert->into(TABLE_SKILLDATA)->values($values)->multi();
 $db->raw('OPTIMIZE TABLE '.TABLE_SKILLDATA);
 
-file_put_contents(DIR_JSON.'/db_create/'.TABLE_SKILLDATA.'.json', json_encode($values, JSON_PRETTY_PRINT));
+#file_put_contents(DIR_JSON.'/'.TABLE_SKILLDATA.'.json', json_encode($values, JSON_PRETTY_PRINT));
 
 $logger->info('created table: '.TABLE_SKILLDATA);
 
