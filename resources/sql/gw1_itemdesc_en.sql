@@ -1,11 +1,9 @@
 CREATE TABLE IF NOT EXISTS `gw1_itemdesc_en` (
 	`id`        SMALLINT(3) UNSIGNED NOT NULL,
-	`name`      TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
-	`wiki`      TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
-	`type`      ENUM('Axe', 'Legs Armor', 'Bow', 'Chest Armor', 'Daggers', 'Focus Item', 'Footwear', 'Hammer', 'Hands Armor', 'Headgear', 'Shield', 'Sword', 'Scythe', 'Spear', 'Staff', 'Wand')
-	            COLLATE utf8mb4_bin  NOT NULL,
-	`base_type` ENUM('-', 'Lightning Dmg', 'Chaos Dmg', 'Dark Dmg', 'Energy', 'Earth Dmg', 'Fire Dmg', 'Slashing Dmg', 'Cold Dmg', 'Armor', 'Holy Dmg', 'Piercing Dmg', 'Blunt Dmg', 'Water Dmg')
-	            COLLATE utf8mb4_bin  NOT NULL DEFAULT '-',
+	`name`      TINYTEXT             NOT NULL,
+	`wiki`      TINYTEXT             NOT NULL,
+	`type`      ENUM('Axe', 'Legs Armor', 'Bow', 'Chest Armor', 'Daggers', 'Focus Item', 'Footwear', 'Hammer', 'Hands Armor', 'Headgear', 'Shield', 'Sword', 'Scythe', 'Spear', 'Staff', 'Wand') NOT NULL,
+	`base_type` ENUM('-', 'Lightning Dmg', 'Chaos Dmg', 'Dark Dmg', 'Energy', 'Earth Dmg', 'Fire Dmg', 'Slashing Dmg', 'Cold Dmg', 'Armor', 'Holy Dmg', 'Piercing Dmg', 'Blunt Dmg', 'Water Dmg') NOT NULL DEFAULT '-',
 	PRIMARY KEY (`id`)
 )
 	ENGINE = InnoDB

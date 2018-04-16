@@ -1,38 +1,22 @@
 CREATE TABLE IF NOT EXISTS `gw1_professions` (
   `id`       TINYINT(2)          NOT NULL,
-  `name_de`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `name_en`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `abbr_de`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `abbr_en`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `desc_de`  TEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `desc_en`  TEXT
-             COLLATE utf8mb4_bin NOT NULL,
+  `name_de`  TINYTEXT            NOT NULL,
+  `name_en`  TINYTEXT            NOT NULL,
+  `abbr_de`  TINYTEXT            NOT NULL,
+  `abbr_en`  TINYTEXT            NOT NULL,
+  `desc_de`  TEXT                NOT NULL,
+  `desc_en`  TEXT                NOT NULL,
   `armor`    TINYINT(2) UNSIGNED NOT NULL DEFAULT '0',
-  `bonus_de` TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `bonus_en` TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `chest_de` TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `chest_en` TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `hand_de`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `hand_en`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `leg_de`   TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `leg_en`   TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `foot_de`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
-  `foot_en`  TINYTEXT
-             COLLATE utf8mb4_bin NOT NULL,
+  `bonus_de` TINYTEXT            NOT NULL,
+  `bonus_en` TINYTEXT            NOT NULL,
+  `chest_de` TINYTEXT            NOT NULL,
+  `chest_en` TINYTEXT            NOT NULL,
+  `hand_de`  TINYTEXT            NOT NULL,
+  `hand_en`  TINYTEXT            NOT NULL,
+  `leg_de`   TINYTEXT            NOT NULL,
+  `leg_en`   TINYTEXT            NOT NULL,
+  `foot_de`  TINYTEXT            NOT NULL,
+  `foot_en`  TINYTEXT            NOT NULL,
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB

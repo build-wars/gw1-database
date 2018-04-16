@@ -1,23 +1,16 @@
 CREATE TABLE IF NOT EXISTS `gw1_skilldesc_en` (
   `id`             SMALLINT(4) UNSIGNED NOT NULL,
-  `pve_name`       TINYTEXT
-                   COLLATE utf8mb4_bin  NOT NULL,
-  `pve_desc`       TEXT
-                   COLLATE utf8mb4_bin  NOT NULL,
-  `pve_desc_short` TEXT
-                   COLLATE utf8mb4_bin  NOT NULL,
-  `pvp_name`       TINYTEXT
-                   COLLATE utf8mb4_bin  NOT NULL,
-  `pvp_desc`       TEXT
-                   COLLATE utf8mb4_bin  NOT NULL,
-  `pvp_desc_short` TEXT
-                   COLLATE utf8mb4_bin  NOT NULL,
+  `pve_name`       TINYTEXT             NOT NULL,
+  `pve_desc`       TEXT                 NOT NULL,
+  `pve_desc_short` TEXT                 NOT NULL,
+  `pvp_name`       TINYTEXT             NOT NULL,
+  `pvp_desc`       TEXT                 NOT NULL,
+  `pvp_desc_short` TEXT                 NOT NULL,
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_bin;
-
 
 INSERT INTO `gw1_skilldesc_en` (`id`, `pve_name`, `pve_desc`, `pve_desc_short`, `pvp_name`, `pvp_desc`, `pvp_desc_short`) VALUES
   (0, '', '', '', '', '', ''),

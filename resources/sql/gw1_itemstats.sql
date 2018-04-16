@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `gw1_itemstats` (
 	`profession`   TINYINT(2)  UNSIGNED NOT NULL DEFAULT '0',
 	`attribute`    TINYINT(2)           NOT NULL DEFAULT '-1',
 	`mods`         TINYINT(1)  UNSIGNED NOT NULL DEFAULT '0',
-	`base_value`   ENUM('-', '+12', '16', '6-28', '7-17', '9-41', '11-22', '14-27', '15-22', '15-28', '19-35') COLLATE utf8mb4_bin  NOT NULL DEFAULT '-',
+	`base_value`   ENUM('-', '+12', '16', '6-28', '7-17', '9-41', '11-22', '14-27', '15-22', '15-28', '19-35') NOT NULL DEFAULT '-',
 	PRIMARY KEY (`id`)
 )
 	ENGINE = InnoDB

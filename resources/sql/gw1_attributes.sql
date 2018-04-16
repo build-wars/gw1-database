@@ -1,15 +1,10 @@
 CREATE TABLE IF NOT EXISTS `gw1_attributes` (
   `id`         TINYINT(2)          NOT NULL,
-  `name_de`    TINYTEXT
-               COLLATE utf8mb4_bin NOT NULL,
-  `name_en`    TINYTEXT
-               COLLATE utf8mb4_bin NOT NULL,
-  `desc_de`    TEXT
-               COLLATE utf8mb4_bin NOT NULL,
-  `desc_en`    TEXT
-               COLLATE utf8mb4_bin NOT NULL,
-  `abbr`       TINYTEXT
-               COLLATE utf8mb4_bin NOT NULL,
+  `name_de`    TINYTEXT            NOT NULL,
+  `name_en`    TINYTEXT            NOT NULL,
+  `desc_de`    TEXT                NOT NULL,
+  `desc_en`    TEXT                NOT NULL,
+  `abbr`       TINYTEXT            NOT NULL,
   `primary`    TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
   `max`        TINYINT(2) UNSIGNED NOT NULL DEFAULT '21',
   `profession` TINYINT(2) UNSIGNED NOT NULL DEFAULT '0',

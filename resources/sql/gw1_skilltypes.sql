@@ -1,11 +1,8 @@
 CREATE TABLE IF NOT EXISTS `gw1_skilltypes` (
-  `id`      TINYINT(2)          NOT NULL,
-  `name_de` TINYTEXT
-            COLLATE utf8mb4_bin NOT NULL,
-  `name_en` TINYTEXT
-            COLLATE utf8mb4_bin NOT NULL,
-  `abbr`    TINYTEXT
-            COLLATE utf8mb4_bin NOT NULL,
+  `id`      TINYINT(2) NOT NULL,
+  `name_de` TINYTEXT   NOT NULL,
+  `name_en` TINYTEXT   NOT NULL,
+  `abbr`    TINYTEXT   NOT NULL,
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB

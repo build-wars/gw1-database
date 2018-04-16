@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS `gw1_modifierdesc_en` (
 	`id`      SMALLINT(3) UNSIGNED NOT NULL,
-	`name`    TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
-	`desc`    TEXT COLLATE utf8mb4_bin  NOT NULL,
-	`base`    TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
-	`ext`     TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
+	`name`    TINYTEXT             NOT NULL,
+	`desc`    TEXT                 NOT NULL,
+	`base`    TINYTEXT             NOT NULL,
+	`ext`     TINYTEXT             NOT NULL,
 	PRIMARY KEY (`id`)
 )
 	ENGINE = InnoDB

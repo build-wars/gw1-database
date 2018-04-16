@@ -1,9 +1,7 @@
 CREATE TABLE IF NOT EXISTS `gw1_campaigns` (
   `id`      TINYINT(1) UNSIGNED NOT NULL,
-  `name_de` TINYTEXT
-            COLLATE utf8mb4_bin NOT NULL,
-  `name_en` TINYTEXT
-            COLLATE utf8mb4_bin NOT NULL,
+  `name_de` TINYTEXT            NOT NULL,
+  `name_en` TINYTEXT            NOT NULL,
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB

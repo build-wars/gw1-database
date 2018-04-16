@@ -1,11 +1,9 @@
 CREATE TABLE IF NOT EXISTS `gw1_itemdesc_de` (
 	`id`        SMALLINT(3) UNSIGNED NOT NULL,
-	`name`      TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
-	`wiki`      TINYTEXT COLLATE utf8mb4_bin  NOT NULL,
-	`type`      ENUM('Axt', 'Beine', 'Bogen', 'Brust', 'Dolche', 'Fokus', 'Füße', 'Hammer', 'Hände', 'Kopf', 'Schild', 'Schwert', 'Sense', 'Speer', 'Stab', 'Zauberstab')
-	            COLLATE utf8mb4_bin  NOT NULL,
-	`base_type` ENUM('-', 'Blitz-Schaden', 'Chaos-Schaden', 'Dunkel-Schaden', 'Energie', 'Erd-Schaden', 'Feuer-Schaden', 'Hieb-Schaden', 'Kälte-Schaden', 'Rüstung', 'Sakral-Schaden', 'Stich-Schaden', 'Stumpf-Schaden')
-	            COLLATE utf8mb4_bin  NOT NULL DEFAULT '-',
+	`name`      TINYTEXT             NOT NULL,
+	`wiki`      TINYTEXT             NOT NULL,
+	`type`      ENUM('Axt', 'Beine', 'Bogen', 'Brust', 'Dolche', 'Fokus', 'Füße', 'Hammer', 'Hände', 'Kopf', 'Schild', 'Schwert', 'Sense', 'Speer', 'Stab', 'Zauberstab') NOT NULL,
+	`base_type` ENUM('-', 'Blitz-Schaden', 'Chaos-Schaden', 'Dunkel-Schaden', 'Energie', 'Erd-Schaden', 'Feuer-Schaden', 'Hieb-Schaden', 'Kälte-Schaden', 'Rüstung', 'Sakral-Schaden', 'Stich-Schaden', 'Stumpf-Schaden') NOT NULL DEFAULT '-',
 	PRIMARY KEY (`id`)
 )
 	ENGINE = InnoDB

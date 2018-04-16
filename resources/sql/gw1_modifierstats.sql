@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `gw1_modifierstats` (
 	`id`         SMALLINT(3) UNSIGNED NOT NULL,
-	`profession` TINYINT(2) UNSIGNED  NOT NULL DEFAULT '0',
-	`type`       ENUM('insignia', 'minor', 'major', 'superior', 'prefix', 'suffix', 'inscription') COLLATE utf8mb4_bin  NOT NULL,
+	`profession` TINYINT(2)  UNSIGNED NOT NULL DEFAULT '0',
+	`type`       ENUM('insignia', 'minor', 'major', 'superior', 'prefix', 'suffix', 'inscription') NOT NULL,
 	`img_id`     SMALLINT(4) UNSIGNED NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`)
 )
