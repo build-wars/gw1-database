@@ -298,7 +298,7 @@ INSERT INTO `gw1_modifierdesc_de` (`id`, `name`, `desc`, `base`, `ext`) VALUES
 	(287, 'Inschrift: "Tanz mit dem Tod"', 'Schaden +15% (bei Haltung)', 'Waffen', ''),
 	(288, 'Inschrift: "Körper über Geist"', 'Schaden +15%|Energie -5', 'Waffen', ''),
 	(289, 'Inschrift: "Fühlt den Schmerz!"', 'Schaden +15%|Rüstung -10 (beim Angriff)', 'Waffen', ''),
-	(290, 'Überlebende Befähigung', '%s Lebenspunkte +15 (bei Brustrüstung)|Lebenspunkte +10 (bei Beinrüstung)|Lebenspunkte +5 (bei anderer Rüstung)|||Lebenspunkte +15||Lebenspunkte +10||Lebenspunkte +5', 'Rüstung', 'Überlebende %s'),
+	(290, 'Überlebende Befähigung', '%s Lebenspunkte +15 (bei Brustrüstung)|Lebenspunkte +10 (bei Beinrüstung)|Lebenspunkte +5 (bei anderer Rüstung)|||Lebenspunkte +15||Lebenspunkte +10||Lebenspunkte +5', 'Rüstung', 'Überlebende'),
 	(291, 'Radianten-Befähigung', '%s Energie +3 (bei Brustrüstung)|Energie +2 (bei Beinrüstung)|Energie +1 (bei anderer Rüstung)|||Energie +3||Energie +2||Energie +1', 'Rüstung', 'Radianten'),
 	(292, 'Entschlossenheits-Befähigung', 'Rüstung +10 (gg. körperlichen Schaden)', 'Rüstung', 'Entschlossenheits'),
 	(293, 'Raufbold-Befähigung', 'Rüstung +10 (beim Angriff)', 'Rüstung', 'Raufbold'),
