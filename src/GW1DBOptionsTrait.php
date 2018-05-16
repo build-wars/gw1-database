@@ -19,4 +19,9 @@ trait GW1DBOptionsTrait{
 	 */
 	protected $language = 'en'; // bork bork bork!
 
+	/**
+	 * @var string
+	 */
+	protected $gwdbURL = './gwdb';
+
 }
