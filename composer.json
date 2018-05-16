@@ -23,6 +23,7 @@
 		"chillerlan/php-log": "^1.0",
 		"chillerlan/php-cache": "^1.0",
 		"chillerlan/php-database": "^2.0",
+		"chillerlan/php-bbcode": "dev-master",
 		"phpunit/phpunit": "^7.1"
 	},
 	"autoload": {

@@ -3,3 +3,4 @@ vendor
 config/.env
 composer.lock
 _stuff
+img/*
