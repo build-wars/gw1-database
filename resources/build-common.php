@@ -12,15 +12,14 @@ namespace chillerlan\GW1DBBuild;
 use chillerlan\Database\{
 	Database, DatabaseOptionsTrait, Drivers\MySQLiDrv
 };
-use chillerlan\HTTP\TinyCurlClient;
+use chillerlan\HTTP\{
+	CurlClient, HTTPOptionsTrait
+};
 use chillerlan\Logger\{
 	Log, LogOptionsTrait, Output\ConsoleLog
 };
 use chillerlan\SimpleCache\{
 	Cache, Drivers\MemoryCacheDriver
-};
-use chillerlan\TinyCurl\{
-	Request, RequestOptionsTrait
 };
 use chillerlan\Traits\{
 	ContainerAbstract, DotEnv
@@ -28,8 +27,12 @@ use chillerlan\Traits\{
 
 mb_internal_encoding('UTF-8');
 
-const DIR_CFG  = __DIR__.'/../config';
-const DIR_JSON = __DIR__.'/json';
+const DIR_CFG       = __DIR__.'/../config';
+const DIR_JSON      = __DIR__.'/../public/gwdb/json';
+const DIR_IMG       = __DIR__.'/../public/gwdb/img';
+const SKILLIMG_ORIG = __DIR__.'/img/skills/original';
+
+const LANGUAGES     = ['de', 'en'];//, 'fr'
 
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -52,14 +55,14 @@ $o = [
 ];
 
 $options = new class($o) extends ContainerAbstract{
-	use DatabaseOptionsTrait, RequestOptionsTrait, LogOptionsTrait;
+	use DatabaseOptionsTrait, HTTPOptionsTrait, LogOptionsTrait;
 
 };
 
 $logger = new Log;
 $logger->addInstance(new ConsoleLog($options), 'console');
 
-$http  = new TinyCurlClient($options, new Request($options));
+$http  = new CurlClient($options);
 $cache = new Cache(new MemoryCacheDriver);
 $db    = new Database($options, $cache, $logger);
 
