@@ -1,0 +1,443 @@
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,500,600,700,400italic,500italic,600italic,700italic);
+
+html{
+	font-size:  16px;
+	height:     100%;
+	/*		background: #e0caac;*/
+	background: #11151c;
+	color:      #eeeeee;
+}
+
+body{
+	font:    normal 100%/1.25 'Exo 2', sans-serif;
+	margin:  1em;
+	padding: 0;
+}
+
+/** skills icons, text links **/
+.gwbb-skill, .gwbb-link{
+	cursor: pointer;
+}
+
+/** inline skill icons **/
+img.gwbb-skill{
+	width:          22px;
+	height:         auto;
+	vertical-align: middle;
+	border:         1px solid;
+	padding:        1px;
+	border-radius:  3px;
+	margin:         2px;
+	transition:     transform 0.25s;
+}
+
+img.gwbb-skill.huge{
+	width:         256px;
+	border:        3px solid;
+	padding:       2px;
+	border-radius: 10px;
+	margin:        2px;
+	transition:    transform 0.25s;
+}
+
+/* hover effect on icons */
+.gwbb-skill:hover{
+	transform: scale(1.1);
+}
+
+.gwbb-skill.huge:hover{
+	transform: scale(1.02);
+}
+
+/* skill name on text links */
+.gwbb-link{
+	font-weight: 500;
+}
+
+/* misc icons */
+.gwbb-icon{
+	width:             24px;
+	height:            24px;
+	background-size:   24px 24px;
+	margin:            2px;
+	background-origin: content-box;
+	background-repeat: no-repeat;
+}
+
+/* @todo */
+.gwbb-icon.save{
+	background-image: url(https://smiley.codes/gwdb/img/misc/save.png);
+}
+
+/* @todo */
+.gwbb-icon.pwnd{
+	background-image: url(https://smiley.codes/gwdb/img/misc/pwnd.png);
+}
+
+/** builds **/
+.gwbb-build{
+	display:       inline-block;
+	border:        1px solid;
+	border-radius: 4px;
+	padding:       0.25em;
+	background:    #191d24;
+	width:         fit-content;
+	margin:        5px;
+}
+
+.gwbb-build > .info{
+	padding: 0 1em 0.25em 0.5em;
+}
+
+.gwbb-build > .info > span.name{
+	font-size:   110%;
+	font-weight: 600;
+}
+
+.gwbb-build > .skillbar{
+}
+
+.gwbb-build > .skillbar > .professions, .gwbb-build > .skillbar > .buttons{
+	display:  inline-block;
+	overflow: hidden;
+}
+
+.gwbb-build > .skillbar > .professions{
+	width:  48px;
+	height: 48px;
+}
+
+.gwbb-build > .skillbar > .buttons{
+	margin-top: 2px;
+	width:      22px;
+	height:     44px;
+}
+
+.gwbb-build > .skillbar > .buttons > .gwbb-icon{
+	width:           16px;
+	height:          16px;
+	background-size: 16px 16px;
+	margin:          0 2px 1px 4px;
+}
+
+.gwbb-build > .skillbar > .professions > img.pri{
+	width:  48px;
+	height: auto;
+}
+
+.gwbb-build > .skillbar > .professions > img.sec{
+	position: relative;
+	width:    24px;
+	height:   auto;
+	bottom:   24px;
+	left:     24px;
+}
+
+.gwbb-build > .skillbar > img.gwbb-skill{
+	border:         1px solid;
+	border-radius:  6px;
+	width:          48px;
+	height:         auto;
+	vertical-align: top;
+}
+
+/** pwnd teambuilds **/
+.gwbb-pwnd{
+	display:       inline-block;
+	border:        2px solid #424242;
+	border-radius: 4px;
+	background:    #14171e;
+	padding:       5px;
+	width:         fit-content;
+}
+
+.gwbb-pwnd > .gwbb-build{
+	display:    block;
+	border:     none;
+	background: none;
+	margin:     0;
+	/*	height:     48px;*/
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar{
+	margin: 0;
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar > .buttons{
+	height: 32px;
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar > .buttons > .gwbb-icon{
+	width:           10px;
+	height:          10px;
+	background-size: 10px 10px;
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar > .professions{
+	width:  32px;
+	height: 32px;
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar > .professions > img.pri{
+	width:  32px;
+	height: auto;
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar > .professions > img.sec{
+	width:  20px;
+	height: auto;
+	bottom: 22px;
+	left:   14px;
+}
+
+.gwbb-pwnd > .gwbb-build > .skillbar > img.gwbb-skill{
+	border:         1px solid;
+	border-radius:  4px;
+	width:          32px;
+	height:         auto;
+	vertical-align: top;
+}
+
+/** tooltips **/
+
+/* cache-container class - these should stay invisible at all times */
+.gwbb-tooltip-cache{
+	display:    none !important;
+	visibility: hidden !important;
+	width:      0 !important;
+	height:     0 !important;
+	margin:     0.25em 0; /* test */
+}
+
+/* the main tooltip container - the thing that moves on the screen */
+#gwbb-tooltip{
+	min-height:    32px;
+	height:        fit-content;
+	background:    rgba(0, 0, 0, 0.8);
+	border-radius: 9px;
+	border:        1px solid rgba(0, 0, 0, 0.8);
+	color:         #eeeeee;
+	padding:       2px;
+}
+
+/* the main content box */
+.gwbb-tooltip-inner{
+	width:         495px;
+	min-height:    64px;
+	border-radius: 6px;
+	border:        1px solid;
+	padding:       5px 3px 5px 5px;
+}
+
+.gwbb-tooltip-footer{
+	min-height:  16px;
+	padding:     0 0.5em;
+	margin-top:  0.5em;
+	font-size:   75%;
+	font-weight: 400;
+}
+
+/** skill tooltips **/
+.gwbb-tooltip-inner .gwbb-skill{
+	width:             64px;
+	height:            64px;
+	border:            2px solid;
+	border-radius:     7px;
+	margin:            0.25em;
+	vertical-align:    top;
+	padding:           1px;
+	background-origin: content-box;
+	background-repeat: no-repeat;
+}
+
+/* icon container */
+.gwbb-tooltip-skill-img{
+	display:        inline-block;
+	width:          80px;
+	vertical-align: top;
+}
+
+.gwbb-tooltip-img{
+	width:         64px;
+	height:        64px;
+	border-radius: 4px;
+}
+
+.gwbb-tooltip-img-extra{
+	float:  right;
+	width:  14px;
+	height: auto;
+	margin: 0px 0px;
+}
+
+/* description container */
+.gwbb-tooltip-skill-desc{
+	display: inline-block;
+	width:   405px;
+	padding: 0 0.25em 0 0;
+	color:   #eeeeee;
+}
+
+/* progression container */
+.gwbb-tooltip-progression{
+	font-size:   10px;
+	font-weight: 400;
+	text-align:  center;
+	width:       490px;
+}
+
+.gwbb-tooltip-progression > table{
+	background: rgba(0, 0, 0, 0.3);
+	display:    inline-block;
+	width:      490px;
+	height:     auto;
+}
+
+.gwbb-tooltip-progression > table th, td{
+	vertical-align: middle;
+	width:          4.75%;
+	padding:        1px auto;
+}
+
+.gwbb-tooltip-progression > table .highlight{
+	font-weight:      600;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius:    2px;
+}
+
+.gwbb-tooltip-skill-desc .effect, .gwbb-tooltip-progression .effect{
+	color: #2cda2c;
+}
+
+/* skill name */
+.gwbb-tooltip-skill-desc h1{
+	margin:      0 0 0.25em;
+	font-size:   125%;
+	font-weight: 700;
+}
+
+/* energy/activation etc. text ... */
+.gwbb-tooltip-skill-desc h1 > span{
+	float:       right;
+	font-weight: 500;
+	font-size:   15px;
+	color:       #eeeeee;
+	margin-top:  0.3em;
+	margin-left: 0.5em;
+}
+
+/* ... and icons */
+.gwbb-tooltip-skill-desc h1 > span > img{
+	vertical-align: text-bottom;
+	width:          16px;
+	height:         16px;
+	margin:         0 0.2em
+}
+
+/* attribute name */
+.gwbb-tooltip-skill-desc h2{
+	margin:      0.25em 0;
+	font-size:   90%;
+	font-weight: 400;
+	color:       #aaaaaa;
+	font-style:  italic;
+}
+
+/* skill description */
+.gwbb-tooltip-skill-desc p{
+	margin:    0.25em 0 0.75em;
+	font-size: 90%;
+}
+
+.gwbb-tooltip-skill-desc p > i{
+	color:      #aaaaaa;
+	font-style: italic;
+}
+
+/** profession colors - dark background **/
+
+.none{
+	color:        #c0c0c0;
+	border-color: #c0c0c0;
+}
+
+.warrior{
+	color:        #eebb33;
+	border-color: #eebb33;
+}
+
+.ranger{
+	color:        #52a62a;
+	border-color: #52a62a;
+}
+
+.monk{
+	color:        #6699ee;
+	border-color: #6699ee;
+}
+
+.necromancer{
+	color:        #34d36d;
+	border-color: #34d36d;
+}
+
+.mesmer{
+	color:        #d44cc1;
+	border-color: #d44cc1;
+}
+
+.elementalist{
+	color:        #d83739;
+	border-color: #d83739;
+}
+
+.assassin{
+	color:        #ad57da;
+	border-color: #ad57da;
+}
+
+.ritualist{
+	color:        #67cbcb;
+	border-color: #67cbcb;
+}
+
+.paragon{
+	color:        #d88b64;
+	border-color: #d88b64;
+}
+
+.dervish{
+	color:        #9494c6;
+	border-color: #9494c6;
+}
+
+/** skills affected by primary attribute **/
+img.gwbb-skill.effect{
+	/*	background-color: #00e300;*/
+}
+
+/** elite skills **/
+.gwbb-skill.elite{
+	color: #ffd500;
+}
+
+img.gwbb-skill.elite, .gwbb-tooltip-skill-img > .gwbb-skill.elite{
+	background:   #ffd500;
+	border-color: #ffd500;
+}
+
+/** no skill **/
+img.gwbb-skill.noskill{
+	color:        #797b7c;
+	background:   #000000;
+	border-color: #797b7c;
+}
+
+/* @todo */
+
+/** attribute names on text links **/
+.gwbb-link > .attr{
+	font-size:   75%;
+	font-style:  italic;
+	font-weight: 400;
+}
