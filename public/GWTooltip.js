@@ -8,6 +8,8 @@
 
 'use strict';
 
+(o => {
+
 // https://jamie.build/const
 
 const LANGUAGES = ['de', 'en'];
@@ -268,13 +270,100 @@ class Helpers {
 		return false;
 	}
 
-	static round(number, precision){
-		let shift = (number, precision) =>{
-			let numArray = ('' + number).split('e');
-			return +(numArray[0] + 'e' + (numArray[1] ? (+numArray[1] + precision) : precision));
+	// http://locutus.io/php/round/
+	static round(value, precision, mode){
+		let m, f, isHalf, sgn; // helper variables
+		// making sure precision is integer
+		precision |= 0;
+		m      = Math.pow(10, precision);
+		value *= m;
+		// sign of the number
+		sgn    = (value > 0)| -(value < 0);
+		isHalf = value % 1 === 0.5 * sgn;
+		f      = Math.floor(value);
+
+		if(isHalf){
+			switch(mode){
+				case 'PHP_ROUND_HALF_DOWN':
+					// rounds .5 toward zero
+					value = f + (sgn < 0);
+					break;
+				case 'PHP_ROUND_HALF_EVEN':
+					// rouds .5 towards the next even integer
+					value = f + (f % 2 * sgn);
+					break;
+				case 'PHP_ROUND_HALF_ODD':
+					// rounds .5 towards the next odd integer
+					value = f + !(f % 2);
+					break;
+				default:
+					// rounds .5 away from zero
+					value = f + (sgn > 0);
+			}
+		}
+
+		return (isHalf ? value : Math.round(value)) / m;
+	}
+
+	// http://locutus.io/php/base64_encode/
+	static base64_encode(str){
+
+		// encodeUTF8string()
+		// Internal function to encode properly UTF8 string
+		// Adapted from Solution #1 at https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
+		let encodeUTF8string = function(str){
+			// first we use encodeURIComponent to get percent-encoded UTF-8,
+			// then we convert the percent encodings into raw bytes which
+			// can be fed into the base64 encoding algorithm.
+			return encodeURIComponent(str)
+				.replace(/%([0-9A-F]{2})/g, (match, p1) => {
+					return String.fromCharCode('0x' + p1);
+				});
 		};
 
-		return shift(Math.round(shift(number, +precision)), -precision);
+		if(typeof window !== 'undefined'){
+			if(typeof window.btoa !== 'undefined'){
+				return window.btoa(encodeUTF8string(str));
+			}
+		}
+		else{
+			return new Buffer(str).toString('base64');
+		}
+
+		let b64    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+		let i      = 0;
+		let ac     = 0;
+		let tmpArr = [];
+		let o1, o2, o3, h1, h2, h3, h4, bits;
+
+		if(!str){
+			return str;
+		}
+
+		str = encodeUTF8string(str);
+
+		do{
+			// pack three octets into four hexets
+			o1 = str.charCodeAt(i++);
+			o2 = str.charCodeAt(i++);
+			o3 = str.charCodeAt(i++);
+
+			bits = o1 << 16|o2 << 8|o3;
+
+			h1 = bits >> 18&0x3f;
+			h2 = bits >> 12&0x3f;
+			h3 = bits >> 6&0x3f;
+			h4 = bits&0x3f;
+
+			// use hexets to index into b64, and append result to encoded string
+			tmpArr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+		}
+		while(i < str.length);
+
+		let enc = tmpArr.join('');
+		let r   = str.length % 3;
+
+		return (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3);
 	}
 
 }
@@ -1168,5 +1257,40 @@ class GWSkillDescription{
 
 }
 
+
+
 // start the action
-new GWTooltip(GWTooltipOptions).init();
+new GWTooltip(o).init();
+
+
+
+// @todo
+document.querySelectorAll('.gwbb-icon.save, .gwbb-icon.pwnd').forEach(e => {
+
+	e.addEventListener('click', ev => {
+		let skillbar = e.parentElement.parentElement; // i hate this so much. prototype: e.up('gwbb-build')...
+		let code = skillbar.dataset.code;
+
+		if(e.className.match(/pwnd/)){
+			let name = skillbar.previousSibling
+				? skillbar.previousSibling.getElementsByClassName('name')[0].innerText
+				: '';
+
+			window.location = 'pwnd://vorlage/' + code + '-' + Helpers.base64_encode(name);
+
+			return;
+		}
+		else if(e.className.match(/save/)){
+			console.log(code);
+
+			return;
+		}
+
+		console.log('<display equipment...>');
+
+	});
+
+
+});
+
+})(GWTooltipOptions);

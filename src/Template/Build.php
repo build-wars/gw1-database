@@ -53,6 +53,7 @@ class Build extends BuildAbstract{
 			'sec'   => $this->sec,
 			'attr'  => $this->getAttributeString(),
 			'xattr' => !empty($extraAttributeSkills) ? implode(',', $extraAttributeSkills) : null,
+			'code'  => $code,
 		];
 
 		if(!$inPwnd){
@@ -84,8 +85,9 @@ class Build extends BuildAbstract{
 
 		if(!$inPwnd){
 			$html .= '<div class="buttons">'.
-			         '<div class="gwbb-icon save" data-code="'.$code.'"></div>'.
-			         '<div class="gwbb-icon pwnd" data-pwnd="'.$code.'-'.base64_encode($this->name).'"></div>'.
+			         '<div class="gwbb-icon save"></div>'.
+			         '<div class="gwbb-icon pwnd"></div>'.
+			         '<div class="gwbb-icon equip"></div>'.
 			         '</div>';
 		}
 

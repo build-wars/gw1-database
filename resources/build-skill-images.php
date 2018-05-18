@@ -24,6 +24,7 @@
  * see also sealed play cards:
  * @link http://web.archive.org/web/20110726192747/http://guildwars.com/competitive/sealedplay/
  * @link http://web.archive.org/web/20111225175519/http://guildwars.com/competitive/sealedplay/cardsdownload.php
+ * @link ftp://ftp.guildwars.com/downloads/sealedplaycards-fullset.zip
  */
 
 namespace chillerlan\GW1DBBuild;
