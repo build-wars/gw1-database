@@ -98,16 +98,16 @@ const SKILLS_TOUCH = [
 ];
 
 // divine favor, additional healing
-const SKILLS_DV_ADD = [281, 282, 283, 286, 313, 867, 941, 958, 959, 1120, 1121, 1396, 1686, 1687, 2062];
+const SKILLS_DF_ADD = [281, 282, 283, 286, 313, 867, 941, 958, 959, 1120, 1121, 1396, 1686, 1687, 2062];
 
 // divine favor, self targeted
-const SKILLS_DV_SELF = [
+const SKILLS_DF_SELF = [
 	247, 256, 257, 265, 268, 271, 279, 280, 284, 287, 298, 304, 310, 943, 957, 960, 1113, 1117, 1118, 1119,
 	1262, 1393, 1394, 1397, 1684, 1685, 1952, 2005, 2095, 2105, 2857, 2871, 2890
 ];
 
 // divine favor, target gains health
-const SKILLS_DV_TARGET = [
+const SKILLS_DF_TARGET = [
 	241, 242, 243, 244, 245, 246, 248, 249, 250, 254, 255, 258, 259, 260, 261, 262, 263, 266, 267, 269, 270,
 	272, 273, 274, 275, 276, 277, 278, 285, 288, 289, 290, 291, 292, 299, 301, 302, 303, 307, 308, 309, 311,
 	838, 848, 885, 886, 942, 991, 1114, 1115, 1123, 1126, 1390, 1391, 1392, 1395, 1399, 1400, 1401, 1683,
@@ -1110,13 +1110,13 @@ class GWSkillDescription{
 	monk(){
 		let d;
 
-		if(Helpers.in_array(this.id, SKILLS_DV_TARGET)){
+		if(Helpers.in_array(this.id, SKILLS_DF_TARGET)){
 			d = DESC_ADDITIONAL.monk.target[this.lang]
 		}
-		else if(Helpers.in_array(this.id, SKILLS_DV_ADD)){
+		else if(Helpers.in_array(this.id, SKILLS_DF_ADD)){
 			d = DESC_ADDITIONAL.monk.add[this.lang]
 		}
-		else if(Helpers.in_array(this.id, SKILLS_DV_SELF)){
+		else if(Helpers.in_array(this.id, SKILLS_DF_SELF)){
 			d = DESC_ADDITIONAL.monk.self[this.lang]
 		}
 		else{
