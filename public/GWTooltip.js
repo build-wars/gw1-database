@@ -373,7 +373,7 @@ class Tooltip{
 			e.parentNode.insertBefore(c, e);
 
 			e.addEventListener('mouseenter', ev => this.mouseEnter(e, ev, c));
-//			e.addEventListener('mouseover', ev => this.pos(e, ev, c));
+			e.addEventListener('mouseover', ev => this.pos(e, ev, c));
 			e.addEventListener('mousemove', ev => this.pos(e, ev, c));
 			e.addEventListener('mouseout', () => {
 
@@ -481,14 +481,12 @@ class GWTooltip extends Tooltip{
 
 		options = Helpers.extend({
 			gwdbURL            : './gwdb',
-			targetSelector     : '.gwbb-skill', // needs "skill" in the name for match()
 			tooltipID          : 'gwbb-tooltip',
 			cacheContainerClass: 'gwbb-tooltip-cache',
 			lang               : 'en',
 			imgExt: '.png',
 			imgMiscPath: '/img/misc',
 			jsonExt: '.json',
-			jsonSkillPath:'/json/skills', // relative to gwdbURL
 		}, options);
 
 		super(options);
@@ -498,86 +496,12 @@ class GWTooltip extends Tooltip{
 	 * @param e
 	 * @param ev
 	 * @param c
+	 * @param type
 	 */
-	mouseEnter(e, ev, c){
-
-		if(!super.mouseEnter(e, ev, c)){
-			this.fetchData(e, ev, c);
-		}
-
-	}
-
-	/**
-	 * @param json
-	 * @param e
-	 * @param ev
-	 * @param c
-	 * @returns {*}
-	 */
-	setData(json, e, ev, c){
-
-		// there's a container element attached - fill it
-		if(c && c.className === this.options.cacheContainerClass){
-			let pvp  = (e.dataset.pvp || e.parentElement.dataset.pvp) === '1';
-			let lang = e.parentElement.dataset.lang || e.dataset.lang;
-
-			lang = Helpers.in_array(lang, LANGUAGES) ? lang : this.options.lang;
-
-			// skill tooltips
-			if(e.className.match(/skill/)){
-				let a         = e.dataset.attr || e.parentElement.dataset.attr || false;
-				let extraAttr = e.parentElement.dataset.xattr || false;
-				let pri       = parseInt(e.parentElement.dataset.pri || json.profession);
-				let sec       = parseInt(e.parentElement.dataset.sec || 0);
-				let attr      = {};
-
-				// parse the attributes
-				if(a){
-					a.split(',').forEach(s => {
-						s = s.split(':');
-						attr[parseInt(s[0])] = Math.min(21, Math.max(0, parseInt(s[1])));
-					});
-				}
-
-				// bonus attribute skills
-				if(extraAttr){
-					extraAttr = extraAttr.split(',').map(x => parseInt(x));
-				}
-
-				// fill the tooltip
-				c.innerHTML = this.skillTooltip(pri, sec, pvp, attr, extraAttr, json, lang);
-
-				this.tooltip.innerHTML = c.innerHTML;
-			}
-		}
-
-		// reload
-		this.mouseEnter(e, ev, c);
-
-		// return the json data for the fetch promise -> to localstorage
-		return json;
-	}
-
-	/**
-	 * @param e
-	 * @param ev
-	 * @param c
-	 */
-	fetchData(e, ev, c){
+	fetchData(e, ev, c, type){
 
 		// go along, nothing to see here.
-		if(typeof e.dataset.id === 'undefined' || e.dataset.id === '' || !c){
-			return;
-		}
-
-		let type;
-
-		// decide what to load
-		if(e.className.match(/skill/)){
-			type = {jsonpath:this.options.jsonSkillPath, storage:'skilldata'}
-		}
-
-		if(!type){
+		if(typeof e.dataset.id === 'undefined' || e.dataset.id === '' || !c || !type){
 			return;
 		}
 
@@ -625,6 +549,83 @@ class GWTooltip extends Tooltip{
 
 	}
 
+}
+
+class GWSkillTooltip extends GWTooltip{
+
+	constructor(options){
+
+		options = Helpers.extend({
+			targetSelector      : '.gwbb-skill',
+			cacheContainerClass : 'gwbb-tooltip-cache',
+			jsonSkillPath       : '/json/skills', // relative to gwdbURL
+		}, options);
+
+		super(options);
+	}
+
+	/**
+	 * @param e
+	 * @param ev
+	 * @param c
+	 */
+	mouseEnter(e, ev, c){
+
+		if(!super.mouseEnter(e, ev, c)){
+			this.fetchData(e, ev, c, {jsonpath:this.options.jsonSkillPath, storage:'skilldata'});
+		}
+
+	}
+
+
+	/**
+	 * @param json
+	 * @param e
+	 * @param ev
+	 * @param c
+	 * @returns {*}
+	 */
+	setData(json, e, ev, c){
+
+		// there's a container element attached - fill it
+		if(c && c.className === this.options.cacheContainerClass){
+			let pvp  = (e.dataset.pvp || e.parentElement.dataset.pvp) === '1';
+			let lang = e.parentElement.dataset.lang || e.dataset.lang;
+
+			lang = Helpers.in_array(lang, LANGUAGES) ? lang : this.options.lang;
+
+			let a         = e.dataset.attr || e.parentElement.dataset.attr || false;
+			let extraAttr = e.parentElement.dataset.xattr || false;
+			let pri       = parseInt(e.parentElement.dataset.pri || json.profession);
+			let sec       = parseInt(e.parentElement.dataset.sec || 0);
+			let attr      = {};
+
+			// parse the attributes
+			if(a){
+				a.split(',').forEach(s => {
+					s = s.split(':');
+					attr[parseInt(s[0])] = Math.min(21, Math.max(0, parseInt(s[1])));
+				});
+			}
+
+			// bonus attribute skills
+			if(extraAttr){
+				extraAttr = extraAttr.split(',').map(x => parseInt(x));
+			}
+
+			// fill the tooltip
+			c.innerHTML = this.render(pri, sec, pvp, attr, extraAttr, json, lang);
+
+			this.tooltip.innerHTML = c.innerHTML;
+		}
+
+		// reload
+		this.mouseEnter(e, ev, c);
+
+		// return the json data for the fetch promise -> to localstorage
+		return json;
+	}
+
 	/**
 	 * @param pri
 	 * @param sec
@@ -635,7 +636,7 @@ class GWTooltip extends Tooltip{
 	 * @param lang
 	 * @returns {string}
 	 */
-	skillTooltip(pri, sec, pvp, attr, extraAttr, skilldata, lang){
+	render(pri, sec, pvp, attr, extraAttr, skilldata, lang){
 
 		let stats      = skilldata[pvp && skilldata.split === true ? 'pvp' : 'pve'];
 		let desc       = new GWSkillDescription(skilldata, pri, sec, pvp, attr, extraAttr, lang);
@@ -1212,7 +1213,7 @@ class GWSkillDescription{
 
 
 // start the action
-new GWTooltip(o).init();
+new GWSkillTooltip(o).init();
 
 
 
