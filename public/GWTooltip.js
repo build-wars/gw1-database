@@ -270,41 +270,6 @@ class Helpers {
 		return false;
 	}
 
-	// http://locutus.io/php/round/
-	static round(value, precision, mode){
-		let m, f, isHalf, sgn; // helper variables
-		// making sure precision is integer
-		precision |= 0;
-		m      = Math.pow(10, precision);
-		value *= m;
-		// sign of the number
-		sgn    = (value > 0)| -(value < 0);
-		isHalf = value % 1 === 0.5 * sgn;
-		f      = Math.floor(value);
-
-		if(isHalf){
-			switch(mode){
-				case 'PHP_ROUND_HALF_DOWN':
-					// rounds .5 toward zero
-					value = f + (sgn < 0);
-					break;
-				case 'PHP_ROUND_HALF_EVEN':
-					// rouds .5 towards the next even integer
-					value = f + (f % 2 * sgn);
-					break;
-				case 'PHP_ROUND_HALF_ODD':
-					// rounds .5 towards the next odd integer
-					value = f + !(f % 2);
-					break;
-				default:
-					// rounds .5 away from zero
-					value = f + (sgn > 0);
-			}
-		}
-
-		return (isHalf ? value : Math.round(value)) / m;
-	}
-
 	// http://locutus.io/php/base64_encode/
 	static base64_encode(str){
 
@@ -838,9 +803,7 @@ class GWSkillDescription{
 					: this.stats.activation * Math.pow(2, -this.pri_val / 15);
 
 				if(activation){
-					activation = Helpers.round(activation , 2);
-
-					return `<span class="mesmer">${activation}</span> (${this.stats.activation_str})`;
+					return `<span class="mesmer">${activation.toFixed(2)}</span> (${this.stats.activation_str})`;
 				}
 			}
 		}
@@ -861,9 +824,9 @@ class GWSkillDescription{
 		if(!this.pvp && this.pri === 5 && this.pri_val > 0 && this.data.profession === 5
 		   && Helpers.in_array(this.stats.type, SKILL_A_FASTCAST_R)
 		){
-			let recharge = Helpers.round(this.stats.recharge * (1 - this.pri_val * 0.03), 2);
+			let recharge = this.stats.recharge * (1 - this.pri_val * 0.03);
 
-			return `<span class="mesmer">${recharge}</span> (${this.stats.recharge})`;
+			return `<span class="mesmer">${recharge.toFixed(2)}</span> (${this.stats.recharge})`;
 		}
 
 		return this.stats.recharge;
