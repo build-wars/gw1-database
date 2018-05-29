@@ -270,29 +270,18 @@ class Helpers {
 		return false;
 	}
 
+	// https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
+	static encodeUTF8string(str){
+		return encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+				return String.fromCharCode('0x' + p1);
+			});
+	}
+
 	// http://locutus.io/php/base64_encode/
 	static base64_encode(str){
 
-		// encodeUTF8string()
-		// Internal function to encode properly UTF8 string
-		// Adapted from Solution #1 at https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
-		let encodeUTF8string = function(str){
-			// first we use encodeURIComponent to get percent-encoded UTF-8,
-			// then we convert the percent encodings into raw bytes which
-			// can be fed into the base64 encoding algorithm.
-			return encodeURIComponent(str)
-				.replace(/%([0-9A-F]{2})/g, (match, p1) => {
-					return String.fromCharCode('0x' + p1);
-				});
-		};
-
-		if(typeof window !== 'undefined'){
-			if(typeof window.btoa !== 'undefined'){
-				return window.btoa(encodeUTF8string(str));
-			}
-		}
-		else{
-			return new Buffer(str).toString('base64');
+		if(typeof window.btoa !== 'undefined'){
+			return window.btoa(Helpers.encodeUTF8string(str));
 		}
 
 		let b64    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
@@ -302,10 +291,10 @@ class Helpers {
 		let o1, o2, o3, h1, h2, h3, h4, bits;
 
 		if(!str){
-			return str;
+			return '';
 		}
 
-		str = encodeUTF8string(str);
+		str = Helpers.encodeUTF8string(str);
 
 		do{
 			// pack three octets into four hexets
