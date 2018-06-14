@@ -43,7 +43,7 @@ class Pwnd extends BuildAbstract{
 
 		if($end > $start && $end !== 0){
 			$header  = substr($pwnd, 0, $start);
-			$content = substr($pwnd, $start + 1, $end - $start);
+			$content = str_replace(' ', '', substr($pwnd, $start + 1, $end - $start));
 
 			if(substr($header, 0, 7) === 'pwnd000'){
 				$offset = 0;
