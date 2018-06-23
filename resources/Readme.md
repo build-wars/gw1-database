@@ -23,6 +23,7 @@ Creates `/src/Data/GWItemDB.php`, `/public/gwdb/json/items/*.json` and `/public/
 Creates `/src/Data/GWModDB.php`, `/public/gwdb/json/mods/*.json` and `/public/gwdb/json/moddb.json`
 
 ## build-class-attr-lookup.php, build-class-prof-lookup.php, build-class-skill-lookup.php
-
 Creates the reverse lookup tables in `/src/Data`: `GWAttrLookup` `GWProfLookup` and `GWSkillLookup`
 
+## build-map-tiles.php
+Creates map tiles from the original sized ingame maps
