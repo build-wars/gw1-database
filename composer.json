@@ -1,6 +1,6 @@
 {
 	"name": "codemasher/gw1-database",
-	"description": "A Guild Wars (not 2!) database including everything to parse GWBBcode, calculate skills, import/export templates, create maps etc.. PHP PHP 7+",
+	"description": "A Guild Wars (not 2!) database including everything to parse GWBBcode, calculate skills, import/export templates, create maps etc... PHP 7.2+",
 	"homepage": "https://github.com/codemasher/gw1-database",
 	"license": "MIT",
 	"minimum-stability": "dev",
@@ -10,7 +10,8 @@
 	"authors": [
 		{
 			"name": "Smiley",
-			"email": "smiley@chillerlan.net"
+			"email": "smiley@chillerlan.net",
+			"homepage": "https://github.com/codemasher"
 		}
 	],
 	"require": {
@@ -23,7 +24,8 @@
 		"chillerlan/php-log": "^1.0",
 		"chillerlan/php-cache": "^1.0",
 		"chillerlan/php-database": "^2.0",
-		"phpunit/phpunit": "^7.1"
+		"chillerlan/php-imagetiler": "dev-master",
+		"phpunit/phpunit": "^7.2"
 	},
 	"autoload": {
 		"psr-4": {
