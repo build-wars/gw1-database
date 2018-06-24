@@ -9,10 +9,10 @@
 
 namespace chillerlan\GW1DBBuild;
 
-/** @var \chillerlan\Database\Database $db */
 use chillerlan\Database\ResultInterface;
 use chillerlan\GW1DB\Data\GWDataMisc;
 
+/** @var \chillerlan\Database\Database $db */
 $db = null;
 
 /** @var \Psr\Log\LoggerInterface $logger */
