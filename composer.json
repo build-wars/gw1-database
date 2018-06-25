@@ -24,7 +24,7 @@
 		"chillerlan/php-log": "^1.0",
 		"chillerlan/php-cache": "^1.0",
 		"chillerlan/php-database": "^2.0",
-		"chillerlan/php-imagetiler": "dev-master",
+		"chillerlan/php-imagetiler": "^1.0",
 		"phpunit/phpunit": "^7.2"
 	},
 	"autoload": {
