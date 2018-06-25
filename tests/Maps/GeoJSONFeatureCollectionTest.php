@@ -12,8 +12,7 @@
 
 namespace chillerlan\GW1DBTest\Maps;
 
-use chillerlan\GW1DB\Maps\GeoJSONFeature;
-use chillerlan\GW1DB\Maps\GeoJSONFeatureCollection;
+use chillerlan\GW1DB\Maps\{GeoJSONFeature, GeoJSONFeatureCollection};
 use PHPUnit\Framework\TestCase;
 
 class GeoJSONFeatureCollectionTest extends TestCase{
