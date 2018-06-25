@@ -1,0 +1,450 @@
+[build prof=Assassin/Mesmer ShadowArts=3+1+12 InspirationMagic=-17 nor=10]   [Mantra des Abschlusses][Schattenform][Angriff des Todes][Herz der Schatten]["Ich bin unaufhaltbar!"][Schleier des Kummers][Geistige Sperre][Rückruf]       [/build]
+[build prof=Mesmer/Elementalist FastCasting=1+12 DominationMagic=16 InspirationMagic=3][Tiefgefrieren][Visionen des Bedauerns][Unnatürliches Siegel][Argwohn]["Ihr bewegt Euch wie ein Zwerg!"][Arkane Mimikry][Günstige Beschwörung][Hochnäsigkeit][/build]
+[build prof=Mesmer/Assassin FastCasting=12 DominationMagic=12][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Erledigt ihn!"][Schmerztauscher][Rückruf][Hochnäsigkeit][/build]
+]
+[[build desc="DoA Singletank"]DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl[/build] // @todo double brackets on start tag error
+[build]Mighty something;OQYQEnTqAAAAAAAAAA[/build]
+[build]OQYQEnTqAAAAAAAAAA[/build]
+
+[build='DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl'][/build]]
+[build='Mighty something;OQYQEnTqAAAAAAAAAA'][/build]
+[build='OQYQEnTqAAAAAAAAAA'][/build]
+]
+[build="DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl"][/build]
+[build="OQYQEnTqAAAAAAAAAA"][/build]
+[
+[build code="DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl"][/build]
+[build code="OQYQEnTqAAAAAAAAAA"][/build]
+[build code=OQYQEnTqAAAAAAAAAA][/build]
+
+[pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>ZOQNDAsMPT1DaR3VKByleAhE6DAAAAAGVGFuawATNjAwaHAKb296ZSBwaXQYOwASAZHTREpEylyEAE5
+D4DyDAAAAAHc21pdGUAUc21pdGVyCm9vemUgcGl0QOgBAAAAAAAAAAAAAAAAAAAACCgQOgAAAAAAAAAA
+AAAAAAAAAAACCg<
+[/pwnd]
+// todo: error due to missing quotes
+[build code=DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl][/build]
+[build code=Mighty something;OQYQEnTqAAAAAAAAAA][/build]
+[build code=Mighty something;OQYQEnTqAAAAAAAAAA][/build]
+
+// todo: fix double quotes on attributes (done, hopefully)
+[build code="Mighty something;OQYQEnTqAAAAAAAAAA"][/build]
+[build="Mighty something;OQYQEnTqAAAAAAAAAA"][/build]
+
+// todo: handle gwshack short names
+Since it's a skill, [[shock@10]] goes through [[Spell Breaker].
+But [[SB] prevents [[esurge], [[eburn@10+1+3] and [[edrain].
+
+// @todo: handle alternative skills?
+[build prof=Warrior name="Warrior"][Cleave][Eviscerate][Triple Chop][Whirling Axe] - [Backbreaker][Devastating Hammer][Earth Shaker][Enraged Smash][Forceful Blow] - ["Coward!"][Skull Crack] - [Battle Rage][Bull's Charge][Defy Pain][Dwarven Battle Stance][Flourish][Primal Rage][Warrior's Endurance] - [Dragon Slash][Hundred Blades][Quivering Blade] - ["Charge!"]["Victory is Mine!"][Auspicious Parry][Gladiator's Defense][Shove][/build]
+[build prof=Ranger name="Ranger"][Enraged Lunge][Ferocious Strike][Heal as One][Lacerate] - [Archer's Signet][Escape][Glass Arrows][Marksman's Wager][Oath Shot][Practiced Stance][Trapper's Focus] - [Barrage][Broad Head Arrow][Crippling Shot][Melandru's Shot][Punishing Shot] - [Quick Shot] - [Equinox][Famine][Greater Conflagration][Incendiary Arrows][Melandru's Arrows][Melandru's Resilience][Poison Arrow][Spike Trap][/build]
+[build prof=Monk name="Monk"][Aura of Faith][Blessed Light][Boon Signet][Peace and Harmony][Spell Breaker][Unyielding Aura][Withdraw Hexes] - [Healing Burst][Healing Hands][Healing Light][Word of Healing] - [Empathic Removal][Martyr] - [Air of Enchantment][Amity][Life Barrier][Life Sheath][Mark of Protection][Restore Condition][Shield of Deflection][Shield of Regeneration] - [Ray of Judgment][Shield of Judgment][Signet of Judgment][Word of Censure][/build]
+[build prof=Necromancer name="Necromancer"][Blood is Power][Cultist's Fervor][Life Transfer][Offering of Blood][Order of the Vampire][Soul Leech][Spoil Victor][Vampiric Spirit][Well of Power] - [Feast of Corruption][Lingering Curse][Order of Apostasy][Plague Signet][Soul Bind][Spiteful Spirit][Weaken Knees][Wither] - [Animate Flesh Golem][Aura of the Lich][Discord][Tainted Flesh][Virulence] - [Grenth's Balance] - [Icy Veins][Wail of Doom][/build]
+[build prof=Mesmer name="Mesmer"][Energy Surge][Panic][Power Block][Psychic Distraction][Psychic Instability] - [Arcane Languor][Mantra of Recovery][Stolen Speed] - [Crippling Anguish][Fevered Dreams][Illusionary Weaponry][Ineptitude][Migraine][Recurring Insecurity][Shared Burden] - [Energy Drain][Keystone Signet][Lyssa's Aura][Mantra of Recall][Power Leech] - [Echo][Expel Hexes][Shatter Storm][Signet of Midnight][/build]
+[build prof=Elementalist name="Elementalist"][Glimmering Mark][Gust][Lightning Surge][Mind Shock][Ride the Lightning][Thunderclap] - [Obsidian Flesh][Shockwave][Unsteady Ground] - [Energy Boon][Ether Prodigy][Ether Renewal] - [Double Dragon][Mind Burn][Star Burst] - [Elemental Attunement][Glyph of Energy][Glyph of Renewal][Second Wind] - [Mind Freeze][Mirror of Ice][Mist Form][Shatterstone][Ward Against Harm][Water Trident][/build]
+[build prof=Assassin name="Assassin"][Dark Apostasy][Locust's Fury][Palm Strike][Seeping Wound] - [Flashing Blades][Moebius Strike][Temple Strike] - [Assassin's Promise][Shroud of Silence][Siphon Strength][Way of the Empty Palm] - [Aura of Displacement] - [Beguiling Haze][Shadow Form][Shadow Shroud][/build]
+[build prof=Ritualist name="Ritualist"][Clamor of Souls][Grasping Was Kuurong][Signet of Spirits] - [Defiant Was Xinrae][Wanderlust][Weapon of Quickening] - [Soul Twisting] - [Preservation][Spirit Light Weapon][Tranquil Was Tanasen][Vengeful Was Khanhei] - [Attuned Was Songkai][Consume Soul][Ritual Lord][Spirit Channeling][/build]
+
+[[charge]
+[[charge@10+1+3]
+[[Word of Healing]]
+[["You're All Alone!"]
+
+[charge]
+[charge@10+1+3]
+[Word of Healing]] <- leftover bracket
+["You're All Alone!"]
+
+[noparse][[Energiewelle] -> [skill]Energiewelle[/skill]
+[[Energiewelle@10+1+3] -> [skill=14]Energiewelle[/skill]
+[[Energiewelle]] -> [skill image=1]Energiewelle[/skill]
+[[Energiewelle@10+1+3]] -> [skill=14 image=1]Energiewelle[/skill][/noparse]
+
+[expander][R-X SoS - Spieler;OAeiIykMdN5DWOZsZ5UNxMNAC][Me-R Panic - Gwen;OQhkAkC8QGOCNM9meOMEZARcx][Me-R Inep1 - Norgu;OQhjAwBc4QvArAIg5ZkAcQOBXM][Me-R Inep2 - Razah;OQhkAkB8QGO0LwKACYe2IUGARwFD][N-R Discord - Livia;OAhjYgFcoSxMKgfBVVbhSTTODT][N-R Discord - Olias;OAhjYgFcoSxMKgfBVVbhSTTODT][N-R BiP - Meister;OAhkQkGZIfMzdwOM0qqCPp5kbYC][R-X ST - Xandra;OAeiAyk8gNtehzHnlD8jcdm][/expander]
+[expander][Me-R Panix;OQhDApwTK0w0b6DROkBExFD][Me-R Inep1;OQhjAwBcoQvArAIg5ZkAcQOBXM][Me-R Inep2;OQhkAkB8QGO0LwKACYe2oTGARwFD][/expander]
+
+[1 – Mö Backline1;OwATAxG/UajoBULKuaTb6LgA0D][2 – Mö Backline1;OwATA5G/GajoBMH03ZTb6TighA][3 – Mö Backline1;OwATA3G/MyLajIH8uaTb6LgANC][4 – Mö Backline2;OwASA5HT1DaR5g3VjRQNBEge][5 – E/Mö Backline1;OgNDwcvvN1Dto/Yj4ReJ0iaB][6 – E/Mö Backline2;OgNDwcPPP1DtIJ5uupfJ0iaB][7 – N/R Backline1;OAhiYwhMZtJNN5MMxJOOVVdxA][8 – Me/N Keystone;OQRCAcxzPIPb62BV1qAagnC][9 – Me Dom2;OQBDAowjOTPZwNVwtBuAmuWG][10 – Me Dom2;OQBDAYwjS9UjOIgkATAcQOBtM]
+
+[pwnd]OQdTA4x8ZiHRnhA6AyAozzG8fD-TWUtQSBGYXN0Y2FzdC1WYWV0dGlyLUZhcm0=[/pwnd]
+
+[pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>aOwATAxG/UajoBULKuaTb6LgA0DAAAACgBAAOQmFja2xpbmUxCgaOwATA5G/GajoBMH03ZTb6TighAA
+AAACgBAAOQmFja2xpbmUxCgaOwATA3G/MyLajIH8uaTb6LgANCAAAACgJAAOQmFja2xpbmUxCgYOwASA
+5HT1DaR5g3VjRQNBEgeAAAACAUAAOQmFja2xpbmUyCgYOgNDwcvvN1Dto/Yj4ReJ0iaBAAAADAAgAAOQ
+mFja2xpbmUxCgYOgNDwcPPP1DtIJ5uupfJ0iaBAAAADAAgAAOQmFja2xpbmUyCgZOAhiYwhMZtJNN5MM
+xJOOVVdxAAAAAAAAOQmFja2xpbmUxCgXOQRCAcxzPIPb62BV1qAagnCAAAABgAAMS2V5c3RvbmUKYOQB
+DAowjOTPZwNVwtBuAmuWGAAAACAhAAHRG9tMgoZOQBDAYwjS9UjOIgkATAcQOBtMAAAACMBAAHRG9tMg
+o<[/pwnd]
+
+[pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>aOwFj0xfzITOMMMHMie4O0kxZ6PAAAACgJAALU3BpZWxlcgoYOgEScZJTgPKFVFieXF0k3lFHAAAABC
+AALU3BpZWxlcgoZOQhkAkC8QGOCNM9aQOIDZARcxAAAACIhAASU3BpZWxlci9IZWxkCgcOQhkAkB8QGO
+0LACYBYe2oTGARwFDAAAACMBAASU3BpZWxlci9IZWxkCgZOAOj4wiM5MYMv5y8aWOp+uk5BAAAACAhAA
+HSGVsZAoZOAhjQoGYIP3BDxQrqKNncCvhJAAAACYIAAHSGVsZAoaOwATA5G/GyLajwfoBcTb6LHE0DAA
+AACgBAALU3BpZWxlcgoYOgNDw8z9MkEtY9Ig8SOI0iaBAAAADAAgAASU3BpZWxlci9IZWxkCg<[/pwnd]
+
+[build name='Spieler' prof=Paragon/Krieger lead=9+ spea=12+1+3 tact=9 box]['Bis ans Limit!'][Speer der Wut][Speer der Erlösung][Heiliger Speer][Lodernder Speer]['Rettet Euch selbst!'][Wut des Soldaten]['Es gibt nichts zu befürchten!'][/build]
+[build name='Held 1' prof=Mesmer/Ritualist dom=12+1+3 insp=8+1 fast=10+1 res=2 box][Energiewelle][Geisterschmerz][Unnatürliches Siegel][Argwohn][Schrei der Frustration][Kraftentzug][Variabel][Todespakt-Siegel][/build]
+[build name='Held 2' prof=Mesmer/Ritualist dom=12+1+3 insp=8+1 fast=10+1 res=2 box][Energiewelle][Geisterschmerz][Unnatürliches Siegel][Argwohn][Schrei der Frustration][Kraftentzug][Variabel][Fleisch von meinem Fleisch][/build]
+[build name='Held 3' prof=Mesmer dom=12+1+3 insp=8+1 fast=10+1 box][Energiewelle][Geisterschmerz][Unnatürliches Siegel][Argwohn][Schrei der Frustration][Kraftentzug][Variabel][Utility][/build]
+[build name='Held 4' prof=Mesmer dom=12+1+3 insp=8+1 fast=10+1 box][Energiewelle][Geisterschmerz][Unnatürliches Siegel][Verzauberung brechen][Schrei der Frustration][Kraftentzug][Variabel][Verhexung brechen][/build]
+[build name='Held 5' prof=Mesmer dom=12+1+3 insp=8+1 fast=10+1 box][Energiewelle][Geisterschmerz][Unnatürliches Siegel][Verzauberung brechen][Schrei der Frustration][Kraftentzug][Variabel][Verhexung brechen][/build]
+[build name='Held 6' prof=Nekromant/Ritualist res=12 curs=5 soul=9+1+2 bloo=8 box][Blut ist Kraft][Schwächendes Blut][Siegel der verlorenen Seelen][Körper und Seele heilen][Geisterlicht][Geistübertragung][Schützend war Kaolai][Leben][/build]
+[build name='Held 7' prof=Ritualist comm=12+1+3 spaw=12+1 res=3 box][Seelenverflechtung][Segen der Schöpfung][Unterschlupf][Vereinigung][Verschiebung][Rüstung der Gefühllosigkeit][Grausame Waffe][Fleisch von meinem Fleisch][/build]
+
+
+[build prof=Warrior name="Warrior"][Avatar of Balthazar][Aura of Thorns][Twin Moon Sweep][Wearying Strike][Staggering Force][Dust Cloak][Pious Fury][Eremite's Zeal][/build]
+[Pious Assault][Twin Moon Sweep][Reap Impurities][Zealous Renewal][Heart of Holy Flame][Balthazar's Rage][Avatar of Grenth][Heart of Fury]
+[Gust][Teinai's Wind][Shell Shock][Meteor][Smite Condition][Smite Hex][Judge's Insight][Strength of Honor]
+[Gust][Teinai's Wind][Shell Shock][Meteor][Smite Condition][Smite Hex][Judge's Insight][Strength of Honor]
+[Fevered Dreams][Wandering Eye][Arcane Conundrum][Fragility][Accumulated Pain][Power Drain][Drain Enchantment][Blood Ritual]
+[Signet of Spirits][Ancestors' Rage][Splinter Weapon][Spirit Siphon][Mend Body and Soul][Spirit Light][Protective Was Kaolai][Death Pact Signet]
+[Offering of Spirit][Bloodsong][Splinter Weapon][Essence Strike][Mend Body and Soul][Spirit Light][Protective Was Kaolai][Life]
+[Soul Twisting][Boon of Creation][Shelter][Displacement][Earthbind][Signet of Creation][Enfeebling Blood][Flesh of My Flesh]
+
+['Save Yourselves!'][Asuran Scan][Way of the Assassin][Jagged Strike][Fox Fangs][Death Blossom][Critical Eye]['I Am Unstoppable!']
+[Expel Hexes][Smiter's Boon][Reversal of Damage][Divine Healing][Heaven's Delight][Smite Condition][Smite Hex][Strength of Honor]
+[Weapon of Fury][Splinter Weapon][Ancestors' Rage][Gaze of Fury]['Go for the Eyes!']['Fall Back!']['Never Surrender!'][Death Pact Signet]
+[Expel Hexes][Holy Spear]['Stand Your Ground!'][Anthem of Envy]['Go for the Eyes!']['Fall Back!'][Bladeturn Refrain][Aggressive Refrain]
+[Expel Hexes][Holy Spear][Blazing Spear][Chorus of Restoration]['Go for the Eyes!'][Finale of Restoration][Mending Refrain][Aggressive Refrain]
+[Corrupt Enchantment][Rip Enchantment][Spear of Redemption][Weaken Armor]['Go for the Eyes!'][Finale of Restoration][Signet of Return][Aggressive Refrain]
+[Keystone Signet][Signet of Distraction][Signet of Disruption][Leech Signet][Signet of Weariness][Symbolic Celerity][Animate Bone Minions][Death Nova]
+[Blood is Power][Blood Bond][Order of Pain][Signet of Lost Souls][Mend Body and Soul][Spirit Light][Protective Was Kaolai][Recovery]
+
+[build prof=Monk/ HealingPrayers=12 ProtectionPrayers=9 DivineFavor=9][Healing Burst][Signet of Rejuvenation][Spirit Bond][Guardian][Shield of Absorption][Cure Hex][Shield Guardian][Seed of Life][/build]
+[build prof=Necromancer/Paragon DeathMagic=12 SoulReaping=8 Curses=5 Command=9][Animate Shambling Horror][Animate Bone Fiend][Putrid Bile][Blood of the Master][Weaken Armor][Signet of Lost Souls]['Incoming!']['Stand Your Ground!'][/build]
+[build prof=Necromancer/Paragon DeathMagic=11 SoulReaping=8 Curses=6 Command=10][Animate Shambling Horror][Animate Bone Fiend][Putrid Bile][Masochism][Weaken Armor]['Never Surrender!']['Incoming!']['Stand Your Ground!'][/build]
+[build prof=Mesmer/Ritualist FastCasting=10 DominationMagic=12 InspirationMagic=8 RestorationMagic=2][Panic][Mistrust][Cry of Frustration][Wastrel's Demise][Unnatural Signet][Power Drain][Drain Enchantment][Death Pact Signet][/build]
+[build prof=Mesmer/Ritualist FastCasting=10 IllusionMagic=11 InspirationMagic=10 RestorationMagic=1][Lyssa's Aura][Clumsiness][Wandering Eye][Signet of Clumsiness][Frustration][Power Drain][Power Return][Flesh of My Flesh][/build]
+[build prof=Mesmer/ FastCasting=10 IllusionMagic=11 InspirationMagic=10][Lyssa's Aura][Clumsiness][Wandering Eye][Signet of Clumsiness][Frustration][Power Drain][Power Return][Arcane Conundrum][/build]
+[build prof=Necromancer/Ritualist SoulReaping=11 Curses=6 RestorationMagic=12][Icy Veins][Weaken Armor][Foul Feast][Weapon of Shadow][Spirit Light][Protective Was Kaolai][Life][Recuperation][/build]
+[build prof=Ritualist/Monk ProtectionPrayers=2 Communing=12 RestorationMagic=2 SpawningPower=12][Soul Twisting][Boon of Creation][Shelter][Union][Displacement][Remove Hex][Shield of Absorption][Flesh of My Flesh][/build]
+
+[.;OwFi0xjMJ69WGn5wwwcwo/QTCA]
+[.;Owgj4wQc4MMkqPe9i0Fp+uk5BA]
+[.;OQBDAqwDK0wQY6TfRkBEhGA]
+[.;OQhDAqwDOuthgpb6VEyAjwkL]
+[.;OQhkAoC8AGKjbbIY6meFhRIRQDA]
+[.;OAhkQoG4hEyzdwOUVlmTOh3ws6B]
+[.;OwUVIox04XCRShYj4ualY6DCcESBAA]
+[.;OAWjMMgMJPYTnp17xFOhmjwLGA]
+
+[pwnd]pwnd0001?download pawned2 @ memorial.redeemer.biz | Copyright 2008-2018 Redeemer
+>bOAZEUsxqQCtFSHwUdzg0EJ8FkACAAAACEIABOU3BpZWxlcgpodHRwOi8vc3RhdGljLmd3Y29tLmRlL
+3Bhd25lZC8wOGNjN2FhMTkzZmMxNzUxLmpwZwZOQhDAcwzQ3AIgkATAcQFVjQJXAAAABcAAKSGVsZCAx
+CgZOQhDAcwzQvAIgkATAcQFVjQXMAAAABcAAKSGVsZCAyCgZOQREAcIiU88D2BcNT3UlnWFQDAAAABgA
+AKSGVsZCAzCgZOQREAcIiU88D2BcNT3UlnWFQDAAAABgAAKSGVsZCA0CgaOAhjQoGYIT3BDNVVTMXPDT
+VPJgAAAACYQAAKSGVsZCA1CgaOwUUMwW+Q4OMkNS94i0Fn+ZA/BAAAACILAAKSGVsZCA2CgaOwUUMum+
+O4Ox1NS9IIIRm+ZAjGAAAACYJAAKSGVsZCA3Cg<[/pwnd]
+
+[1 – R/A Pos. 1;OAej0xiG5SIbZgdPCQEfHM0kqi]
+[2 – Mö/N Pos. 2;OwQTAVHTw5OM0uIdRrP13lMPA]
+[3 – Me Pos. 3;OQBEAcICPy8DyzmOuGyvHM9GC]
+[4 – Me/R Pos. 4;OQhkAoC8AGKzJAna6me5gMARI5C]
+[5 – Me/R Pos. 5;OQhkAoB8AGK0LACYeGJgTQGARwFD]
+[6 – N/R Pos. 6;OAhjYMhsIPXzyp3kZKNncDzxJ]
+[7 – E/Mö Pos. 7;OgNDwcPPP0iaBJZmA10i1j7K]
+[8 – R/N Pos. 8;OASjcMgMJPYTnp17xFOhm2BBA]
+
+[size=15]1 – A/Me Tank[/size]
+Tank
+downloaded from http://www.gwcom.de
+Vorlagencode: OwVS85BTRA6M4OIQ0kHQxldO
+Ausrüstung: Pk5RRNTYSjkK1qAA5AAJBAZBApBAJ
+Waffenset 2: PcZQcTKlU
+Waffenset 3:
+Waffenset 4:
+[build prof=Assassin/Mesmer ShadowArts=12 InspirationMagic=12][Mantra des Abschlusses][Schattenform][Angriff des Todes][Herz der Schatten]["Ich bin unaufhaltbar!"][Schleier des Kummers][Geistige Sperre][Rückruf][/build]
+
+[size=15]2 – Me/E Caller[/size]
+Caller
+downloaded from http://www.gwcom.de
+Vorlagencode: OQZDAswzQqDuNmOTP2kBBiOwl
+Ausrüstung: Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+Waffenset 2: PgpghmZ9phOzriU
+Waffenset 3: PkpQRNNYSjkM36SB
+Waffenset 4:
+[build prof=Mesmer/Elementalist FastCasting=12 DominationMagic=12 InspirationMagic=3][Tiefgefrieren][Visionen des Bedauerns][Unnatürliches Siegel][Argwohn]["Ihr bewegt Euch wie ein Zwerg!"][Arkane Mimikry][Günstige Beschwörung][Hochnäsigkeit][/build]
+
+[size=15]3 – Me/A Recall[/size]
+Recall
+downloaded from http://www.gwcom.de
+Vorlagencode: OQdCAsw0SwJgpz0TMpcZnDcJ
+Ausrüstung: Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+Waffenset 2: PgpghmZ9phOzriU
+Waffenset 3: PkpQRNNYSjkM36SB
+Waffenset 4: PcZQcTKlU
+[build prof=Mesmer/Assassin FastCasting=12 DominationMagic=12][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Erledigt ihn!"][Schmerztauscher][Rückruf][Hochnäsigkeit][/build]
+
+[size=15]4 – Me/W EoE/BF[/size]
+EoE/BF
+downloaded from http://www.gwcom.de
+Vorlagencode: OQJTAQBbVaJ4Ew0Z6RGA6gDAuE
+Ausrüstung: Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMyMgJHsIb+K
+Waffenset 2: PgpghmZ9phOzriU
+Waffenset 3: PkpQRNNYSjkM36SB
+Waffenset 4:
+[build prof=Mesmer/Ranger FastCasting=8 DominationMagic=12 BeastMastery=10][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn][Verschwendung][Rand der Auslöschung][Rückschlag][Hochnäsigkeit][/build]
+
+[size=15]5 – Me/N Split[/size]
+Split
+downloaded from http://www.gwcom.de
+Vorlagencode: OQRDAsw3QLBnAmOTP0k3gaAwl
+Ausrüstung: Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+Waffenset 2: PgpghmZ9phOzriU
+Waffenset 3: PkpQRNNYSjkM36SB
+Waffenset 4:
+[build prof=Mesmer/Necromancer FastCasting=12 DominationMagic=12 Curses=3][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Ich bin unaufhaltbar!"][Nekrose][Empathie][Hochnäsigkeit][/build]
+
+[size=15]6 – Me/Mö UA[/size]
+UA
+downloaded from http://www.gwcom.de
+Vorlagencode: OQNDAsw/QLBnAmOTPxkCObAwl
+Ausrüstung: Pgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+K
+Waffenset 2: PgpghmZ9phOzriU
+Waffenset 3: PkpQRNNYSjkM36SB
+Waffenset 4:
+[build prof=Mesmer/Monk FastCasting=12 DominationMagic=12 ProtectionPrayers=3][Arkanes Echo][Energiewelle][Unnatürliches Siegel][Argwohn]["Erledigt ihn!"][Überlastung][Täuschungen brechen][Hochnäsigkeit][/build]
+
+[size=15]7 – Mö/W Seeder[/size]
+Seeder
+downloaded from http://www.gwcom.de
+Vorlagencode: OwIT8QIjVC5IHMlghgukeIeAgA
+Ausrüstung: PgpJTCiULCbBR6JntgID70WQkhtXLIywCOHsIbsE
+Waffenset 2: PkpQRNNYSjkM36SB
+Waffenset 3:
+Waffenset 4:
+[build prof=Monk/Ranger ProtectionPrayers=8 DivineFavor=12 WildernessSurvival=10][Schlangen-Schnelligkeit][Lebenssaat][Gesegnetes Siegel][Unnachgiebige Aura][Ebon-Flucht][Lebenseinstimmung][Lebensbindung][Gesegnete Aura][/build]
+
+[size=15]8 – E/Mö Emo[/size]
+Emo
+downloaded from http://www.gwcom.de
+Vorlagencode: OgNDwcPPPaRSyNrWQLkHxjDC
+Ausrüstung: PkpZSEEpUE1EEpnc1EEZYn1EEZY70EEZYxTHsIbsE
+Waffenset 2: PkpQRNNYSjkM36SB
+Waffenset 3:
+Waffenset 4:
+[build prof=Elementalist/Monk EnergyStorage=12 HealingPrayers=3 ProtectionPrayers=12][Geisterbindung][Leben einflößen][Brennende Eile][Äthererneuerung][Wiederherstellungs-Aura][Balthasars Geist][Lebensbindung][Band des Schutzes][/build]
+
+
+Since it's a skill, [[shock@10]] goes through [[Spell Breaker].
+Since it's a skill, [[shock] goes through [[Spell Breaker].
+
+But [[SB] prevents [[esurge], [[eburn@10+1+3] and [[edrain].
+But [[SB] prevents [[esurge], [[eburn] and [[edrain].
+
+[[charge]
+[[charge]
+
+[[charge@10+1+3]
+[[charge@10+1+3]
+
+[[Word of Healing]]
+[[Word of Healing]]
+
+[["You're All Alone!"]
+[["You're All Alone!"]
+
+[pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>YOwVS85BTRA6M4OIQ0kHQxldOsPk5JWEMZYE8EMJYd8EMJYn8EMJY77EMJYRRFSaCjkC0KJPcZQcTKl
+UAACAgAA2VGFuawpkb3dubG9hZGVkIGZyb20gaHR0cDovL3d3dy5nd2NvbS5kZQZOQZDAswzQqDuNmOT
+P2kBBiOwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjkM3
+6SBACIhAA4Q2FsbGVyCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRlYOQdCAsw0SwJgp
+z0TMpcZnDcJoPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjk
+M36SBJPcZQcTKlUCIgAA4UmVjYWxsCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRlaOQ
+JTAQBbVaJ4Ew0Z6RGA6gDAuEoPgp5PCjcJCXhRCWnrwItw0VYkgt3KMyMgJHsIb+KPPgpghmZ9phOzri
+UQPkpQRNNYSjkM36SBACIgAA4RW9FL0JGCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmR
+lZOQRDAsw3QLBnAmOTP0k3gaAwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phO
+zriUQPkpQRNNYSjkM36SBACIgAA3U3BsaXQKZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d3cuZ3djb20u
+ZGUZOQNDAsw/QLBnAmOTPxkCObAwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9p
+hOzriUQPkpQRNNYSjkM36SBACIgAAzVUEKZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d3cuZ3djb20uZG
+UaOwIT8QIjVC5IHMlghgukeIeAgAoPgpJTCiULCbBR6JntgID70WQkhtXLIywCOHsIbsEQPkpQRNNYSj
+kM36SBAACAkAA4U2VlZGVyCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRlYOgNDwcPPP
+aRSyNrWQLkHxjDCpPkpZSEEpUE1EEpnc1EEZYn1EEZY70EEZYxTHsIbsEQPkpQRNNYSjkM36SBAADAAg
+AA0RW1vCmRvd25sb2FkZWQgZnJvbSBodHRwOi8vd3d3Lmd3Y29tLmRl<[/pwnd]
+
+[DF-Caller;OQZDAswzQqDuNmOTP2kBBiOwl]
+[Mighty something;OQYQEnTqAAAAAAAAAA]
+[;OQYQEnTqAAAAAAAAAA]
+[;]
+
+To specify an attribute level, you have to write enough of the attribute name for gwBBCode to understand which one it is. Case doesn't matter but don't use spaces. Actually, first three letters are often enough, but there are 3 exceptions: dea is Death Magic and dead is Deadly Arts; com is Communing and comma is Command; ear is Earth Magic and earthp is Earth Prayers.
+[build aIrmaGic=6 dea=0 dead=12][shock][Dark Aura][Impale][/build]
+[build aIrmaGic=6 dea=0 dead=12][shock][Dark Aura][Impale][/build]
+
+[build prof=W/E][shock][Eviscerate][/build]
+[build prof=W/E][shock][Eviscerate][/build]
+
+[build prof=W/E swo=12 air=8][Shock][Eviscerate][/build]
+[build prof=W/E swo=12 air=8][Shock][Eviscerate][/build]
+
+[build prof=W/E swo=12+1+3 air=8][Shock][Eviscerate][/build]
+[build prof=W/E swo=12+1+3 air=8][Shock][Eviscerate][/build]
+
+[build prof=W/E desc='Weapon set #1: 2x20% recharge{br}Weapon set #2: maximum energy'][Shock][Eviscerate][/build]
+[build prof=W/E desc='Weapon set #1: 2x20% recharge{br}Weapon set #2: maximum energy'][Shock][Eviscerate][/build]
+
+[build prof=W/E name="Mighty something"][Shock][Eviscerate][/build]
+[build prof=W/E name="Mighty something"][Shock][Eviscerate][/build]
+
+[build prof=W/E pve]["Watch Yourself!"][/build]
+[build prof=W/E pve]["Watch Yourself!"][/build]
+Here 'pvp' can be used instead of 'pve', or you can specify whether the skill is PvP or PvE in its name: ["Watch Yourself!" (PvP)]
+
+To display a skill you need to encase its name in double square brackets "[[" and "]]".
+For example the skill Shock would be represented by
+[[Shock]] => [[Shock]]
+If you want to show the skill name instead of its icon, put a second "[" before the name
+[[Shock] => [[Shock]
+If you want to show a skill effect adjusted to an attribute value, include "@" after skill name and then a number
+[[Shock@8] => [[Shock@8] here we have the skill with 8 in Air Magic
+Tip: case and punctuation don't matter in skill names, and you can use some abbreviations
+
+
+[size=14]How to write a build[/size]
+
+The simpler way is to get its template code from the game, then use it in one of these ways:
+[Shock Warr;OQYTgw4K5QrSFqM9cOtrCA]
+[build=Shock Warr;OQYTgw4K5QrSFqM9cOtrCA]
+[Shock Warr;OQYTgw4K5QrSFqM9cOtrCA]
+
+But if you want to write a build from scratch, here is how! A build consists of an opening tag [build] in which you can specify details (see below),
+then a list of skills encased in brackets, and an ending tag [/build]. In this example we specified a name and attribute level. Don't panic it will be explained in details below :)
+[build prof=W/E air=8][Shock][Frenzy][Eviscerate][/build]
+[build prof=W/E air=8][Shock][Frenzy][Eviscerate][/build]
+
+Now let's have a closer look.. at what you can specify in the build tag..
+[list]
+[*]Professions: To specify the build is for a Warrior/Elementalist, just add prof=W/E.
+You can use any profession abbreviation: W, Mo, E, R, N, Me, Rt, A, D, P. As well as full profession names, e.g prof=Warrior/Elementalist. You don't have to specify a secondary profession.
+[build prof=W/E][/build] = [build prof=Warrior/Elementalist][/build] =>
+[build prof=W/E][/build]
+
+[*]Build's name: To specify a name, try this: name="Shock war" (note: the name must be encased in double brackets "")
+[build prof=W/E name="Shock war"][/build] =>
+[build prof=W/E name="Shock war"][/build]
+
+[*]Attributes: Just write the attribute name without spaces, followed by "=", and the attribute level. Like this: expertise=9. You can use plus signs to specify additional levels due to a rune or helmet: axemastery=12+1+3.
+Tip: Case doesn't matter here and all but 3 attribute names can be reduced to their first three letters, e.g axe=12 and pro=4. Specifying a few more letters doesn't hurt though: prot=9 and blood=8. The three exceptions to this rule are: dead for Deadly Arts since dea is for Death Magic; comma for Command since com is for Communing; earthp for Earth Prayers since ear is for Earth Magic.
+[build prof=W/E AxeMastery=12+1+3][/build] = [build prof=W/E axe=12+1+3][/build] =>
+[build prof=W/E axe=12+1+3][/build]
+
+[*]Description: Adding information on a build (weapons, armor, how to play it) can be done like this: desc="Vamp axe." (note: the description must be encased in double brackets "")
+[build prof=W/E desc="Vamp axe."][/build] =>
+[build prof=W/E desc="Vamp axe. Spike with Shock."][/build]
+Tip: you can write descriptions in multiple lines using {br} to separate lines. This tip works on build names as well.
+
+[*]PvE/PvP: You can specify whether a build is PvE or PvP by adding either "pve" or "pvp" to the code:
+[build prof=W/E pve]["Watch Yourself!"][Blinding Surge][/build] =>
+[build prof=W/E pve]["Watch Yourself!"][Blinding Surge][/build]
+[build prof=W/E pvp]["Watch Yourself!"][Blinding Surge][/build] =>
+[build prof=W/E pvp]["Watch Yourself!"][Blinding Surge][/build]
+[/list]
+
+[build name="Spell Slasher" prof=Me/W dom=12 swo=10 ins=7 fas=4][Resurrection Signet][final thrust][shatter enchantment][ether feast][skull crack][chaos storm][backfire][power drain][/build]
+[build name="Warrior's Bane" prof=N/Me ill=12 cur=9 ins=8 sou=5][Resurrection Signet][faintheartedness][soothing images][ineptitude][conjure phantasm][ethereal burden][energy tap][ether feast][/build]
+[build name="Minion Master" prof=N/Me dea=12 ins=10 sou=8][deathly swarm][energy drain][Resurrection Signet][death nova][verata's sacrifice][taste of death][animate bone fiend][animate bone horror][/build]
+[build name="Pyromancer" prof=E/R fir=12 ene=10 bea=8][fireball][energizing wind][searing heat][fire storm][rodgort's invocation][fire attunement][Resurrection Signet][mind burn][/build]
+[build name="Ice Blighter" prof=E/N wat=12 ene=10 cur=8][ice spikes][deep freeze][glyph of lesser energy][maelstrom][water trident][water attunement][rend enchantments][Resurrection Signet][/build]
+[build name="Protection Healer" prof=Mo/W pro=12 div=11 tac=6][reversal of fortune][guardian][shielding hands][convert hexes][bonetti's defense][mend ailment][shield of regeneration][Protective Spirit][/build]
+[build name="DW Healer" prof=Mo/E div=12 hea=12 pro=3][orison of healing][word of healing][healing touch][healing seed][mend ailment][smite hex][vengeance][restore life][/build]
+[build name="Abominable Snowman" prof=W/E ham=11 wat=10 str=8 tac=6][devastating hammer][mighty blow][heavy blow][Resurrection Signet][healing signet][armor of mist][frozen burst][sprint][/build]
+[build name="Paladin" prof=W/Mo swo=12 str=10 hea=8][sever artery][gash][galrath slash][final thrust][sprint][healing hands][mending][restore life][/build]
+[build name="IVEX Trapper" prof=R/Me wil=11 mar=10 exp=10][distracting shot][poison arrow][pin down][throw dirt][flame trap][barbed trap][storm chaser][troll unguent][/build]
+[build name="Fi Boon Healer" prof=Mo/N div=12 hea=10 blo=8][divine boon][remove hex][infuse health][orison of healing][healing touch][dwayna's kiss][heal other][offering of blood][/build]
+[build name="Shadow Blade" prof=A/W dagger=12 crit=10 shadow=8][Black Mantis Thrust][Jungle Strike][Twisting Fangs][Moebius Strike][Shadow Refuge][Shadow of Haste][Mirrored Stance][Resurrection Signet][/build]
+[build name="Fang of Melandru" prof=R/A dagger=12 exp=11 wild=6][Jagged Strike][Fox Fangs][Horns of the Ox][Falling Spider][Twisting Fangs][Escape][Troll Unguent][Resurrection Signet][/build]
+[build name="Dark Flame" prof=E/A fire=12 energy=10 shadow=8][Inferno][Lava Font][Flame Burst][Phoenix][Death's Charge][Aura of Displacement][Fire Attunement][Resurrection Signet][/build]
+[build name="Earthbinder" prof=Rt/Me comm=12 spawn=11 insp=6][Wanderlust][Earthbind][Pain][Bloodsong][Mantra of Resolve][Rupture Soul][Boon of Creation][Flesh of my Flesh][/build]
+[build name="Soul Spinner" prof=Rt/Mo resto=12 spawn=12][Spirit Light][Mend Body and Soul][Wielder's Boon][Weapon of Warding][Preservation][Recuperation][Remove Hex][Flesh of my Flesh][/build]
+[build name="Brutal Bombardier" prof=R/Rt mark=12 commu=8 exper=10 rest=2][Barrage][Lightning Reflexes][Throw Dirt][Dodge][Brutal Weapon][Pain][Favorable Winds][Flesh of my Flesh][/build]
+
+[[energy surge]
+[skill]energiewelle[/skill]
+[[Energiewelle@32]
+[skill=32 pri=32 lang=de]Energy Surge[/skill]
+
+[energy surge][skill image=1]Energiewelle[/skill]
+[Energiewelle@10+1+3][skill=10+1+3 image=1]Energy Surge[/skill]
+
+[skill image=1 huge=1]eisprisma[/skill][skill image=1 huge=1]verführerischer dunst[/skill]
+
+[[siegel der wiederbelebung@13]
+[[angriff@14]
+[[charge@10+1+3]
+[[Word of Healing@12+3]]
+[["You're All Alone!"@12]
+
+[dreifachhieb][henkerschlag] [[dreifachhieb] [[henkerschlag]
+[flucht][ablenk-schuss] [[flucht] [[ablenk-schuss]
+[lebensmantel][geisterbindung] [[lebensmantel] [[geisterbindung]
+[blut ist kraft][blutsbande] [[blut ist kraft] [[blutsbande]
+[panik][argwohn] [[panik] [[argwohn]
+[blitz herbeirufen][blitzblendung] [[blitz herbeirufen] [[blitzblendung]
+[möbiusstoß][todesblüte] [[möbiusstoß] [[todesblüte]
+[seelenverflechtung][geist zu fleisch] [[seelenverflechtung] [[geist zu fleisch]
+[schon unterwegs][zieht euch zurück] [[schon unterwegs] [[zieht euch zurück]
+[verwundender schlag][kühler sieg] [[verwundender schlag] [[kühler sieg]
+
+[build lang=de prof=e/x EnergyStorage=15 WaterMagic=16][Elemental Attunement][Elemental Lord (Luxon)][Glyph of Elemental Power][Armor of Frost][Deep Freeze][Maelstrom][Icy Prism][Glowing Ice][/build]
+[build prof=Ritualist/Necromancer SpawningPower=12+4 BloodMagic=3 DeathMagic=12][Feast for the Dead][Animate Bone Minions][Death Nova][Aura of the Lich][Dark Bond][Explosive Growth][Boon of Creation][Infuse Condition][/build]
+
+[waffenzauber1;OAOiQyiMtxoxgxkBWtdttKWGC]
+[waffenzauber2;OAOiQyh8YtJeXvJWGDbDAAA]
+[waffenzauber3;OAOiQygM5JuOpORGSPNPBAAAA]
+
+[build name='Geister' prof=Ritualist comm=12+1+3 spaw=12+1 res=3 box][Seelenverflechtung][Segen der Schöpfung][Unterschlupf][Vereinigung][Verschiebung][Rüstung der Gefühllosigkeit][Grausame Waffe][Fleisch von meinem Fleisch][/build]
+[kamikaze - resto;OACiQyhMlOJNN5I8Y5MOxJOMB]
+[W-R spirit spammer;OggicxiMxMVNNAeN1JWO5DasB]
+[Neue paw·ned²-Vorlage 47;OASiQyF8UFmCyB9AV4ouUBa]
+[build prof=Necromancer/Ritualist DeathMagic=16][Animate Bone Minions][Animate Bone Horror][Aura of the Lich][Malign Intervention][Animate Bone Fiend][Animate Shambling Horror][Jagged Bones][Animate Flesh Golem][/build]
+
+[Me-A keystone;OQdCA8wDP9Hw2yzmudAc+BA]
+[Me-N keystone MM;OQRCAcxDP9HknNd7gqaVANA]
+[Me-Mö Siegel-Heiler;OQNDAcrPSPNNgbalE3N9AjQ8U]
+[build prof=me/n fast=16 insp=13]Me-N keystone;OQRCA8wDP9HY6yz7gpaP4BA[/build]
+[build prof=Mesmer/Monk FastCasting=13 InspirationMagic=16][Signet of Humility][Signet of Devotion][Purge Signet][Blessed Signet][Signet of Illusions][Ether Signet][Signet of Recall][Symbolic Celerity][/build]
+
+[W-K die axt im walde;OgEScZJTgPKF7gVF5kKOFHAA]
+[W-A rush;OgcTcZ/8ZK1gVim8uUnhHBB6AC]
+
+[dajkah2 - 5;OAhjYohroOYMp5kT4NMHnV1kL]
+[69;OACjQigr4SVTDgMTXTbOnN+glT]
+[R-Mö smiter;OAOiQyiMhxsKet5N54AAwslsB]
+
+[Who Wants A Cookie!;OQMAQTg3kvg0kzFAE/DSF][family photo;OACAMg/CmwsYSxOmGzhJ][facebook;OABEYMxFfM51kJcF8I0I6U9GsHA][Chuck Norris;OQATEZJX55pIVAf4t+qPxOSYB]
+
+[build prof=Assassin/Mesmer ShadowArts=3+1+12 InspirationMagic=-12 nor=10]        [Mantra des Abschlusses][Schattenform][Angriff des Todes][Herz der Schatten]["Ich bin unaufhaltbar!"][Schleier des Kummers][Geistige Sperre][Rückruf][/build]
+[build prof=Mesmer/Ritualist fast=42 dom=42 insp=42 resto=42][Panic][Mistrust][Cry of Frustration][Wastrel's Demise][Unnatural Signet][Power Drain][Drain Enchantment][Death Pact Signet][/build]
+
+[1 – K Unbenannter paw·ned²-Charakter;OQASQ5IP9FAzUj8dV4rdFBA][2 – W Unbenannter paw·ned²-Charakter;OgASc5MT5WPGVg4aIGpGwGrG][3 – Mö Unbenannter paw·ned²-Charakter;OwAT0YY+SKuajoB0fY6bT7uCNC][4 – N Unbenannter paw·ned²-Charakter;OABCcsxkjwngdAjolQCYVlAA][5 – Me Unbenannter paw·ned²-Charakter;OQBDMpwQK0w0PEXQGQEOhAA][6 – E Unbenannter paw·ned²-Charakter;OgBDoMrIKkSvwN7ivgz4iAA][7 – A Unbenannter paw·ned²-Charakter;OwBjMyd83MxZHGD7gh7Oz6PBA][8 – R Unbenannter paw·ned²-Charakter;OACiQyg8gNtehTLH4H56MvY][9 – P Unbenannter paw·ned²-Charakter;OQCjgylopOC5e8JuGvjtwsYcM][10 – D Unbenannter paw·ned²-Charakter;OgCjkurKrOf7lL/97LuHvrX2L]
+
+
+[pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>YOgcSc5PT0k6MHQ4OCH3lxldOsPk5JWEMZYE8EMJYd8EMJYn8EMJY77EMJYRRFSaCjkC0KJPcZQcTKl
+UAABEABCMSBSYW5nZXItVGFuawpkb3dubG9hZGVkIGZyb20gaHR0cDovL3d3dy5nd2NvbS5kZQZOQZDA
+swzQqDuNmOTP2kBBiOwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzriUQPk
+pQRNNYSjkM36SBACIhAA7MiBDYWxsZXIKZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d3cuZ3djb20uZGU
+YOQdCAsw0SwJgpz0TMpcZnDcJoPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSwiJHsIb+KPPgpghmZ9phOzr
+iUQPkpQRNNYSjkM36SBJPcZQcTKlUCIgAA7MyBSZWNhbGwKZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d
+3cuZ3djb20uZGUaOQJTAQBbVaJ4Ew0Z6RGA6gDAuEoPgp5PCjcJCXhRCWnrwItw0VYkgt3KMyMgJHsIb
++KPPgpghmZ9phOzriUQPkpQRNNYSjkM36SBACIgAA7NCBFb0UvQkYKZG93bmxvYWRlZCBmcm9tIGh0dH
+A6Ly93d3cuZ3djb20uZGUZOQRDAownSLBnAmOTP0kWCaAwloPgp5PCjcJCXhRCWnrwItw0VYkgt3KMSw
+iJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjkM36SBACIgAA6NSBTcGxpdApkb3dubG9hZGVkIGZyb20g
+aHR0cDovL3d3dy5nd2NvbS5kZQZOQNDAsw/QCObAmOTPxkvOMEwloPgp5PCjcJCXhRCWnrwItw0VYkgt
+3KMSwiJHsIb+KPPgpghmZ9phOzriUQPkpQRNNYSjkM36SBACIgAA2NiBVQQpkb3dubG9hZGVkIGZyb20
+gaHR0cDovL3d3dy5nd2NvbS5kZQaOwIT8QIjVC5IHMlIigukeIeAgAoPgpJTCiULCbBR6JntgID70WQk
+htXLIywCOHsIbsEQPkpQRNNYSjkM36SBAACAkAA/NyBTQi1TZWVkZXIKZG93bmxvYWRlZCBmcm9tIGh0
+dHA6Ly93d3cuZ3djb20uZGUYOgNDwcPPPaRSyNrWQLkHxjDCpPkpZSEEpUE1EEpnc1EEZYn1EEZY70EE
+ZYxTHsIbsEQPkpQRNNYSjkM36SBAADAAgAA3OCBFbW8KZG93bmxvYWRlZCBmcm9tIGh0dHA6Ly93d3cu
+Z3djb20uZGU<[/pwnd][pwnd]pwnd0000?download paw·ned² @ www.gw-tactics.de Copyright numma_cway aka Redeemer
+>aOwFj0xfzITOMMMHMie4O0kxZ6PaPkpxFP9FzSqAA5AAJBAZBApBAJAAAAAAHV290QQoZOAOj4wiM5M
+XTMm3cZS9dJAg5BpPkppFFEqtEAFEqncAFEaqmAFEaY7/EEaYRIHeqXjEAAACAgAAKc21pdGVyCgXOQh
+DApwTK0w0b6DROkBExFDoPgp5PCicJCDBR6JzigItw4SQkhtDIIyMgJHeqXjEPPgpghmZ9phOzriUAAC
+IhAAIcGFuaXgKcOQhkAkB8QGO0LwKACYe2oTGARwFDoPgpZQCikJCXBR6JnrgItw0VQkht3KIywCKHeq
+XjEQPkpwRNz6TjdMvKSBAACMBAAIaW5lcDEKaOQhjAwBcoQvArAIg5ZkAcQOBXMoPgpZQCikJCXBR6Jn
+rgItw0VQkht3KIywCKHeqXjEQPkpwRNz6TjdMvKSBAABMAAIaW5lcDIKbOAhkQkGZIfMzdwQM0qqSzJn
+wbYCoPgpZRCi8JiYBR6JXsgI7wMWQkhtDLISOALHeqXjELPkZwUP9akeKAACgJAAGYmlwCgZOAWiEykM
+p7INN5I8Y5MOxJaNBpPkpBUPbTkiqwmpI900mpIDLbipIvSvmpIDrzmpINBAAACgJAAIcmVzdG8KXOAe
+iAyk8gNtehzHnlD8jcdmpPkp5EFEKuEAFEqncAFEaqmAFEaY7/EEaYBIHiKbkILPkZAIP9akeKAACgBA
+AEU1QK<[/pwnd]
