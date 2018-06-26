@@ -43,7 +43,7 @@ class GeoJSONFeatureCollectionTest extends TestCase{
 
 		$json = $this->geoJSONFeatureCollection->toJSON();
 
-		$this->assertSame('{"type":"FeatureCollection","bbox":[-10,-10,10,10],"features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[1,1]},"properties":{"id":1},"id":1},{"type":"Feature","geometry":{"type":"Point","coordinates":[2,2]},"properties":{"id":2},"id":2}]}', $json);
+		$this->assertSame('{"type":"FeatureCollection","bbox":[-10,-10,10,10],"features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[1,1]},"properties":{"id":1}},{"type":"Feature","geometry":{"type":"Point","coordinates":[2,2]},"properties":{"id":2}}]}', $json);
 	}
 
 	public function testClearFeatures(){

@@ -42,7 +42,7 @@ class GeoJSONFeatureTest extends TestCase{
 
 		$arr = $this->geoJSONFeature->toArray();
 
-		$this->assertSame($id, $arr['id']);
+#		$this->assertSame($id, $arr['id']);
 		$this->assertSame($id, $arr['properties']['id']);
 		$this->assertSame('val1', $arr['properties']['prop1']);
 		$this->assertSame('Feature', $arr['type']);
@@ -52,7 +52,7 @@ class GeoJSONFeatureTest extends TestCase{
 
 		$json = $this->geoJSONFeature->toJSON();
 
-		$this->assertSame('{"type":"Feature","geometry":{"type":"Point","coordinates":[10,10]},"bbox":[-10,-10,10,10],"properties":{"prop1":"val1","id":123},"id":123}', $json);
+		$this->assertSame('{"type":"Feature","geometry":{"type":"Point","coordinates":[10,10]},"bbox":[-10,-10,10,10],"properties":{"prop1":"val1","id":123}}', $json);
 	}
 
 	/**

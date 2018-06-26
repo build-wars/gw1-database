@@ -172,7 +172,7 @@ class GeoJSONFeature{
 		if(!empty($this->id)){
 			// serving both, leaflet and GMaps...
 			$arr['properties']['id'] = $this->id;
-			$arr['id'] = $this->id;
+#			$arr['id'] = $this->id;
 		}
 
 		return $arr;
