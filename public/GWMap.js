@@ -19,8 +19,8 @@ const CONTINENT_INFO = {
 	elona           : {id: 4, rect: [[0, 0], [24640, 18480]]},
 	presearing      : {id: 5, rect: [[0, 0], [8190, 6160]]},
 	battleisles     : {id: 6, rect: [[0, 0], [8190, 6160]]},
-	tyriaUnderground: {id: 6, rect: [[0, 0], [0, 0]]},
-	torment         : {id: 6, rect: [[0, 0], [0, 0]]},
+	tyriaUnderground: {id: 7, rect: [[0, 0], [0, 0]]},
+	torment         : {id: 8, rect: [[0, 0], [0, 0]]},
 };
 
 // @todo
