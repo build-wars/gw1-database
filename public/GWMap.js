@@ -33,14 +33,19 @@ const LAYERNAMES = {
 };
 
 const OUTPOST_TYPES = {
-	1: {en:'Town',de:'Stadt'},
-	2: {en:'Outpost',de:'Außenposten'},
-	3: {en:'Mission outpost',de:'Missionsaußenposten'},
-	4: {en:'Arena outpost',de:'Arenaaußenposten'},
-	5: {en:'Challenge mission outpost',de:'Missionsaußenposten (Herausforderungs-Mission)'},
-	6: {en:'Elite mission outpost',de:'Elitemissionsaußenposten'},
-	7: {en:'Guild hall',de:'Gildenhalle'},
-	8: {en:'Competetive mission outpost',de:'Missionsaußenposten (Kompetitive Mission)'},
+	1: {css:'town', en:'Town', de:'Stadt'},
+	2: {css:'', en:'Outpost', de:'Außenposten'},
+	3: {css:'mission', en:'Mission outpost', de:'Missionsaußenposten'},
+	4: {css:'arena', en:'Arena outpost', de:'Arenaaußenposten'},
+	5: {css:'chmission', en:'Challenge mission outpost', de:'Missionsaußenposten (Herausforderungs-Mission)'},
+	6: {css:'elmission', en:'Elite mission outpost', de:'Elitemissionsaußenposten'},
+	7: {css:'guildhall', en:'Guild hall', de:'Gildenhalle'},
+	8: {css:'comission', en:'Competetive mission outpost', de:'Missionsaußenposten (Kompetitive Mission)'},
+};
+
+const BOSS_PROF_CSS = {
+	0:'', 1:'warrior', 2:'ranger', 3:'monk', 4:'necromancer', 5:'mesmer',
+	6:'elementalist', 7:'assassin', 8:'ritualist', 9:'paragon', 10:'dervish'
 };
 
 const ICON_SIZE = {
@@ -225,7 +230,7 @@ class GWMap{
 
 
 		if(this.layers['labels']){
-			zoom < this.options.minIconZoom ? this.layers['labels'].remove(): this.layers['labels'].addTo(this.map);
+			zoom < this.options.minIconZoom ? this.layers['labels'].remove() : this.layers['labels'].addTo(this.map);
 		}
 
 	}
@@ -344,13 +349,12 @@ class GWMap{
 	 * @returns {*}
 	 */
 	iconOutpost(properties, zoom){
-		let s = ICON_SIZE[this.continent][properties.outposttype];
-		let iconsize = this.getSize(s, zoom);
+		let iconsize = this.getSize(ICON_SIZE[this.continent][properties.outposttype], zoom);
 
 		return L.divIcon({
 			iconSize   : [iconsize, iconsize],
 			popupAnchor: [0, -iconsize/2],
-			className  : this.continent + ' outpost-' + properties.outposttype,
+			className  : this.continent + ' outpost ' + OUTPOST_TYPES[properties.outposttype]['css'],
 		});
 	}
 
@@ -365,7 +369,7 @@ class GWMap{
 		return L.divIcon({
 			iconSize   : [iconsize, iconsize],
 			popupAnchor: [0, -iconsize/2],
-			className: 'boss prof-' + properties.prof,
+			className: 'boss ' + BOSS_PROF_CSS[properties.prof],
 		})
 	}
 
