@@ -12,18 +12,13 @@ namespace chillerlan\GW1DBBuild;
 use chillerlan\Database\{
 	Database, DatabaseOptionsTrait, Drivers\MySQLiDrv
 };
-use chillerlan\HTTP\{
-	CurlClient, HTTPOptionsTrait
-};
+use chillerlan\HTTP\{CurlClient, HTTPOptionsTrait, Psr17\RequestFactory};
 use chillerlan\Logger\{
 	Log, LogOptionsTrait, Output\ConsoleLog
 };
-use chillerlan\SimpleCache\{
-	Cache, Drivers\MemoryCacheDriver
-};
-use chillerlan\Traits\{
-	ContainerAbstract, DotEnv
-};
+use chillerlan\Settings\SettingsContainerAbstract;
+use chillerlan\SimpleCache\MemoryCache;
+use chillerlan\DotEnv\DotEnv;
 
 mb_internal_encoding('UTF-8');
 
@@ -54,7 +49,7 @@ $o = [
 	'minLogLevel' => 'debug',
 ];
 
-$options = new class($o) extends ContainerAbstract{
+$options = new class($o) extends SettingsContainerAbstract{
 	use DatabaseOptionsTrait, HTTPOptionsTrait, LogOptionsTrait;
 
 };
@@ -63,7 +58,8 @@ $logger = new Log;
 $logger->addInstance(new ConsoleLog($options), 'console');
 
 $http  = new CurlClient($options);
-$cache = new Cache(new MemoryCacheDriver);
+$cache = new MemoryCache;
 $db    = new Database($options, $cache, $logger);
+$rf    = new RequestFactory;
 
 $db->connect();

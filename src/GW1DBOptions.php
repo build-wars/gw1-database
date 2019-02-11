@@ -14,12 +14,12 @@ namespace chillerlan\GW1DB;
 
 use chillerlan\BBCode\BBCodeOptionsTrait;
 use chillerlan\Database\DatabaseOptionsTrait;
-use chillerlan\Traits\ContainerAbstract;
+use chillerlan\Settings\SettingsContainerAbstract;
 
 /**
  * @property string $language
  * @property string $gwdbURL
  */
-class GW1DBOptions extends ContainerAbstract{
+class GW1DBOptions extends SettingsContainerAbstract{
 	use GW1DBOptionsTrait, DatabaseOptionsTrait, BBCodeOptionsTrait;
 }

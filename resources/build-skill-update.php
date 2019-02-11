@@ -108,8 +108,8 @@ $values = [[
 	'profession'     => 0,
 	'attribute'      => -1,
 	'elite'          => 0,
-	'pve_only'       => 0,
-	'pvp_split'      => 0,
+	'rp'             => 0,
+	'split'          => 0,
 	'pve_type'       => 0,
 	'pve_upkeep'     => 0,
 	'pve_energy'     => 0,
@@ -142,8 +142,8 @@ foreach($skilldata['pve'] as $key => $skill){
 		'profession'     => (int)$skill[7],
 		'attribute'      => (int)$skill[5],
 		'elite'          => (int)$skill[14],
-		'pve_only'       => (bool)$skill[15],
-		'pvp_split'      => $skill[1] !== $skilldata['pvp'][$key][1],
+		'rp'             => (bool)$skill[15],
+		'split'          => $skill[1] !== $skilldata['pvp'][$key][1],
 		'pve_type'       => (int)$skill[6],
 		'pve_upkeep'     => (int)$skill[8],
 		'pve_energy'     => (int)$skill[9],
@@ -212,6 +212,7 @@ foreach(skilldb as $lang => $v){
 }
 
 unset($skilldata, $skilldesc, $values);
+
 
 ### script end ###
 

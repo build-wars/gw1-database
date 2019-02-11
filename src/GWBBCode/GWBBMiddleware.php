@@ -15,7 +15,7 @@ namespace chillerlan\GW1DB\GWBBCode;
 use chillerlan\BBCode\ParserMiddlewareInterface;
 use chillerlan\GW1DB\Data\GWSkillLookup;
 use chillerlan\GW1DB\Template\Skill;
-use chillerlan\Traits\ContainerInterface;
+use chillerlan\Settings\SettingsContainerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\SimpleCache\CacheInterface;
 
@@ -39,11 +39,11 @@ final class GWBBMiddleware implements ParserMiddlewareInterface{
 	/**
 	 * GWBBMiddleware constructor.
 	 *
-	 * @param \chillerlan\Traits\ContainerInterface $options
+	 * @param \chillerlan\Settings\SettingsContainerInterface $options
 	 * @param \Psr\SimpleCache\CacheInterface       $cache
 	 * @param \Psr\Log\LoggerInterface              $logger
 	 */
-	public function __construct(ContainerInterface $options, CacheInterface $cache, LoggerInterface $logger){
+	public function __construct(SettingsContainerInterface $options, CacheInterface $cache, LoggerInterface $logger){
 		$this->options = $options;
 		$this->cache   = $cache;
 		$this->logger  = $logger;
