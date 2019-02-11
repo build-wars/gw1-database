@@ -8,7 +8,7 @@
 
 'use strict';
 
-(o => {
+((commonOptions, skillOptions, attrOptions) => {
 
 // https://jamie.build/const
 
@@ -456,7 +456,7 @@ class Tooltip{
 	 */
 	fadeIn(){
 		this.tooltip.style.left    = '0px';
-		this.tooltip.style.opacity = 0;
+		this.tooltip.style.opacity = '0';
 		this.tooltip.style.filter  = 'alpha(opacity=0)';
 		this.tooltip.style.display = 'inline-block';
 
@@ -480,13 +480,13 @@ class GWTooltip extends Tooltip{
 	constructor(options){
 
 		options = Helpers.extend({
-			gwdbURL            : './gwdb',
-			tooltipID          : 'gwbb-tooltip',
-			cacheContainerClass: 'gwbb-tooltip-cache',
-			lang               : 'en',
-			imgExt: '.png',
-			imgMiscPath: '/img/misc',
-			jsonExt: '.json',
+			gwdbURL             : './gwdb',
+			tooltipID           : 'gwbb-tooltip',
+			cacheContainerClass : 'gwbb-tooltip-cache',
+			lang                : 'en',
+			imgExt              : '.png',
+			imgMiscPath         : '/img/misc',
+			jsonExt             : '.json',
 		}, options);
 
 		super(options);
@@ -1210,10 +1210,14 @@ class GWSkillDescription{
 
 }
 
+class GWAttrTooltip extends GWTooltip{
+
+}
 
 
 // start the action
-new GWSkillTooltip(o).init();
+new GWSkillTooltip(Helpers.extend(commonOptions, skillOptions)).init();
+new GWAttrTooltip(Helpers.extend(commonOptions, attrOptions)).init();
 
 
 
@@ -1246,4 +1250,4 @@ document.querySelectorAll('.gwbb-icon.save, .gwbb-icon.pwnd').forEach(e => {
 
 });
 
-})(GWTooltipOptions);
+})(GWTooltipOptions, {}, {});
