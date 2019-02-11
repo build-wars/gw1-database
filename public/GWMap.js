@@ -62,7 +62,7 @@ const ICON_SIZE = {
  */
 const i18n = {
 	de: {
-		wiki       : 'https://www.guildwiki.de/wik/',
+		wiki       : 'https://www.guildwiki.de/wiki/',
 		attribution: 'Kartendaten und -bilder',
 		layers     : {
 
