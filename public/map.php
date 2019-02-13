@@ -12,7 +12,7 @@ namespace chillerlan\GW1DBwww;
 
 require_once '../vendor/autoload.php';
 
-$lang = 'en';
+$lang = 'de';
 
 header('Content-Type: text/html; charset=utf-8');
 
@@ -25,7 +25,7 @@ header('Content-Type: text/html; charset=utf-8');
 	<title>GW Map test</title>
 	<link rel="stylesheet" href="./gw-fonts.css">
 	<link rel="stylesheet" href="./gwmap.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
 </head>
 <body>
 <div class="gw1map" data-continent="tyria"></div>
@@ -33,6 +33,8 @@ header('Content-Type: text/html; charset=utf-8');
 <div class="gw1map" data-continent="elona"></div>
 <div class="gw1map" data-continent="presearing"></div>
 <div class="gw1map" data-continent="battleisles"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet-src.js"></script>
+<script src="GWMap.js"></script>
 <script>
 	const GWMapOptions = {
 		targetSelector: '.gw1map',
@@ -42,8 +44,37 @@ header('Content-Type: text/html; charset=utf-8');
 		lang:'<?php echo $lang; ?>',
 		mapAttribution: 'Imagery: <a href="http://www.guildwars.com/" target="_blank">Guild Wars</a>, &copy; <a href="http://www.arena.net/" target="_blank">ArenaNet</a>',
 	};
+
+	((mapOptions) => {
+
+		// check if leaflet is loaded (paranoid)
+		if(L.version){
+
+			// override L.TileLayer.getTileUrl() and add a custom tile getter
+			L.TileLayer.prototype.getTileUrl = function(tilePoint){
+
+				if(typeof this.options.tileGetter === 'function'){
+					return this.options.tileGetter(tilePoint, this._getZoomForUrl());
+				}
+
+				return this.options.errorTileUrl;
+			};
+
+
+			let maps = [];
+
+			document.querySelectorAll(mapOptions.targetSelector).forEach(function(e, i){
+				maps[i] = new GWMap(e, mapOptions).init();
+			});
+
+			console.log(maps);
+
+		}
+		else{
+			console.log('Leaflet not loaded');
+		}
+
+	})(GWMapOptions);
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet-src.js"></script>
-<script src="GWMap.js"></script>
 </body>
 </html>

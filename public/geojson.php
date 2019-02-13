@@ -10,6 +10,7 @@
 
 namespace chillerlan\GW1DBwww;
 
+use chillerlan\Database\Result;
 use chillerlan\Database\ResultRow;
 use chillerlan\GW1DB\Maps\{GeoJSONFeature, GeoJSONFeatureCollection, GWContinentRect};
 
@@ -34,7 +35,7 @@ try{
 
 	$lang = isset($json->lang) && in_array($json->lang, ['de', 'en']) ? $json->lang : 'en';
 
-	if($json->continent === 'tyria'){
+	if(in_array($json->continent, ['tyria', 'elona', 'cantha', 'battleisles', 'presearing'], true)){
 		$featureCollections = [
 			'explorables' => new GeoJSONFeatureCollection,
 			'missions'    => new GeoJSONFeatureCollection,
@@ -43,15 +44,18 @@ try{
 			'labels'      => new GeoJSONFeatureCollection,
 		];
 
-		$db->select
+		$explorables = $db->select
 			->cols(['id' => ['exp.explorable_id'], 'rect' => ['exp.rect'], 'name' => ['exp.name_'.$lang]])
 			->from(['exp' => 'gw1_explorable', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
 			->where('exp.rect', '[[0,0],[0,0]]', '!=')
 			->where('exp.region_id', 'reg.region_id', '=', false)
-			->where('con.shortname', 'tyria')
+			->where('con.shortname', $json->continent)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
-			->query()
-			->__each(function(ResultRow $r) use (&$featureCollections){
+			->query();
+
+		if($explorables instanceof Result){
+
+			$explorables->__each(function(ResultRow $r) use (&$featureCollections){
 				$p = [
 					'name' => $r->name,
 					'type' => 'explorable',
@@ -63,15 +67,20 @@ try{
 				$featureCollections['labels']->addFeature((new GeoJSONFeature($rect->getCenter(), 'Point', $r->id))->setProperties($p));
 			});
 
-		$db->select
+		}
+
+		$missions = $db->select
 			->cols(['id' => ['mis.mission_id'], 'rect' => ['mis.rect'], 'name' => ['mis.name_'.$lang]])
 			->from(['mis' => 'gw1_missions', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
 			->where('mis.rect', '[[0,0],[0,0]]', '!=')
 			->where('mis.region_id', 'reg.region_id', '=', false)
-			->where('con.shortname', 'tyria')
+			->where('con.shortname', $json->continent)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
-			->query()
-			->__each(function(ResultRow $r) use (&$featureCollections){
+			->query();
+
+		if($missions instanceof Result){
+
+			$missions->__each(function(ResultRow $r) use (&$featureCollections){
 				$p = [
 					'name' => $r->name,
 					'type' => 'mission',
@@ -83,17 +92,34 @@ try{
 				$featureCollections['labels']->addFeature((new GeoJSONFeature($rect->getCenter(), 'Point', $r->id))->setProperties($p));
 			});
 
-		$db->select
+		}
+
+		// @todo
+		$regions = [
+			'tyria'  => [2,4,5,6,7,8,18,19,20],
+			'cantha' => [9, 10, 11, 12],
+			'elona'  => [13, 14, 15, 16],
+			'battleisles' => [22],
+			'presearing' => [1],
+		];
+
+
+		$outposts = $db->select
 			->cols(['id' => ['out.outpost_id'], 'coord' => ['out.coord'], 'rect' => ['out.rect'], 'name' => ['out.name_'.$lang], 'otype' => ['out.outposttype_id']])
 			->from(['out' => 'gw1_outposts', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
 			->where('out.visible', 1)
-			->where('out.outposttype_id', [1,2,3,4], 'in')
+#			->where('out.outposttype_id', [1,2,3,4], 'in')
+			->where('out.region_id', $regions[$json->continent], 'in')
 			->where('out.region_id', 'reg.region_id', '=', false)
-			->where('con.shortname', 'tyria')
+			->where('con.shortname', $json->continent)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
 			->orderBy(['out.outposttype_id' => 'DESC'])
-			->query()
-			->__each(function(ResultRow $r) use (&$featureCollections){
+			->query();
+
+		if($outposts instanceof Result){
+
+			$outposts->__each(function(ResultRow $r) use (&$featureCollections){
+
 				$p = [
 					'name'        => $r->name,
 					'outposttype' => $r->otype,
@@ -108,15 +134,20 @@ try{
 				$featureCollections['labels']->addFeature((new GeoJSONFeature($point, 'Point', $r->id))->setProperties($p));
 			});
 
-		$db->select
+		}
+
+		$bosses = $db->select
 			->cols(['id' => ['boss.boss_id'], 'prof' => ['boss.profession'], 'skill' => ['boss.elite'], 'coord' => ['boss.coord'], 'name' => ['boss.name_'.$lang]])
 			->from(['boss' => 'gw1_bosses', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
-			->where('con.shortname', 'tyria')
-			->where('boss.region_id', [2,4,5,6,7,8,18,19,20], 'in')
+			->where('con.shortname', $json->continent)
+			->where('boss.region_id', $regions[$json->continent], 'in')
 			->where('boss.region_id', 'reg.region_id', '=', false)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
-			->query()
-			->__each(function(ResultRow $r) use (&$featureCollections){
+			->query();
+
+		if($bosses instanceof Result){
+
+			$bosses->__each(function(ResultRow $r) use (&$featureCollections){
 				$p = [
 					'name'  => $r->name,
 					'prof'  => $r->prof,
@@ -126,6 +157,8 @@ try{
 
 				$featureCollections['bosses']->addFeature((new GeoJSONFeature(json_decode($r->coord), 'Point', $r->id))->setProperties($p)) ;
 			});
+
+		}
 
 		$featureCollections = array_map(function(GeoJSONFeatureCollection $featureCollection){
 			return $featureCollection->toArray();

@@ -8,75 +8,53 @@
 
 'use strict';
 
-((mapOptions) => {
-
-const CONTINENTS = ['mists', 'tyria', 'cantha', 'elona', 'presearing', 'battleisles'];
-
-const CONTINENT_INFO = {
-	mists           : {id: 1, rect: [[0, 0], [0, 0]]},
-	tyria           : {id: 2, rect: [[0, 0], [32766, 36944]]},
-	cantha          : {id: 3, rect: [[0, 0], [24648, 18488]]},
-	elona           : {id: 4, rect: [[0, 0], [24640, 18480]]},
-	presearing      : {id: 5, rect: [[0, 0], [8190, 6160]]},
-	battleisles     : {id: 6, rect: [[0, 0], [8190, 6160]]},
-	tyriaUnderground: {id: 7, rect: [[0, 0], [0, 0]]},
-	torment         : {id: 8, rect: [[0, 0], [0, 0]]},
-};
-
-// @todo
-const LAYERNAMES = {
-	labels     : {de: 'Beschriftungen', en: 'Labels'},
-	explorables: {de: 'Erforschbar', en: 'Explorable'},
-	missions   : {de: 'Missionen', en: 'Missions'},
-	outposts   : {de: 'Außenposten', en: 'Outposts'},
-	bosses     : {de: 'Bosse', en: 'Bosses'},
-};
-
-const OUTPOST_TYPES = {
-	1: {css:'town', en:'Town', de:'Stadt'},
-	2: {css:'', en:'Outpost', de:'Außenposten'},
-	3: {css:'mission', en:'Mission outpost', de:'Missionsaußenposten'},
-	4: {css:'arena', en:'Arena outpost', de:'Arenaaußenposten'},
-	5: {css:'chmission', en:'Challenge mission outpost', de:'Missionsaußenposten (Herausforderungs-Mission)'},
-	6: {css:'elmission', en:'Elite mission outpost', de:'Elitemissionsaußenposten'},
-	7: {css:'guildhall', en:'Guild hall', de:'Gildenhalle'},
-	8: {css:'comission', en:'Competetive mission outpost', de:'Missionsaußenposten (Kompetitive Mission)'},
-};
-
-const BOSS_PROF_CSS = {
-	0:'', 1:'warrior', 2:'ranger', 3:'monk', 4:'necromancer', 5:'mesmer',
-	6:'elementalist', 7:'assassin', 8:'ritualist', 9:'paragon', 10:'dervish'
-};
-
-const ICON_SIZE = {
-	tyria: {
-		1: 64,
-		2: 32,
-		3: 128,
-		4: 64,
-	}
-};
-
 /**
- * TODO: add es & fr language snippets, layers
+ * TODO: add es & fr language snippets
  */
-const i18n = {
+const GWMAP_I18N = {
 	de: {
 		wiki       : 'https://www.guildwiki.de/wiki/',
 		attribution: 'Kartendaten und -bilder',
 		layers     : {
-
+			labels     : 'Beschriftungen',
+			explorables: 'Erforschbar',
+			missions   : 'Missionen',
+			outposts   : 'Außenposten',
+			bosses     : 'Bosse',
+		},
+		outposttypes:{
+			1: 'Stadt',
+			2: 'Außenposten',
+			3: 'Missionsaußenposten',
+			4: 'Arenaaußenposten',
+			5: 'Missionsaußenposten (Herausforderungs-Mission)',
+			6: 'Elitemissionsaußenposten',
+			7: 'Gildenhalle',
+			8: 'Missionsaußenposten (Kompetitive Mission)',
 		},
 	},
 	en: {
 		wiki       : 'https://wiki.guildwars.com/wiki/',
 		attribution: 'Map data and imagery',
 		layers     : {
-
+			labels     : 'Labels',
+			explorables: 'Explorable',
+			missions   : 'Missions',
+			outposts   : 'Outposts',
+			bosses     : 'Bosses',
+		},
+		outposttypes:{
+			1: 'Town',
+			2: 'Outpost',
+			3: 'Mission outpost',
+			4: 'Arena outpost',
+			5: 'Challenge mission outpost',
+			6: 'Elite mission outpost',
+			7: 'Guild hall',
+			8: 'Competetive mission outpost',
 		},
 	},
 };
-
 
 
 class GWMap{
@@ -96,7 +74,7 @@ class GWMap{
 			tileExt         : '.png',
 			lang            : 'en',
 			defaultContinent: 'tyria',
-			zoom            : 3,
+			zoom            : 4,
 			minZoom         : 1,
 			maxZoom         : 8,
 			zoomNormalize   : 6,
@@ -118,7 +96,7 @@ class GWMap{
 		this.tilebase = this.options.gwdbURL + this.options.tilePath;
 		this.layers   = {};
 		this.panes    = {};
-		this.i18n     = i18n[this.options.lang];
+		this.i18n     = GWMAP_I18N[this.options.lang];
 
 		this.setBaseMap();
 	}
@@ -128,12 +106,21 @@ class GWMap{
 	 */
 	init(){
 		let dataset = this.container.dataset;
+		// @todo: by continent_id
+		let continentInfo = {
+			mists      : {id: 1, rect: [[0, 0], [0, 0]]},
+			tyria      : {id: 2, rect: [[0, 0], [32766, 36944]]},
+			cantha     : {id: 3, rect: [[0, 0], [24648, 18488]]},
+			elona      : {id: 4, rect: [[0, 0], [24640, 18480]]},
+			presearing : {id: 5, rect: [[0, 0], [8190, 6160]]},
+			battleisles: {id: 6, rect: [[0, 0], [8190, 6160]]},
+		};
 
-		this.continent = CONTINENTS.indexOf(dataset.continent) !== -1
+		this.continent = continentInfo[dataset.continent]
 			? dataset.continent
 			: this.options.defaultContinent;
 
-		this.viewRect = CONTINENT_INFO[this.continent].rect;
+		this.viewRect = continentInfo[this.continent].rect;
 
 		let rect   = new GW2ContinentRect(this.viewRect).getBounds();
 		let bounds = new L.LatLngBounds(this.unproject(rect[0]), this.unproject(rect[1]));//.pad(0.1)
@@ -253,7 +240,7 @@ class GWMap{
 			}).addTo(this.map);
 
 			// translated layer names as pane keys for display
-			this.panes[LAYERNAMES[pane][this.options.lang]] = this.layers[pane];
+			this.panes[this.i18n.layers[pane]] = this.layers[pane];
 		});
 
 		// add the layer controls
@@ -344,18 +331,57 @@ class GWMap{
 	}
 
 	/**
+	 * @param outposttype
+	 * @param zoom
+	 * @returns {number}
+	 */
+	outpostIconsize(outposttype, zoom){
+		// @todo: by continent_id
+		let s = {
+			tyria      : {1: 64, 2: 32, 4: 64},
+			cantha     : {2: 64},
+			elona      : {},
+			presearing : {1: 64, 2: 32, 4: 64},
+			battleisles: {1: 64, 2: 32, 4: 64},
+		}[this.continent][outposttype];
+
+		return this.getSize(s ? s : 128, zoom);
+	}
+
+	/**
+	 * @todo: needles on lower sizes
+	 *
 	 * @param properties
 	 * @param zoom
 	 * @returns {*}
 	 */
 	iconOutpost(properties, zoom){
-		let iconsize = this.getSize(ICON_SIZE[this.continent][properties.outposttype], zoom);
+		let iconsize = this.outpostIconsize(properties.outposttype, zoom);
+		let cssClass = {
+			1: 'town', 2: '', 3: 'mission', 4: 'arena', 5: 'chmission', 6: 'elmission', 7: 'guildhall', 8: 'comission'
+		}[properties.outposttype];
 
 		return L.divIcon({
 			iconSize   : [iconsize, iconsize],
 			popupAnchor: [0, -iconsize/2],
-			className  : this.continent + ' outpost ' + OUTPOST_TYPES[properties.outposttype]['css'],
+			className  : this.continent + ' outpost ' + cssClass,
 		});
+	}
+
+	/**
+	 * @param properties
+	 * @param zoom
+	 * @returns {*}
+	 */
+	labelOutpost(properties, zoom){
+		let iconsize = this.outpostIconsize(properties.outposttype, zoom);
+
+		return L.divIcon({
+			iconSize   : [160, 20],
+			iconAnchor : [80, -iconsize/4],
+			className  : 'outpost label',
+			html       : properties.name,
+		})
 	}
 
 	/**
@@ -365,28 +391,15 @@ class GWMap{
 	 */
 	iconBoss(properties, zoom){
 		let iconsize = this.getSize(32, zoom);
+		let cssClass = {
+			0:'', 1:'warrior', 2:'ranger', 3:'monk', 4:'necromancer', 5:'mesmer',
+			6:'elementalist', 7:'assassin', 8:'ritualist', 9:'paragon', 10:'dervish'
+		}[properties.prof];
 
 		return L.divIcon({
 			iconSize   : [iconsize, iconsize],
 			popupAnchor: [0, -iconsize/2],
-			className: 'boss ' + BOSS_PROF_CSS[properties.prof],
-		})
-	}
-
-	/**
-	 * @param properties
-	 * @param zoom
-	 * @returns {*}
-	 */
-	labelOutpost(properties, zoom){
-		let s = ICON_SIZE[this.continent][properties.outposttype];
-		let iconsize = this.getSize(s, zoom);
-
-		return L.divIcon({
-			iconSize   : [160, 20],
-			iconAnchor : [80, -iconsize/4],
-			className  : 'outpost label',
-			html       : properties.name,
+			className: 'boss ' + cssClass,
 		})
 	}
 
@@ -518,33 +531,3 @@ class GW2ContinentRect{
 	}
 
 }
-
-
-// check if leaflet is loaded (paranoid)
-if(L.version){
-
-	// override L.TileLayer.getTileUrl() and add a custom tile getter
-	L.TileLayer.prototype.getTileUrl = function(tilePoint){
-
-		if(typeof this.options.tileGetter === 'function'){
-			return this.options.tileGetter(tilePoint, this._getZoomForUrl());
-		}
-
-		return this.options.errorTileUrl;
-	};
-
-
-	let maps = [];
-
-	document.querySelectorAll(mapOptions.targetSelector).forEach(function(e, i){
-		maps[i] = new GWMap(e, mapOptions).init();
-	});
-
-}
-else{
-	console.log('Leaflet not loaded');
-}
-
-
-
-})(GWMapOptions);
