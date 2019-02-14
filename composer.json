@@ -20,7 +20,8 @@
 		"ext-mbstring": "*",
 		"chillerlan/php-bbcode": "^2.0",
 		"chillerlan/php-settings-container": "^1.0",
-		"chillerlan/php-dotenv": "^1.0"
+		"chillerlan/php-dotenv": "^1.0",
+		"chillerlan/php-geojson-helpers": "^1.0"
 	},
 	"require-dev": {
 		"chillerlan/php-httpinterface": "dev-master",

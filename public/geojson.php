@@ -12,7 +12,7 @@ namespace chillerlan\GW1DBwww;
 
 use chillerlan\Database\Result;
 use chillerlan\Database\ResultRow;
-use chillerlan\GW1DB\Maps\{GeoJSONFeature, GeoJSONFeatureCollection, GWContinentRect};
+use chillerlan\GeoJSON\{ContinentRect, Feature, FeatureCollection};
 
 /** @var \chillerlan\Database\Database $db */
 $db = null;
@@ -37,11 +37,11 @@ try{
 
 	if(in_array($json->continent, ['tyria', 'elona', 'cantha', 'battleisles', 'presearing'], true)){
 		$featureCollections = [
-			'explorables' => new GeoJSONFeatureCollection,
-			'missions'    => new GeoJSONFeatureCollection,
-			'outposts'    => new GeoJSONFeatureCollection,
-			'bosses'      => new GeoJSONFeatureCollection,
-			'labels'      => new GeoJSONFeatureCollection,
+			'explorables' => new FeatureCollection,
+			'missions'    => new FeatureCollection,
+			'outposts'    => new FeatureCollection,
+			'bosses'      => new FeatureCollection,
+			'labels'      => new FeatureCollection,
 		];
 
 		$explorables = $db->select
@@ -61,10 +61,10 @@ try{
 					'type' => 'explorable',
 				];
 
-				$rect = new GWContinentRect(json_decode($r->rect));
+				$rect = new ContinentRect(json_decode($r->rect));
 
-				$featureCollections['explorables']->addFeature((new GeoJSONFeature($rect->getPoly(), 'Polygon', $r->id))->setProperties($p));
-				$featureCollections['labels']->addFeature((new GeoJSONFeature($rect->getCenter(), 'Point', $r->id))->setProperties($p));
+				$featureCollections['explorables']->addFeature((new Feature($rect->getPoly(), 'Polygon', $r->id))->setProperties($p));
+				$featureCollections['labels']->addFeature((new Feature($rect->getCenter(), 'Point', $r->id))->setProperties($p));
 			});
 
 		}
@@ -86,17 +86,17 @@ try{
 					'type' => 'mission',
 				];
 
-				$rect = new GWContinentRect(json_decode($r->rect));
+				$rect = new ContinentRect(json_decode($r->rect));
 
-				$featureCollections['missions']->addFeature((new GeoJSONFeature($rect->getPoly(), 'Polygon', $r->id))->setProperties($p));
-				$featureCollections['labels']->addFeature((new GeoJSONFeature($rect->getCenter(), 'Point', $r->id))->setProperties($p));
+				$featureCollections['missions']->addFeature((new Feature($rect->getPoly(), 'Polygon', $r->id))->setProperties($p));
+				$featureCollections['labels']->addFeature((new Feature($rect->getCenter(), 'Point', $r->id))->setProperties($p));
 			});
 
 		}
 
 		// @todo
 		$regions = [
-			'tyria'  => [2,4,5,6,7,8,18,19,20],
+			'tyria'  => [2,3,4,5,6,7,8,18,19,20],
 			'cantha' => [9, 10, 11, 12],
 			'elona'  => [13, 14, 15, 16],
 			'battleisles' => [22],
@@ -128,10 +128,10 @@ try{
 
 				// @todo: outpost rect
 				$point = json_decode($r->coord);
-				$featureCollections['outposts']->addFeature((new GeoJSONFeature($point, 'Point', $r->id))->setProperties($p));
+				$featureCollections['outposts']->addFeature((new Feature($point, 'Point', $r->id))->setProperties($p));
 
 				$p['type'] = 'outpostLabel';
-				$featureCollections['labels']->addFeature((new GeoJSONFeature($point, 'Point', $r->id))->setProperties($p));
+				$featureCollections['labels']->addFeature((new Feature($point, 'Point', $r->id))->setProperties($p));
 			});
 
 		}
@@ -155,12 +155,12 @@ try{
 					'type'  => 'boss',
 				];
 
-				$featureCollections['bosses']->addFeature((new GeoJSONFeature(json_decode($r->coord), 'Point', $r->id))->setProperties($p)) ;
+				$featureCollections['bosses']->addFeature((new Feature(json_decode($r->coord), 'Point', $r->id))->setProperties($p)) ;
 			});
 
 		}
 
-		$featureCollections = array_map(function(GeoJSONFeatureCollection $featureCollection){
+		$featureCollections = array_map(function(FeatureCollection $featureCollection){
 			return $featureCollection->toArray();
 		}, $featureCollections);
 	}
