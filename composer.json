@@ -4,6 +4,7 @@
 	"homepage": "https://github.com/codemasher/gw1-database",
 	"license": "MIT",
 	"minimum-stability": "dev",
+	"prefer-stable": true,
 	"keywords": [
 		"guild wars", "database"
 	],
@@ -19,15 +20,15 @@
 		"ext-json": "*",
 		"ext-mbstring": "*",
 		"chillerlan/php-bbcode": "^2.0",
-		"chillerlan/php-settings-container": "^1.0",
-		"chillerlan/php-dotenv": "^1.0",
-		"chillerlan/php-geojson-helpers": "^1.0"
-	},
-	"require-dev": {
-		"chillerlan/php-httpinterface": "dev-master",
-		"chillerlan/php-log": "^3.0",
 		"chillerlan/php-cache": "^3.0",
 		"chillerlan/php-database": "^3.0",
+		"chillerlan/php-dotenv": "^1.0",
+		"chillerlan/php-log": "^3.0",
+		"chillerlan/php-geojson-helpers": "^1.0",
+		"chillerlan/php-settings-container": "^1.0"
+	},
+	"require-dev": {
+		"chillerlan/php-httpinterface": "^3.0",
 		"chillerlan/php-imagetiler": "^2.0",
 		"phpunit/phpunit": "^7.5"
 	},
