@@ -111,14 +111,14 @@ class SkillDescription{
 		$p1 = '/(?:(?<p1>stufe|level) )?(?<val0>\d+)[.]{2,3}(?<val15>\d+)(?: (?<p2>seconds?|sekunden?))?/i';
 
 		$desc    = preg_replace_callback($p1, [$this, 'progressionReplace1'], $desc);
-		$concise = preg_replace_callback($p1, [$this, 'progressionReplace1'], $desc);
+		$concise = preg_replace_callback($p1, [$this, 'progressionReplace1'], $concise);
 
 		// skill progression, second pass - weapon duration for non-progression values
 		if($this->stats['type'] === 27 && $this->pri === 8 && $this->pri_val && $this->id !== 983){
 			$p2 = '/(?<val>\d+) (?<p1>seconds?|sekunden?)/i';
 
 			$desc    = preg_replace_callback($p2, [$this, 'progressionReplace2'], $desc);
-			$concise = preg_replace_callback($p2, [$this, 'progressionReplace2'], $desc);
+			$concise = preg_replace_callback($p2, [$this, 'progressionReplace2'], $concise);
 		}
 
 		// additional creature health
@@ -132,7 +132,12 @@ class SkillDescription{
 			$additional .= $this->additionalPrimary();
 		}
 
-		var_dump($desc.$additional);
+		return [
+			'desc' => $desc,
+			'concise' => $concise,
+			'additional' => $additional,
+			'prog' => $this->prog_val,
+		];
 	}
 
 	/**
