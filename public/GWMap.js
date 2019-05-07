@@ -69,20 +69,24 @@ class GWMap{
 		this.options = {
 			targetSelector  : '.gw1map',
 			apiURL          : './',
+			apiEditURL      : 'http://localhost/gw1-database/', // you don't want this on a public server
 			gwdbURL         : './gwdb',
-			tilePath        : '/img/maps',
+			tilePath        : '/tiles', // relative from "gwdbURL"
 			tileExt         : '.png',
 			lang            : 'en',
-			defaultContinent: 'tyria',
+			defaultContinent: 2, // tyria
 			zoom            : 4,
 			minZoom         : 1,
 			maxZoom         : 8,
 			zoomNormalize   : 6,
 			minIconZoom     : 3,
-			errorTile       : '/blank.png',
+			errorTile       : '/blank.png', // relative from "tilePath"
 			colors          : {
 				explorables: 'rgba(255, 255, 255, 0.4)',
-				missions   : 'rgba(255, 200, 20, 0.5)',
+				missions   : {
+					2: 'rgba(20, 200, 255, 0.5)',
+					4: 'rgba(255, 200, 20, 0.5)',
+				},
 			},
 		};
 
@@ -106,34 +110,13 @@ class GWMap{
 	 */
 	init(){
 		let dataset = this.container.dataset;
-		// @todo: by continent_id
-		let continentInfo = {
-			mists      : {id: 1, rect: [[0, 0], [0, 0]]},
-			tyria      : {id: 2, rect: [[0, 0], [32766, 36944]]},
-			cantha     : {id: 3, rect: [[0, 0], [24648, 18488]]},
-			elona      : {id: 4, rect: [[0, 0], [24640, 18480]]},
-			presearing : {id: 5, rect: [[0, 0], [8190, 6160]]},
-			battleisles: {id: 6, rect: [[0, 0], [8190, 6160]]},
-		};
-
-		this.continent = continentInfo[dataset.continent]
-			? dataset.continent
-			: this.options.defaultContinent;
-
-		this.viewRect = continentInfo[this.continent].rect;
-
-		let rect   = new GW2ContinentRect(this.viewRect).getBounds();
-		let bounds = new L.LatLngBounds(this.unproject(rect[0]), this.unproject(rect[1]));//.pad(0.1)
-		let center = bounds.getCenter();
-
-		this.map.setMaxBounds(bounds).setView(center, this.options.zoom);
 
 		// FUCK the stupid fetch/promises API. DON'T @ ME
 		let request = new XMLHttpRequest();
 		request.open('POST', this.options.apiURL, true);
 		request.addEventListener('load', ev => this.loadJSON(ev.target));
 		request.setRequestHeader('Content-type','application/json; charset=utf-8');
-		request.send(JSON.stringify({continent: this.continent, lang: this.options.lang}));
+		request.send(JSON.stringify({continent: dataset.continent, floor: dataset.floor, lang: this.options.lang}));
 
 		return this;
 	}
@@ -227,8 +210,18 @@ class GWMap{
 	 * @returns {GWMap}
 	 */
 	render(json){
+//		console.log(json);
+		this.continent = json.continent.id;
+		this.floor     = json.continent.floor_id;
+		this.viewRect  = json.continent.rect;
 
-		Object.keys(json).forEach(pane => {
+		let rect   = new GW2ContinentRect(json.continent.rect).getBounds();
+		let bounds = new L.LatLngBounds(this.unproject(rect[0]), this.unproject(rect[1]));//.pad(0.1)
+		let center = bounds.getCenter();
+
+		this.map.setMaxBounds(bounds).setView(center, this.options.zoom);
+
+		['explorables', 'missions', 'outposts', 'bosses', 'labels'].forEach(pane => {
 //			console.log(pane, json[pane]);
 
 			this.layers[pane] = L.geoJson(json[pane], {
@@ -302,11 +295,15 @@ class GWMap{
 //		console.log(feature, pane);
 
 		if(['explorables','missions'].indexOf(pane) !== -1){
+			let color = pane === 'missions'
+				? this.options.colors.missions[feature.properties.missiontype]
+				: this.options.colors[pane];
+
 			return {
 				pane: pane,
 				stroke: true,
 				opacity: 0.7,
-				color: this.options.colors[pane],
+				color: color,
 				weight: 2,
 				interactive: true,
 			}
@@ -338,11 +335,10 @@ class GWMap{
 	outpostIconsize(outposttype, zoom){
 		// @todo: by continent_id
 		let s = {
-			tyria      : {1: 64, 2: 32, 4: 64},
-			cantha     : {2: 64},
-			elona      : {},
-			presearing : {1: 64, 2: 32, 4: 64},
-			battleisles: {1: 64, 2: 32, 4: 64},
+			1: {1: 64, 2: 32, 4: 64, 7: 64},
+			2: {1: 64, 2: 32, 4: 64},
+			3: {2: 64},
+			4: {},
 		}[this.continent][outposttype];
 
 		return this.getSize(s ? s : 128, zoom);
@@ -364,7 +360,7 @@ class GWMap{
 		return L.divIcon({
 			iconSize   : [iconsize, iconsize],
 			popupAnchor: [0, -iconsize/2],
-			className  : this.continent + ' outpost ' + cssClass,
+			className  : 'c' + this.continent + 'f' + this.floor + ' outpost ' + cssClass,
 		});
 	}
 
@@ -470,7 +466,7 @@ class GWMap{
 			return this.tilebase + this.options.errorTile;
 		}
 
-		return this.tilebase + '/' + this.continent + '/' + zoom + '/' + coords.x + '/' + coords.y + this.options.tileExt;
+		return this.tilebase + '/' + this.continent + '/' + this.floor + '/' + zoom + '/' + coords.x + '/' + coords.y + this.options.tileExt;
 	}
 
 }

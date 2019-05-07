@@ -3,7 +3,7 @@
 	"description": "A Guild Wars (not 2!) database including everything to parse GWBBcode, calculate skills, import/export templates, create maps etc... PHP 7.2+",
 	"homepage": "https://github.com/codemasher/gw1-database",
 	"license": "MIT",
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"prefer-stable": true,
 	"keywords": [
 		"guild wars", "database"
@@ -23,7 +23,6 @@
 		"chillerlan/php-cache": "^3.0",
 		"chillerlan/php-database": "^3.0",
 		"chillerlan/php-dotenv": "^1.0",
-		"chillerlan/php-log": "^3.0",
 		"chillerlan/php-geojson-helpers": "^1.0",
 		"chillerlan/php-settings-container": "^1.0"
 	},

@@ -113,7 +113,7 @@ foreach($skilldb as $id => $skill){
 	$c = [];
 	$pvx = ['pve' => [], 'pvp' => []];
 
-	foreach(['profession', 'attribute'] as $i){//'campaign',
+	foreach(['campaign', 'profession', 'attribute'] as $i){
 		$c[] = sprintf("'%s'=>%d", $i, $skill[$i]);//substr($i, 0, 2)
 	}
 
@@ -129,11 +129,11 @@ foreach($skilldb as $id => $skill){
 
 		foreach($skill[$m] as $k => $i){
 
-			foreach(['type'] as $p2){//, 'upkeep', 'energy', 'activation', 'recharge', 'adrenaline', 'sacrifice', 'overcast'
+			foreach(['type', 'upkeep', 'energy', 'activation', 'recharge', 'adrenaline', 'sacrifice', 'overcast'] as $p2){
 				$pvx[$m][$p2] = sprintf("'%s'=>%s", $p2, $skill[$m][$p2]);//substr($p2, 0, 2)
 			}
 
-			foreach(['name'] as $p2){//, 'desc', 'concise'
+			foreach(['name', 'desc', 'concise'] as $p2){
 				$x = [];
 
 				foreach(LANGUAGES as $l){

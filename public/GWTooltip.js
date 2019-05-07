@@ -839,7 +839,7 @@ class GWSkillDescription{
 		concise = concise.replace(p1, r1);
 
 		// skill progression, second pass - weapon duration for non-progression values
-		if(this.stats.type === 27 && this.pri === 8 && this.pri_val){
+		if(this.stats.type === 27 && this.pri === 8 && this.pri_val && this.id !== 983){
 
 			let p2 = /(\d+) (seconds?|sekunden?)/i;
 			let r2 = (match, val, p1) => this.progressionReplace2(match, val, p1);
@@ -938,7 +938,7 @@ class GWSkillDescription{
 		// fast casting -> symbolic celerity effect
 		if(this.pri_val && scCheck){
 			let val = this.progression(val0, val15, this.pri_val);
-			effect  = this.effectText((this.val ? effect : val0));
+			effect  = this.effectText(this.val ? effect : val0);
 
 			return `<span class="mesmer">${val}</span> (${effect}) ` + (p2 ? ' '+p2 : '');
 		}
@@ -982,12 +982,7 @@ class GWSkillDescription{
 	 * @returns {*}
 	 */
 	progressionReplace2(match, val, p1){
-
-		if(this.stats.type === 27 && this.pri === 8 && this.pri_val && this.id !== 983){
-			return `<span class="ritualist">${this.weaponDuration(val)}</span> (${val}) ` + p1;
-		}
-
-		return match;
+		return `<span class="ritualist">${this.weaponDuration(val)}</span> (${val}) ` + p1;
 	}
 
 	/**

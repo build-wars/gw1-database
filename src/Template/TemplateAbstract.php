@@ -71,6 +71,14 @@ abstract class TemplateAbstract implements TemplateInterface{
 	 * @return \chillerlan\GW1DB\Template\TemplateInterface
 	 */
 	public function setAttributes(array $attributes):TemplateInterface{
+
+		// attributes are already normalized?
+		if(isset(array_values($attributes)[0]['base'])){
+			$this->attributes = $attributes;
+
+			return $this;
+		}
+
 		// @todo: attribute level including runes from equipment code
 		$this->attributes = [];
 

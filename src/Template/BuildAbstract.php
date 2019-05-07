@@ -47,10 +47,10 @@ abstract class BuildAbstract extends TemplateAbstract implements BuildInterface{
 	/**
 	 * @param string $chr
 	 *
-	 * @return int
+	 * @return int|bool
 	 */
-	protected function base64_ord($chr):int{
-		return (int)strpos($this::base64, $chr, 0);
+	protected function base64_ord($chr){
+		return strpos($this::base64, $chr, 0);
 	}
 
 	/**

@@ -14,9 +14,9 @@ namespace chillerlan\GW1DB\Data;
 
 class GWDataMisc{
 
-	public const languages = ['de', 'en'];
+	const languages = ['de', 'en'];
 
-	public const campaigns = [
+	const campaigns = [
 		0 => ['name' => ['de' => 'Basis',            'en' => 'Core',            ], 'continent' => ['de' => 'Die Nebel', 'en' => 'The Mists',],],
 		1 => ['name' => ['de' => 'Prophecies',       'en' => 'Prophecies',      ], 'continent' => ['de' => 'Tyria',     'en' => 'Tyria',    ],],
 		2 => ['name' => ['de' => 'Factions',         'en' => 'Factions',        ], 'continent' => ['de' => 'Cantha',    'en' => 'Cantha',   ],],
@@ -24,7 +24,7 @@ class GWDataMisc{
 		4 => ['name' => ['de' => 'Eye of the North', 'en' => 'Eye of the North',], 'continent' => ['de' => 'Tyria',     'en' => 'Tyria',    ],],
 	];
 
-	public const professions = [
+	const professions = [
 		0  => ['pri' => -1, 'name' => ['de' => 'keine',           'en' => 'none',         'fr' => 'Baguette',     ], 'abbr' => ['de' => 'X', 'en' => 'X' , 'fr' => 'X', ], 'effect' => []],
 		1  => ['pri' => 17, 'name' => ['de' => 'Krieger',         'en' => 'Warrior',      'fr' => 'Guerrier',     ], 'abbr' => ['de' => 'K', 'en' => 'W' , 'fr' => 'G', ], 'effect' => [2, 3, 4, 5, 6, 7, 8, 9, 10, 12]],
 		2  => ['pri' => 23, 'name' => ['de' => 'Waldläufer',      'en' => 'Ranger',       'fr' => 'Rôdeur',       ], 'abbr' => ['de' => 'W', 'en' => 'R' , 'fr' => 'R', ], 'effect' => [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 18, 19, 30, 31, 32]],
@@ -38,7 +38,7 @@ class GWDataMisc{
 		10 => ['pri' => 44, 'name' => ['de' => 'Derwisch',        'en' => 'Dervish',      'fr' => 'Derviche',     ], 'abbr' => ['de' => 'D', 'en' => 'D' , 'fr' => 'D', ], 'effect' => [23, 33]],
 	];
 
-	public const attributes = [
+	const attributes = [
 		-9 => ['prof' =>  0, 'pri' => false, 'max' => 10, 'name' => ['de' => 'Norntitel',                'en' => 'Norn Title Track',                   'fr' => '',], 'abbr' => ['de' => '', 'en' => 'nor',    'fr' => '',],],
 		-8 => ['prof' =>  0, 'pri' => false, 'max' => 10, 'name' => ['de' => 'Ebon-Vorhut-Titel',        'en' => 'Ebon Vanguard Title Track',          'fr' => '',], 'abbr' => ['de' => '', 'en' => 'ebo',    'fr' => '',],],
 		-7 => ['prof' =>  0, 'pri' => false, 'max' => 10, 'name' => ['de' => 'Deldrimortitel',           'en' => 'Deldrimor Title Track',              'fr' => '',], 'abbr' => ['de' => '', 'en' => 'del',    'fr' => '',],],
@@ -92,8 +92,54 @@ class GWDataMisc{
 		44 => ['prof' => 10, 'pri' => true,  'max' => 20, 'name' => ['de' => 'Mystik',                   'en' => 'Mysticism',                          'fr' => '',], 'abbr' => ['de' => '', 'en' => 'mys',    'fr' => '',],],
 	];
 
+	/**
+	 * map of skilltypes affected by primary attributes
+	 */
+	const SKILL_A_EXPERTISE  = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 19, 31, 32];
+	const SKILL_A_FASTCAST   = [22, 23, 24, 25, 26, 27, 28];
+	const SKILL_A_FASTCAST_R = [22, 23, 24];
+	const SKILL_A_SPAWNING   = [18, 19, 32];
+	const SKILL_A_LEADERSHIP = [13, 20];
+	const SKILL_A_MYSTICISM  = [23, 33];
+	const SKILL_A_STRENGTH   = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12];
+
+	/**
+	 * map of the "special" skills
+	 */
+
 	// skills that add extra attribute points
 	const SKILLS_ATTRIBUTE_EXTRA = [111, 114, 164, 198, 199, 206, 946, 1217, 1340, 1346, 1378, 1724, 1951, 2094, 2139];
+
+	// minion skills
+	const SKILLS_MINION = [83, 84, 85, 114, 122, 805, 832, 1351, 1355];
+
+	// spawning power skill fixtures
+	const SKILL_FIX_SPAWNING = [787, 792, 793, 795, 964, 983, 1257, 1258, 1267, 1749, 1750, 1752, 2148, 2149, 2219];
+
+	// divine favor, additional healing
+	const SKILLS_DF_ADD = [281, 282, 283, 286, 313, 867, 941, 958, 959, 1120, 1121, 1396, 1686, 1687, 2062];
+
+	// divine favor, self targeted
+	const SKILLS_DF_SELF = [
+		247, 256, 257, 265, 268, 271, 279, 280, 284, 287, 298, 304, 310, 943, 957, 960, 1113, 1117, 1118, 1119,
+		1262, 1393, 1394, 1397, 1684, 1685, 1952, 2005, 2095, 2105, 2857, 2871, 2890
+	];
+
+	// divine favor, target gains health
+	const SKILLS_DF_TARGET = [
+		241, 242, 243, 244, 245, 246, 248, 249, 250, 254, 255, 258, 259, 260, 261, 262, 263, 266, 267, 269, 270,
+		272, 273, 274, 275, 276, 277, 278, 285, 288, 289, 290, 291, 292, 299, 301, 302, 303, 307, 308, 309, 311,
+		838, 848, 885, 886, 942, 991, 1114, 1115, 1123, 1126, 1390, 1391, 1392, 1395, 1399, 1400, 1401, 1683,
+		1691, 1692, 2003, 2004, 2007, 2061, 2063, 2064, 2065, 2887
+	];
+
+	// touch skills
+	const SKILLS_TOUCH = [
+		29, 58, 154, 155, 156, 157, 158, 231, 232, 312, 313, 314, 424, 525, 786, 801, 918, 990, 1009, 1045, 1059,
+		1077, 1078, 1079, 1095, 1131, 1146, 1155, 1263, 1328, 1401, 1406, 1439, 1447, 1528, 1534, 1545, 1619, 1645,
+		1818, 1862, 1894, 2011, 2080, 2081, 2088, 2114, 2129, 2213, 2214, 2215, 2244, 2357, 2375, 2376, 2380, 2385,
+		2492, 2501, 2506
+	];
 
 	// template: 0. Weapon, 1. Off-hand, 2. Chest, 3. Legs, 4. Head, 5. Feet, 6. Hands
 	const ITEM_TYPES = [
@@ -171,6 +217,136 @@ class GWDataMisc{
 		23 => ['de' => 'Paragon-Rüstung',                'en' => 'Paragon Armor',         ],
 		24 => ['de' => 'Ritualisten-Rüstung',            'en' => 'Ritualist Armor',       ],
 		25 => ['de' => 'Waldläufer-Rüstung',             'en' => 'Ranger Armor',          ],
+	];
+
+	const DESC_ADDITIONAL = [
+		'warrior'      => [
+			'self'  => [
+				'de' => 'Diese Angriffsfertigkeit hat +%s%% Rüstungsdurchdringung.',
+				'en' => 'This attack skill has +%s%% armor penetration.',
+			],
+			'other' => [
+				'de' => 'Angriffsfertigkeiten haben +%s%% Rüstungsdurchdringung.',
+				'en' => 'Attack skills have +%s%% armor penetration.',
+			],
+		],
+		'ranger'       => [
+			'self'  => [
+				'de' => 'Diese Fertigkeit kostet %s%% weniger Energie.',
+				'en' => 'This skill costs %s%% less energy.',
+			],
+			'other' => [
+				'de' => 'Waldläufer-, Angriffs- und Berührungsfertigkeiten, sowie Rituale kosten %s%% weniger Energie.',
+				'en' => 'Ranger skills, attack skills, touch skills and rituals cost %s%% less energy.',
+			],
+		],
+		'monk'         => [
+			'target' => [
+				'de' => 'Das Ziel erhält %s Lebenspunkte.',
+				'en' => 'Target ally gains %s health.',
+			],
+			'add'    => [
+				'de' => 'Das Ziel erhält zusätzlich %s Lebenspunkte.',
+				'en' => 'Target ally gains an additional %s health.',
+			],
+			'self'   => [
+				'de' => 'Ihr erhaltet %s Lebenspunkte.',
+				'en' => 'You gain %s health.',
+			],
+			'other'  => [
+				'de' => 'Mönch-Zauber geben %s Lebenspunkte.',
+				'en' => 'Monk spells give %s health.',
+			],
+		],
+		'necromancer'  => [
+			'self' => [
+				'de' => 'Jedesmal, wenn eine Kreatur stirbt, die kein Geist ist, erhaltet Ihr %s Energie (max. 3x in 15s).',
+				'en' => 'Whenever a non-spirit creature dies, You gain %s energy (max. 3x in 15s).',
+			],
+		],
+		'mesmer'       => [
+			'spell1'  => [
+				'de' => 'Dieser Zauber hat noch %1$s%% seiner Aktivierungszeit und %2$s%% seiner Aufladezeit im PvE.',
+				'en' => 'This spell has %1$s%% of its base activation time and %2$s%% recharge in PvE.',
+			],
+			'spell2'  => [
+				'de' => 'Dieser Zauber hat noch %s%% seiner Aktivierungszeit.',
+				'en' => 'This spell has %s%% of its base activation time.',
+			],
+			'spell3'  => [
+				'de' => 'Zauber haben noch %1$s%%, Siegel %2$s%% ihrer Aktivierungszeit (Nicht-Mesmer-Fertigkeiten ab 2 Sekunden Aktivierung). Mesmer-Zauber haben im PvE noch %2$s%% ihrer Aufladezeit.',
+				'en' => 'Spells have %1$s%%, signets %2$s%% of their activation time (non Mesmer skills with activation of 2 seconds or greater). Mesmer spells have %2$s%% of their recharge time in PvE.',
+
+			],
+			'signet1' => [
+				'de' => 'Dieses Siegel hat noch %s%% seiner Aktivierungszeit und benutzt das Schnellwirkungs-Attribut wenn Symbolische Schnelligkeit aktiv ist.',
+				'en' => 'This signet has %s%% of its base activation time and uses the Fast Casting attribute if Symbolic Celerity is active.',
+			],
+			'signet2' => [
+				'de' => 'Dieses Siegel hat noch %s%% seiner Aktivierungszeit.',
+				'en' => 'This signet has %s%% of its base activation time.',
+			],
+			'signet3' => [
+				'de' => 'Dieses Siegel benutzt das Schnellwirkungs-Attribut wenn Symbolische Schnelligkeit aktiv ist.',
+				'en' => 'This signet uses the Fast Casting attribute if Symbolic Celerity is active.',
+			],
+		],
+		'elementalist' => [
+			'self' => [
+				'de' => 'Eure maximalen Energiepunkte erhöhen sich um +%s.',
+				'en' => 'You gain +%s maximum energy.',
+			],
+		],
+		'ritualist'    => [
+			'weaponspell' => [
+				'de' => 'Dieser Waffenzauber hält %s%% länger an.',
+				'en' => 'This weapon spell lasts %s%% longer.',
+			],
+			'creature'    => [
+				'de' => 'Diese Kreatur hat +%s%% maximale Lebenspunkte.',
+				'en' => 'This creature has +%s%% maximum health.',
+			],
+			'other'       => [
+				'de' => 'Belebte Kreaturen haben +%s%% maximale Lebenspunkte und Waffenzauber halten %s%% länger an.',
+				'en' => 'Animated creatures have +%s%% maximum health and weapons spells last %s%% longer.',
+			],
+		],
+		'assassin'     => [
+			'self' => [
+				'de' => 'Die Chance auf kritische Treffer ist um %1$s%% erhöht. Ihr erhaltet %2$s Energie für jeden kritischen Treffer.',
+				'en' => 'Critical hit chance is increased by %1$s%%. You gain %2$s energy for each critical hit.',
+			],
+		],
+		'paragon'      => [
+			'self'  => [
+				'de' => 'Ihr erhaltet 2 Energiepunkte für jeden von dieser Fertigkeit betroffenen Verbündeten (max. %s).',
+				'en' => 'You gain 2 energy for each ally affected by this skill (max. %s).',
+			],
+			'other' => [
+				'de' => 'Ihr erhaltet 2 Energiepunkte für jeden von Euren Anfeuerungsrufen und Schreien betroffenen Verbündeten (max. %s).',
+				'en' => 'You gain 2 energy for each ally affected by your chants and shouts (max. %s).',
+			],
+		],
+		'dervish'      => [
+			'self'  => [
+				'de' => 'Diese Fertigkeit kostet %1$s%% weniger Energie und Ihr habt +%2$s Rüstung, während Ihr verzaubert seid.',
+				'en' => 'This skill costs %1$s%% less energy and you gain +%2$s armor while enchanted.',
+			],
+			'other' => [
+				'de' => 'Derwisch-Verzauberungen kosten %1$s%% weniger Energie und Ihr habt +%2$s Rüstung, während Ihr verzaubert seid.',
+				'en' => 'Dervish Enchantments cost %1$s%% less energy and you gain +%2$s armor while enchanted.',
+			],
+		],
+		'creature'     => [
+			'spawning' => [
+				'de' => 'Diese Kreatur hat %3$s (%1$s) Lebenspunkte und %2$s Rüstung.',
+				'en' => 'This creature has %3$s (%1$s) health and %2$s armor.',
+			],
+			'other'    => [
+				'de' => 'Diese Kreatur hat %1$s Lebenspunkte und %2$s Rüstung.',
+				'en' => 'This creature has %1$s health and %2$s armor.',
+			],
+		],
 	];
 
 }

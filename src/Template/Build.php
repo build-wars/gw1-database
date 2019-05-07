@@ -12,8 +12,7 @@
 
 namespace chillerlan\GW1DB\Template;
 
-use chillerlan\GW1DB\Data\GWDataMisc;
-use chillerlan\GW1DB\Data\GWSkillDB;
+use chillerlan\GW1DB\Data\{GWDataMisc, GWSkillDB};
 
 class Build extends BuildAbstract{
 
@@ -34,7 +33,7 @@ class Build extends BuildAbstract{
 		$skill_html           = '';
 
 		foreach($this->skills as $i => $id){
-			$skill = new Skill($id ?? 0, $this->defaultLang);
+			$skill = new Skill($id, $this->defaultLang);
 
 			// some special cases
 			if(in_array($skill->id, GWDataMisc::SKILLS_ATTRIBUTE_EXTRA, true)){

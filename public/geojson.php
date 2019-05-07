@@ -26,17 +26,38 @@ require_once __DIR__.'/common.php';
 try{
 	$json = json_decode(file_get_contents('php://input'));
 
-	if(!$json || !isset($json->continent) || !in_array($json->continent, ['mists', 'tyria', 'cantha', 'elona', 'presearing', 'battleisles'], true)){
+#	$json = new \stdClass;
+#	$json->continent = 1;
+#	$json->floor = 1;
+
+	if(!$json || !isset($json->continent)){
 		header('HTTP/1.1 400 Bad Request');
-		send_json_response(['error' => 'invalid continent', 'trace' => '-']);
+		send_json_response(['error' => 'invalid continent '.print_r($json, 1), 'trace' => '-']);
 	}
+
+	$lang  = isset($json->lang) && in_array($json->lang, ['de', 'en']) ? $json->lang : 'en';
+	$floor = $db->select
+		->cols(['continent_id', 'floor_id', 'rect', 'name' => ['name_'.$lang]])
+		->from(['gw1_floors'])
+		->where('continent_id', intval($json->continent))
+		->where('floor_id', isset($json->floor) ? intval($json->floor) : 1)
+		->limit(1)
+		->query()
+	;
 
 	$featureCollections = [];
 
-	$lang = isset($json->lang) && in_array($json->lang, ['de', 'en']) ? $json->lang : 'en';
+	if($floor instanceof Result){
+		$continent_id = $floor[0]->continent_id;
+		$floor_id = $floor[0]->floor_id;
 
-	if(in_array($json->continent, ['tyria', 'elona', 'cantha', 'battleisles', 'presearing'], true)){
 		$featureCollections = [
+			'continent'   => [
+				'id'       => $floor[0]->continent_id,
+				'floor_id' => $floor_id,
+				'name'     => $floor[0]->name,
+				'rect'     => json_decode($floor[0]->rect),
+			],
 			'explorables' => new FeatureCollection,
 			'missions'    => new FeatureCollection,
 			'outposts'    => new FeatureCollection,
@@ -49,7 +70,8 @@ try{
 			->from(['exp' => 'gw1_explorable', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
 			->where('exp.rect', '[[0,0],[0,0]]', '!=')
 			->where('exp.region_id', 'reg.region_id', '=', false)
-			->where('con.shortname', $json->continent)
+			->where('reg.floor_id', $floor_id)
+			->where('con.continent_id', $continent_id)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
 			->query();
 
@@ -70,20 +92,23 @@ try{
 		}
 
 		$missions = $db->select
-			->cols(['id' => ['mis.mission_id'], 'rect' => ['mis.rect'], 'name' => ['mis.name_'.$lang]])
+			->cols(['id' => ['mis.mission_id'], 'rect' => ['mis.rect'], 'name' => ['mis.name_'.$lang], 'missiontype' => ['mis.missiontype_id']])
 			->from(['mis' => 'gw1_missions', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
 			->where('mis.rect', '[[0,0],[0,0]]', '!=')
 			->where('mis.region_id', 'reg.region_id', '=', false)
-			->where('con.shortname', $json->continent)
+			->where('reg.floor_id', $floor_id)
+			->where('reg.continent_id', $continent_id)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
+#			->where('mis.missiontype_id', [2, 4], 'in')
 			->query();
 
 		if($missions instanceof Result){
 
 			$missions->__each(function(ResultRow $r) use (&$featureCollections){
 				$p = [
-					'name' => $r->name,
-					'type' => 'mission',
+					'name'        => $r->name,
+					'missiontype' => $r->missiontype,
+					'type'        => 'mission',
 				];
 
 				$rect = new ContinentRect(json_decode($r->rect));
@@ -94,24 +119,13 @@ try{
 
 		}
 
-		// @todo
-		$regions = [
-			'tyria'  => [2,3,4,5,6,7,8,18,19,20],
-			'cantha' => [9, 10, 11, 12],
-			'elona'  => [13, 14, 15, 16],
-			'battleisles' => [22],
-			'presearing' => [1],
-		];
-
-
 		$outposts = $db->select
 			->cols(['id' => ['out.outpost_id'], 'coord' => ['out.coord'], 'rect' => ['out.rect'], 'name' => ['out.name_'.$lang], 'otype' => ['out.outposttype_id']])
 			->from(['out' => 'gw1_outposts', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
 			->where('out.visible', 1)
-#			->where('out.outposttype_id', [1,2,3,4], 'in')
-			->where('out.region_id', $regions[$json->continent], 'in')
+			->where('reg.floor_id', $floor_id)
 			->where('out.region_id', 'reg.region_id', '=', false)
-			->where('con.shortname', $json->continent)
+			->where('con.continent_id', $continent_id)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
 			->orderBy(['out.outposttype_id' => 'DESC'])
 			->query();
@@ -139,8 +153,8 @@ try{
 		$bosses = $db->select
 			->cols(['id' => ['boss.boss_id'], 'prof' => ['boss.profession'], 'skill' => ['boss.elite'], 'coord' => ['boss.coord'], 'name' => ['boss.name_'.$lang]])
 			->from(['boss' => 'gw1_bosses', 'reg' => 'gw1_regions', 'con' => 'gw1_continents'])
-			->where('con.shortname', $json->continent)
-			->where('boss.region_id', $regions[$json->continent], 'in')
+			->where('con.continent_id', $continent_id)
+			->where('reg.floor_id', $floor_id)
 			->where('boss.region_id', 'reg.region_id', '=', false)
 			->where('reg.continent_id', 'con.continent_id', '=', false)
 			->query();
@@ -160,13 +174,19 @@ try{
 
 		}
 
-		$featureCollections = array_map(function(FeatureCollection $featureCollection){
-			return $featureCollection->toArray();
-		}, $featureCollections);
-	}
+		$featureCollections = array_map(function($e){
 
-	// todo: dump the data to a static file
-#	file_put_contents(__DIR__.'/gwdb/json/'.$json->continent.'.json', json_encode($featureCollections));
+			if($e instanceof FeatureCollection){
+				return $e->toArray();
+			}
+
+			return $e;
+
+		}, $featureCollections);
+
+		// todo: dump the data to a static file
+//		file_put_contents(__DIR__.'/gwdb/json/c'.$continent_id.'f'.$floor_id.'-'.$lang.'.json', json_encode($featureCollections, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES));
+	}
 
 	send_json_response($featureCollections);
 }

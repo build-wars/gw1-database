@@ -12,13 +12,11 @@ namespace chillerlan\GW1DBBuild;
 use chillerlan\Database\{
 	Database, DatabaseOptionsTrait, Drivers\MySQLiDrv
 };
-use chillerlan\HTTP\{CurlClient, HTTPOptionsTrait, Psr17\RequestFactory};
-use chillerlan\Logger\{
-	Log, LogOptionsTrait, Output\ConsoleLog
-};
+use chillerlan\HTTP\{Psr18\CurlClient, HTTPOptionsTrait, Psr17\RequestFactory};
 use chillerlan\Settings\SettingsContainerAbstract;
 use chillerlan\SimpleCache\MemoryCache;
 use chillerlan\DotEnv\DotEnv;
+use Psr\Log\AbstractLogger;
 
 mb_internal_encoding('UTF-8');
 
@@ -45,17 +43,18 @@ $o = [
 	// RequestOptions
 	'ca_info'     => DIR_CFG.'/cacert.pem',
 	'user_agent'  => 'GW1DB/1.0.0 +https://github.com/codemasher/gw1-database',
-	// LogOptions
-	'minLogLevel' => 'debug',
 ];
 
 $options = new class($o) extends SettingsContainerAbstract{
-	use DatabaseOptionsTrait, HTTPOptionsTrait, LogOptionsTrait;
+	use DatabaseOptionsTrait, HTTPOptionsTrait;
 
 };
 
-$logger = new Log;
-$logger->addInstance(new ConsoleLog($options), 'console');
+$logger = new class() extends AbstractLogger{
+	public function log($level, $message, array $context = []){
+		echo sprintf('[%s][%s] %s', date('Y-m-d H:i:s'), substr($level, 0, 4), trim($message))."\n";
+	}
+};
 
 $http  = new CurlClient($options);
 $cache = new MemoryCache;

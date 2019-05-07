@@ -13,9 +13,9 @@ namespace chillerlan\GW1DBwww;
 use chillerlan\Database\{Database, Drivers\MySQLiDrv};
 use chillerlan\DotEnv\DotEnv;
 use chillerlan\GW1DB\GW1DBOptions;
-use chillerlan\HTTP\{CurlClient, HTTPOptionsTrait};
-use chillerlan\Logger\{Log, LogOptionsTrait, Output\NullLogger};
+use chillerlan\HTTP\{Psr18\CurlClient, HTTPOptionsTrait};
 use chillerlan\SimpleCache\MemoryCache;
+use Psr\Log\AbstractLogger;
 
 mb_internal_encoding('UTF-8');
 
@@ -37,16 +37,17 @@ $o = [
 	// RequestOptions
 	'ca_info'     => DIR_CFG.'/cacert.pem',
 	'user_agent'  => 'GW1DB/1.0.0 +https://github.com/codemasher/gw1-database',
-	// LogOptions
-	'minLogLevel' => 'error',
 ];
 
 $options = new class($o) extends GW1DBOptions{
-	use HTTPOptionsTrait, LogOptionsTrait;
+	use HTTPOptionsTrait;
 };
 
-$logger = new Log;
-$logger->addInstance(new NullLogger($options), 'app-log'); // @todo: logfile or db logger
+$logger = new class() extends AbstractLogger{
+	public function log($level, $message, array $context = []){
+		echo sprintf('[%s][%s] %s', date('Y-m-d H:i:s'), substr($level, 0, 4), trim($message))."\n";
+	}
+};
 
 $http  = new CurlClient($options);
 $cache = new MemoryCache;
@@ -60,7 +61,6 @@ $db->connect();
  */
 function send_json_response(array $response){
 	header('Content-type: application/json;charset=utf-8;');
-	echo json_encode($response);
-	exit;
+	exit(json_encode($response, JSON_PRETTY_PRINT));
 }
 

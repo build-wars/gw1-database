@@ -12,7 +12,8 @@ namespace chillerlan\GW1DBwww;
 
 require_once '../vendor/autoload.php';
 
-$lang = 'de';
+$lang = strtolower($_GET['lang'] ?? '');
+$lang = in_array($lang, ['de', 'en'], true) ? $lang : 'en';
 
 header('Content-Type: text/html; charset=utf-8');
 
@@ -28,19 +29,21 @@ header('Content-Type: text/html; charset=utf-8');
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
 </head>
 <body>
-<div class="gw1map" data-continent="tyria"></div>
-<div class="gw1map" data-continent="cantha"></div>
-<div class="gw1map" data-continent="elona"></div>
-<div class="gw1map" data-continent="presearing"></div>
-<div class="gw1map" data-continent="battleisles"></div>
+<div class="gw1map" data-continent="2" data-floor="1"></div>
+<div class="gw1map" data-continent="3"></div>
+<div class="gw1map" data-continent="4"></div>
+<div class="gw1map" data-continent="2" data-floor="4"></div>
+<div class="gw1map" data-continent="1"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet-src.js"></script>
 <script src="GWMap.js"></script>
+<script src="GWMapDev.js"></script>
 <script>
 	const GWMapOptions = {
 		targetSelector: '.gw1map',
 		apiURL: 'http://localhost/gw1-database/public/geojson.php',
+		apiEditURL: 'http://localhost/gw1-database/public/map_edit.php',
 		gwdbURL: 'http://localhost/gw1-database/public/gwdb',
-		tilePath: '/img/maps',
+		tilePath: '/tiles',
 		lang:'<?php echo $lang; ?>',
 		mapAttribution: 'Imagery: <a href="http://www.guildwars.com/" target="_blank">Guild Wars</a>, &copy; <a href="http://www.arena.net/" target="_blank">ArenaNet</a>',
 	};
@@ -65,6 +68,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 			document.querySelectorAll(mapOptions.targetSelector).forEach(function(e, i){
 				maps[i] = new GWMap(e, mapOptions).init();
+//				maps[i] = new GWMapDev(e, mapOptions).init();
 			});
 
 			console.log(maps);
