@@ -12,8 +12,7 @@
 
 namespace chillerlan\GW1DB\Template;
 
-use chillerlan\GW1DB\Data\GWItemDB;
-use chillerlan\GW1DB\Data\GWModDB;
+use chillerlan\GW1DB\Data\{GWItemDB, GWModDB};
 
 class Item extends TemplateAbstract{
 
@@ -33,20 +32,16 @@ class Item extends TemplateAbstract{
 	 * @param int         $itemID
 	 * @param int         $slot
 	 * @param int         $color
-	 * @param string|null $defaultLang
+	 * @param string|null $lang
 	 */
-	public function __construct(int $itemID, int $slot, int $color, string $defaultLang = null){
+	public function __construct(int $itemID, int $slot, int $color, string $lang = null){
 		$this->id    = $itemID;
 		$this->slot  = $slot;
 		$this->color = $color;
 
 		$this->data = GWItemDB::id2item[$this->id] ?? null;
 
-		if($defaultLang = null){
-			$this->defaultLang = $defaultLang;
-		}
-
-		$this->lang = $this->defaultLang;
+		$this->setLang($lang ?? 'en');
 	}
 
 	/**

@@ -33,7 +33,7 @@ class Build extends BuildAbstract{
 		$skill_html           = '';
 
 		foreach($this->skills as $i => $id){
-			$skill = new Skill($id, $this->defaultLang);
+			$skill = new Skill($id, $this->isPvP, $this->lang);
 
 			// some special cases
 			if(in_array($skill->id, GWDataMisc::SKILLS_ATTRIBUTE_EXTRA, true)){
@@ -57,7 +57,7 @@ class Build extends BuildAbstract{
 
 		if(!$inPwnd){
 			$this->dataset = array_merge($this->dataset, [
-				'lang' => $this->lang !== $this->defaultLang ? $this->lang : null,
+				'lang' => $this->lang,
 				'pvp'  => $this->isPvP ? (int)$this->isPvP : null,
 			]);
 		}

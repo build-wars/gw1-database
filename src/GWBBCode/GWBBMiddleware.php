@@ -183,10 +183,8 @@ final class GWBBMiddleware implements ParserMiddlewareInterface{
 
 		[$id, $rank, $pvp, $image, $lang, $pri_rank, $huge] = $skill[0];
 
-		return (new Skill($id, $this->options->language))
+		return (new Skill($id, (bool)$pvp, strtolower($lang)))
 			->setAttributeRank($rank, $pri_rank)
-			->setPvP((bool)$pvp)
-			->setLang(strtolower($lang))
 			->toHTML((bool)$image, $huge, false);
 	}
 

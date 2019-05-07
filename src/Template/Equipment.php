@@ -77,9 +77,8 @@ class Equipment extends BuildAbstract{
 					$this->bindec_flip($item['id']),
 					$this->bindec_flip($item['slot']),
 					$this->bindec_flip($item['color']),
-					$this->defaultLang
-				))
-				->setLang($this->lang);
+					$this->lang
+				));
 
 			// loop through the mods
 			for($j = 0, $mod_count = $this->bindec_flip($item['modc']); $j < $mod_count; $j++){

@@ -37,11 +37,10 @@ abstract class BuildAbstract extends TemplateAbstract implements BuildInterface{
 	/**
 	 * BuildAbstract constructor.
 	 *
-	 * @param string $defaultLang
+	 * @param string|null $lang
 	 */
-	public function __construct(string $defaultLang){
-		$this->defaultLang = $defaultLang;
-		$this->lang        = $this->defaultLang;
+	public function __construct(string $lang = null){
+		$this->setLang($lang ?? 'en');
 	}
 
 	/**

@@ -12,14 +12,9 @@
 
 namespace chillerlan\GW1DB\GWBBCode;
 
-use chillerlan\BBCode\Output\{
-	BBCodeModuleAbstract
-};
-use chillerlan\GW1DB\Data\GWAttrLookup;
-use chillerlan\GW1DB\Data\GWProfLookup;
-use chillerlan\GW1DB\Data\GWSkillLookup;
-use chillerlan\GW1DB\Template\Build;
-use chillerlan\GW1DB\Template\Pwnd;
+use chillerlan\BBCode\Output\BBCodeModuleAbstract;
+use chillerlan\GW1DB\Data\{GWAttrLookup, GWProfLookup, GWSkillLookup};
+use chillerlan\GW1DB\Template\{Build, Pwnd};
 
 /**
  * @property \chillerlan\GW1DB\GW1DBOptions $options
@@ -98,7 +93,7 @@ final class GWBBCodeModule extends BBCodeModuleAbstract{
 
 			if(!empty($code)){
 				// we have a build code and maybe a name & desc
-				return $this->getBuild($code, $name, $desc, $lang, $pvp, $attributes);
+				return $this->getBuild($code, $attributes, $name, $desc, $lang, $pvp);
 			}
 
 			return ''; // profession & attributes only
@@ -126,22 +121,20 @@ final class GWBBCodeModule extends BBCodeModuleAbstract{
 				->toHTML();
 		}
 
-		return $this->getBuild($this->content, $name, $desc, $lang, $pvp, $attributes);// build code and maybe a name
+		return $this->getBuild($this->content, $attributes, $name, $desc, $lang, $pvp);// build code and maybe a name
 	}
 
 	/**
 	 * @param string $match
+	 * @param array  $attributes
 	 * @param string $name
 	 * @param string $desc
-	 *
 	 * @param string $lang
 	 * @param bool   $pvp
 	 *
-	 * @param array  $attributes
-	 *
 	 * @return string
 	 */
-	private function getBuild(string $match, string $name = null, string $desc = null, string $lang = null, bool $pvp = null, array $attributes):string{
+	private function getBuild(string $match, array $attributes, string $name = null, string $desc = null, string $lang = null, bool $pvp = null):string{
 		$code = explode(';', $match);
 		$c = '';
 		$p = '/([a-z\d\/\+]+)/i';

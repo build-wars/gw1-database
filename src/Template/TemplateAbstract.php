@@ -16,8 +16,7 @@ use chillerlan\GW1DB\Data\GWDataMisc;
 
 abstract class TemplateAbstract implements TemplateInterface{
 
-	protected $defaultLang = 'en';
-	protected $lang;
+	protected $lang        = 'en';
 	protected $isPvP       = false;
 	protected $attributes  = []; // [id => value]
 	protected $pri         = 0;
@@ -38,7 +37,7 @@ abstract class TemplateAbstract implements TemplateInterface{
 	 * @inheritdoc
 	 */
 	public function setLang(string $lang):TemplateInterface{
-		$this->lang = in_array($lang, ['de', 'en'], true) ? $lang : $this->defaultLang;
+		$this->lang = in_array($lang, ['de', 'en'], true) ? $lang : 'en';
 
 		return $this;
 	}
