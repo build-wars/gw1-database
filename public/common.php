@@ -51,7 +51,7 @@ $logger = new class() extends AbstractLogger{
 
 $http  = new CurlClient($options);
 $cache = new MemoryCache;
-$db    = new Database($options, $cache, $logger);
+$db    = new Database($options, $cache);
 
 $db->connect();
 
